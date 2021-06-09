@@ -21,8 +21,17 @@ description:
 
 
 lessons:
+### СЕКЦИЈА Базе података
+  - title: 1 Базе података
+    guid: 28ff976e-5060-4463-ad3a-ebee67dc83ba
+    folder: 01_baze_i_tabele
+    activities:
+      - type: reading
+        title: Шта су базе података?
+        file: baze_00a_uvod.rst
+        guid: 9952e83e-bc5e-4d5c-9a3f-941d53ef75e3
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
-  - title: 2 Читање података из табела
+  - title: 2 Читање података из табела базе
     guid: dc254235-5707-446e-a482-25110340e3f4
     folder: 02_citanje_podataka_00_uvod
     activities:
