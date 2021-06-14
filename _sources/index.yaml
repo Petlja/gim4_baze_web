@@ -30,16 +30,33 @@ lessons:
         title: Шта су базе података?
         file: baze_00a_uvod.rst
         guid: 9952e83e-bc5e-4d5c-9a3f-941d53ef75e3
+      - type: reading
+        title: Табеларна организација података
+        file: baze_00b_tabele.rst
+        guid: fdeb40b5-0627-4637-8551-d3e0f2ba9ec8
+      - type: reading
+        title: SQLite и SQLite Studio
+        file: baze_00c_sqlite.rst
+        guid: f2435c77-3c6d-478c-a3bb-e9f7da660177
+      - type: reading
+        title: Креирање базе у SQLite Studio
+        file: baze_00d_sqlite_baza.rst
+        guid: d3739013-648b-4cb1-8058-5d0515878a25
+      - type: reading # quiz ?
+        title: Креирање базе у SQLite Studio - задаци за вежбу
+        file: baze_00e_sqlite_vezba.rst
+        guid: ea6bfcb5-e846-4561-8126-6ee7ae47265b
+        
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
-  - title: 2 Читање података из табела базе
+  - title: "2 - SQL: Читање података из табела базе"
     guid: dc254235-5707-446e-a482-25110340e3f4
     folder: 02_citanje_podataka_00_uvod
     activities:
       - type: reading
-        title: Читање података из табела
+        title: "SQL: Читање података из табела"
         file: citanje_00a_uvod.rst
         guid: 02099b6b-cc88-49cd-a7b1-5e72d917fa16
-  - title: 2.1 Пројекција и рестрикција
+  - title: "2.1 SQL: Пројекција и рестрикција"
     guid: 9a05a82c-a1e4-43b0-9b35-15cad3b4e582
     folder: 02_citanje_podataka_01_projekcija_restrikcija
     activities:
@@ -55,7 +72,7 @@ lessons:
         title: Пројекција и рестрикција - задаци за вежбу
         file: citanje_01c_proj_restr_zadaci.rst
         guid: c7459add-98bf-4f02-8a8a-af2b433dec83
-  - title: 2.2 Логички и релацијски оператори
+  - title: "2.2 SQL: Логички и релацијски оператори"
     guid: 6ca88847-79bd-4e9f-92c9-e0052ffd990b
     folder: 02_citanje_podataka_02_operatori
     activities:
@@ -71,7 +88,7 @@ lessons:
         title: Оператори - задаци за вежбу
         file: citanje_02c_operatori_zadaci.rst
         guid: c5268e25-819a-44ef-9495-6e013d125749
-  - title: 2.3 Изрази и функције
+  - title: "2.3 SQL: Изрази и функције"
     guid: 5e3c70de-36af-4d83-b3ab-bc97aae31adb
     folder: 02_citanje_podataka_03_izrazi_funkcije
     activities:
@@ -87,7 +104,7 @@ lessons:
         title: Изрази и функције - задаци за вежбу
         file: citanje_03c_izrazi_funkcije_zadaci.rst
         guid: df85e68d-1e53-4a7e-b536-8656dd57e46b
-  - title: 2.4 Сортирање и ограничавање
+  - title: "2.4 SQL: Сортирање, уклањање дупликата, ограничавање броја врста"
     guid: f1f704a8-5d37-4c30-baa8-15a94f0dbd10
     folder: 02_citanje_podataka_04_soritiranje
     activities:
@@ -96,19 +113,69 @@ lessons:
         file: citanje_04a_sortiranje.rst
         guid: ec67a67f-d34c-40c7-8e3b-6baad51bccb4
       - type: reading
-        title: Ограничавање броја редова у резултату
+        title: Ограничавање броја врста у резултату
         file: citanje_04b_ogranicavanje.rst
         guid: 6acf0e32-abc3-4636-ae90-b2a9eabf77ae
+      - type: reading
+        title: Уклањање дупликата
+        file: citanje_04c_uklanjanje_duplikata.rst
+        guid: 4036d393-be46-4ec2-8004-3196f4a4676a
       - type: reading # quiz ?
         title: Сортирање и ограничавање - задаци за вежбу
-        file: citanje_04c_sortiranje_ogranicavanje_zadaci.rst
+        file: citanje_04d_sortiranje_ogranicavanje_zadaci.rst
         guid: 02b0323d-a82f-465e-a379-2c75d659b9a5
 
-  - title: Остало (разврстати)
-    guid: 4b8ee641-1beb-40e9-881c-8349f13dcede
-    folder: 02_citanje_podataka_05_ostalo
+  - title: "2.5 SQL: Агрегатне функције и груписање"
+    guid: 461ef7b5-fcd5-4ac8-9495-3a1e665ec9b6
+    folder: 02_citanje_podataka_05_agregatne_funkcije
     activities:
       - type: reading
-        title: Читање података - остало - распоредити
-        file: citanje_05a_ostalo.rst
-        guid: b0234ef8-6217-47ff-bc48-dcc79289ead9
+        title: Агрегатне функције
+        file: citanje_05a_agregatne_funkcije.rst
+        guid: 70a10f63-e336-494b-b2d5-7ade8ba42cc8
+      - type: reading
+        title: Груписање и израчунавање статистика појединачних група
+        file: citanje_05b_grupisanje.rst
+        guid: 861d0978-4f95-4ec2-a263-c33828e734a4
+      - type: reading
+        title: Рестрикција након груписања
+        file: citanje_05c_restrikcija_nakon_grupisanja.rst
+        guid: 64dda07c-1a32-404d-aca8-2c77fca517d9
+
+  - title: "2.6 SQL: Спајање табела"
+    guid: 94cff4fa-91cc-45fe-9c38-4c3d442c5e35
+    folder: 02_citanje_podataka_06_spajanje
+    activities:
+      - type: reading
+        title: Спајање табела
+        file: citanje_06a_spajanje.rst
+        guid: 1573942e-66d8-40c2-bbc6-e50ac64ea9bd
+      - type: reading
+        title: Имплицитно спајање
+        file: citanje_06b_implicitno_spajanje.rst
+        guid: c7f043de-608f-4f0b-bbe4-38d1893ba83e
+      - type: reading
+        title: Врсте спајања
+        file: citanje_06c_vrste_spajanja.rst
+        guid: d82adffc-8d26-43c4-8190-8ee492f0639c
+      - type: reading
+        title: Спајање и груписање
+        file: citanje_06d_spajanje_i_grupisanje.rst
+        guid: 51a19e7c-55c9-4a68-bad7-3f10768bcb26
+
+  - title: "2.7 SQL: Угнежћени упити"
+    guid: b9fa3311-1b8c-4a6b-92f8-fa44d376d7e2
+    folder: 02_citanje_podataka_07_ugnezdjeni_upiti
+    activities:
+      - type: reading
+        title: Угнежђени упити
+        file: citanje_07a_ugnezdjeni_upiti.rst
+        guid: 50556c86-02b9-426b-9a33-d8648dfda53f
+      - type: reading
+        title: Корелисани подупити
+        file: citanje_07b_korelisani_podupiti.rst
+        guid: 432ec19b-8cf7-4675-ae10-083933890ed1
+      - type: reading
+        title: Провера постојања
+        file: citanje_07c_provera_postojanja.rst
+        guid: 51df3cec-1076-467a-bc9c-0eb45c40dd59

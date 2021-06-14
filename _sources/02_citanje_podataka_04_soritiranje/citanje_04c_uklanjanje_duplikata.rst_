@@ -1,0 +1,49 @@
+.. -*- mode: rst -*-
+
+Елиминисање дупликата (DISTINCT)
+================================
+
+
+У неким случајевима желимо да елиминишемо дупликате из резултата
+тј. желимо да добијемо само јединствене вредности унутар неке
+колоне. То се постиже навођењем ``DISTINCT`` уз име колоне.
+
+.. questionnote::
+
+   Приказати сва различита имена ученика (без понављања).
+
+.. code-block:: sql
+
+   SELECT DISTINCT ime
+   FROM ucenik;
+
+Ако бисмо желели да имена буду сортирана по азбучном реду, додали
+бисмо клаузулу ``ORDER BY``.
+
+.. code-block:: sql
+
+   SELECT DISTINCT ime
+   FROM ucenik
+   ORDER BY ime;
+
+
+.. questionnote::
+
+   Приказати све различите датуме у којима ученик са идентификатором 1
+   има изостанке.
+
+.. code-block:: sql
+
+   SELECT DISTINCT datum
+   FROM izostanak
+   WHERE id_ucenik = 1;
+   
+.. questionnote::
+
+   Приказати сва различита женска имена ученица школе. 
+
+.. code-block:: sql
+
+   SELECT DISTINCT ime
+   FROM ucenik
+   WHERE pol = 'ж';
