@@ -20,7 +20,7 @@
 Сваки, па и најједноставнији упит ``SELECT`` мора да садржи следеће
 елементе:
 
-.. code-block::
+.. code-block:: sql
 
    SELECT kolone
    FROM tabele;

@@ -6,3 +6,5 @@ _intermediate
 _build
 course
 _tmp
+*~
+
