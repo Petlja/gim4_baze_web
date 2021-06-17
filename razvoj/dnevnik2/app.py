@@ -13,10 +13,11 @@ if not os.path.exists(DATABASE):
 
 def procitaj_sve_ucenike(conn, razred):
     cur =  conn.cursor()
+    osnovni_upit = 'SELECT ime, prezime FROM ucenik'
     if razred:
-        cur.execute(r'SELECT ime, prezime FROM ucenik WHERE razred=?', (razred,))
+        cur.execute(osnovni_upit + ' WHERE razred=?', (razred,))
     else:
-        cur.execute(r'SELECT ime, prezime FROM ucenik')
+        cur.execute(osnovni)
     ucenici = []
     for ime, prezime in cur:
         ucenici.append({'ime': ime, 'prezime': prezime})
