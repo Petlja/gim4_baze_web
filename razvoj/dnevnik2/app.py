@@ -17,7 +17,7 @@ def procitaj_sve_ucenike(conn, razred):
     if razred:
         cur.execute(osnovni_upit + ' WHERE razred=?', (razred,))
     else:
-        cur.execute(osnovni)
+        cur.execute(osnovni_upit)
     ucenici = []
     for ime, prezime in cur:
         ucenici.append({'ime': ime, 'prezime': prezime})
