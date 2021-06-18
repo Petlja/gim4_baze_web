@@ -29,7 +29,7 @@ def process_file(filename):
                     continue
 
                 try:
-                    db_file = os.path.join(BASE_DIR, 'dnevnik', 'app', 'dnevnik.db')
+                    db_file = os.path.join(BASE_DIR, 'dnevnik', 'dnevnik.db')
                     con = sql.connect(db_file)
                     con.create_collation("UNICODE", collate_UNICODE)
                     cur = con.cursor();
