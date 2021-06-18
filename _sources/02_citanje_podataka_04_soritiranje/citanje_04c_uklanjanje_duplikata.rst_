@@ -26,7 +26,22 @@
    FROM ucenik
    ORDER BY ime;
 
+Наравно, ``DISTICT`` се може комбиновати и са селекцијом (клаузулом
+``WHERE``).
 
+.. questionnote::
+
+   Приказати сва различита женска имена ученица школе. 
+
+.. code-block:: sql
+
+   SELECT DISTINCT ime
+   FROM ucenik
+   WHERE pol = 'ж';
+
+Као што се може претпоставити, ``DISTINCT`` је применљив на различите
+типове података.
+   
 .. questionnote::
 
    Приказати све различите датуме у којима ученик са идентификатором 1
@@ -38,12 +53,16 @@
    FROM izostanak
    WHERE id_ucenik = 1;
    
+``DISTINCT`` може да се примени и на више колона.
+
 .. questionnote::
 
-   Приказати сва различита женска имена ученица школе. 
+   Приказати сва одељења у школи.
+
 
 .. code-block:: sql
 
-   SELECT DISTINCT ime
-   FROM ucenik
-   WHERE pol = 'ж';
+   SELECT DISTINCT razred, odeljenje
+   FROM ucenik;
+
+``DISTINCT`` се односи на пар који чини ознака разреда и ознака одељења.

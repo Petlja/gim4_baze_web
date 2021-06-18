@@ -19,7 +19,7 @@
    
 .. code-block:: sql
 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet on ocena.id_predmet = predmet.id
    WHERE razred = 1
@@ -30,9 +30,9 @@
 .. csv-table::
    :header:  "naziv", "prosek"
 
-   Математика, 3.095505617977528
-   Српски језик, 3.738888888888889
-   Рачунарство и информатика, 3.3863636363636362
+   Математика, 3.1
+   Српски језик, 3.74
+   Рачунарство и информатика, 3.39
 
 .. questionnote::
 
@@ -47,7 +47,7 @@
    
 .. code-block:: sql
                 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet on ocena.id_predmet = predmet.id
    GROUP BY predmet.id
@@ -58,9 +58,9 @@
 .. csv-table::
    :header:  "naziv", "prosek"
 
-   Српски језик, 3.738888888888889
-   Рачунарство и информатика, 3.3863636363636362
-   Математика, 3.095505617977528
+   Српски језик, 3.74
+   Рачунарство и информатика, 3.39
+   Математика, 3.1
 
 Могуће је користити и клаузулу ``HAVING`` (подсетимо се, она служи за
 филтрирање након груписања на основу израчунатих вредности статистика
@@ -70,11 +70,11 @@
    
    Приказати називе предмета и просечне оцене на писменим задацима за
    све предмете код којих је просечна оцена на писменим задацима бар
-   3.50.
+   3,50.
 
 .. code-block:: sql
                 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet ON ocena.id_predmet = predmet.id
    WHERE ocena.vrsta = 'писмени задатак'
@@ -86,5 +86,5 @@
 .. csv-table::
    :header:  "naziv", "prosek"
 
-   Српски језик, 3.977777777777778
+   Српски језик, 3.98
 

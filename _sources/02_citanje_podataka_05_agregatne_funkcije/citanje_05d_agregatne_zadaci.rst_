@@ -1,0 +1,135 @@
+.. -*- mode: rst -*-
+
+Агрегатне функције и груписање -- задаци за вежбу
+-------------------------------------------------
+
+1. Под претпоставком да постоји 37 радних недеља, прикажи укупан
+   годишњи фонд часова за све предмете из другог разреда.
+
+.. code-block:: sql
+
+   SELECT SUM(37 * fond) AS ukupan_godisnji_fond
+   FROM predmet
+   WHERE razred = 2;
+   
+2. Прикажи име и презиме ученика у одељењу IV1 који је први у дневнику
+   (ученици се сортирају по азбучном редоследу).
+
+.. code-block:: sql
+
+   SELECT MIN((prezime || ' ' || ime) COLLATE UNICODE) AS prvi_u_dnevniku
+   FROM ucenik
+   WHERE razred = 4 AND odeljenje = 1;
+   
+3. Приказати просечну оцену, заокружену на две децимале, на писменом
+   задатку из математике одржаном 15. октобра 2020. (та математика има
+   идентификатор 1).
+
+.. code-block:: sql
+
+   SELECT round(AVG(ocena), 2) AS prosek
+   FROM ocena
+   WHERE id_predmet = 1 AND datum = '2020-10-15' AND vrsta = 'писмени задатак';
+   
+4. Приказати укупан број оправданих изостанака које је направио ученик
+   са идентификатором 1.
+
+.. code-block:: sql
+                
+   SELECT COUNT(*) AS broj_izostanaka
+   FROM izostanak
+   WHERE id_ucenik = 1 AND status = 'оправдан';
+   
+5. За сваки датум одреди укупан број направљених изостанака.
+
+.. code-block:: sql
+                
+   SELECT datum, COUNT(*) AS broj_izostanaka
+   FROM izostanak
+   GROUP BY datum;
+   
+6. За сваки статус изостанака (оправдани, неоправдани, нерегулисани)
+   одредити број изостанака у мају 2021. године.
+
+.. code-block:: sql
+
+   SELECT status, COUNT(*) AS broj
+   FROM izostanak
+   WHERE datum BETWEEN '2021-05-01' AND '2021-05-31'
+   GROUP BY status;
+   
+
+7. За сваки статус изостанака одреди први и последњи датум када је
+   изостанак направљен.
+
+.. code-block:: sql
+
+   SELECT status, MIN(datum) AS prvi, MAX(datum) AS poslednji
+   FROM izostanak
+   GROUP BY status;
+
+8. За сваки месец приказати број ученика рођених у том месецу.
+
+.. code-block:: sql
+
+   SELECT strftime('%m', datum_rodjenja) AS mesec, COUNT(*) AS broj
+   FROM ucenik
+   GROUP BY mesec;
+
+9. За сваки месец у години приказати број јединица које су ученици
+   добили током тог месеца.
+
+.. code-block:: sql
+
+   SELECT strftime('%m', datum) AS mesec, COUNT(*) AS broj
+   FROM ocena
+   WHERE ocena = 1
+   GROUP BY mesec;
+   
+   
+10. Прикажи датуме са мање од 10 направљених неоправданих изостанака.
+
+.. code-block:: sql
+
+   SELECT datum, COUNT(*) AS broj
+   FROM izostanak
+   GROUP BY datum
+   HAVING broj < 10;
+   
+
+11. За сваку контролну вежбу и за сваки писмени задатак који је у
+    једном дану радило више од 15 ученика прикажи укупан број и просек
+    оцена.
+
+.. code-block:: sql
+
+   SELECT id_predmet, vrsta, datum, COUNT(*) AS broj, round(AVG(ocena), 2) AS prosek
+   FROM ocena
+   WHERE vrsta in ('контролна вежба', 'писмени задатак')
+   GROUP BY id_predmet, vrsta, datum
+   HAVING broj >= 15;
+
+12. За свако женско име које носи више ученица приказати број ученица
+    које носе то име (резултат сортирати опадајуће по броју ученица).
+
+    
+.. code-block:: sql
+
+   SELECT ime, COUNT(*) AS broj
+   FROM ucenik
+   WHERE pol = 'ж'
+   GROUP BY ime
+   HAVING broj >= 2
+   ORDER BY broj DESC;
+
+
+13. Приказати нека три најчешћа презимена.
+    
+.. code-block:: sql
+
+   SELECT prezime, COUNT(*) AS broj_ucenika
+   FROM ucenik
+   GROUP BY prezime
+   ORDER BY broj_ucenika DESC
+   LIMIT 3;
+   

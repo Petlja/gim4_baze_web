@@ -56,7 +56,7 @@
         
 .. code-block:: sql
         
-   SELECT id_predmet, AVG(ocena) AS prosek
+   SELECT id_predmet, round(AVG(ocena), 2) AS prosek
    FROM ocena
    WHERE id_predmet IN (SELECT id
                         FROM predmet
@@ -81,7 +81,7 @@
                 
    SELECT naziv, prosek
    FROM predmet
-        JOIN (SELECT id_predmet, AVG(ocena) AS prosek
+        JOIN (SELECT id_predmet, round(AVG(ocena), 2) AS prosek
               FROM ocena
               WHERE ocena.vrsta = 'писмени задатак'
               GROUP BY id_predmet

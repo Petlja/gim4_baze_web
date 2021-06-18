@@ -141,6 +141,10 @@ lessons:
         title: Селекција након груписања
         file: citanje_05c_restrikcija_nakon_grupisanja.rst
         guid: 64dda07c-1a32-404d-aca8-2c77fca517d9
+      - type: reading
+        title: Агрегатне функције и груписање - задаци за вежбу
+        file: citanje_05d_agregatne_zadaci.rst
+        guid: 86b92d7a-5be9-4af8-9e60-9ad7abd28b13
 
   - title: "2.6 SQL: Спајање табела"
     guid: 94cff4fa-91cc-45fe-9c38-4c3d442c5e35
@@ -155,15 +159,19 @@ lessons:
         file: citanje_06b_implicitno_spajanje.rst
         guid: c7f043de-608f-4f0b-bbe4-38d1893ba83e
       - type: reading
+        title: Спајање и груписање
+        file: citanje_06d_spajanje_i_grupisanje.rst
+        guid: 51a19e7c-55c9-4a68-bad7-3f10768bcb26
+      - type: reading
         title: Врсте спајања
         file: citanje_06c_vrste_spajanja.rst
         guid: d82adffc-8d26-43c4-8190-8ee492f0639c
       - type: reading
-        title: Спајање и груписање
-        file: citanje_06d_spajanje_i_grupisanje.rst
-        guid: 51a19e7c-55c9-4a68-bad7-3f10768bcb26
+        title: Спајање - задаци за вежбу
+        file: citanje_06e_spajanje_zadaci.rst
+        guid: 3ea72fcf-d9d1-4ab9-ab79-2036a23b5c7d
 
-  - title: "2.7 SQL: Угнежћени упити"
+  - title: "2.7 SQL: Угнежђени упити"
     guid: b9fa3311-1b8c-4a6b-92f8-fa44d376d7e2
     folder: 02_citanje_podataka_07_ugnezdjeni_upiti
     activities:
@@ -179,3 +187,39 @@ lessons:
         title: Провера постојања
         file: citanje_07c_provera_postojanja.rst
         guid: 51df3cec-1076-467a-bc9c-0eb45c40dd59
+      - type: reading
+        title: Угнежђени упити - задаци за вежбу
+        file: citanje_07d_ugnezdjeni_zadaci.rst
+        guid: 6c3fda23-22a3-410b-a8e9-f17aaee3e17f
+
+  - title: "3.1 SQL: Уписивање података у табеле"
+    guid: 89cd79f3-08dd-477b-b0b3-19ad5ba339e2
+    folder: 03_izmene_01_upisivanje
+    activities:
+      - type: reading
+        title: Уписивање података у табеле
+        file: 03a_upisivanje.rst
+        guid: 9142c049-1f93-4cb5-a67d-0709016be6c7
+      - type: reading
+        title: Уписивање података прочитаних из базе
+        file: 03b_upisivanje_procitanog.rst
+        guid: b9ff8982-aebe-4803-8a74-910a7224b860
+
+  - title: "3.2 SQL: Ажурирање података у табелама"
+    guid: 83748255-e22d-4997-bdd5-4234633cd38a
+    folder: 03_izmene_02_azuriranje
+    activities:
+      - type: reading
+        title: Ажурирање података
+        file: 03a_azuriranje.rst
+        guid: c2aa5551-ccef-4908-8200-a211b659ee15
+
+  - title: "3.3 SQL: Брисање података из табела"
+    guid: 9e090bb2-50bb-4a62-bf01-b8585e1bf56c
+    folder: 03_izmene_03_brisanje
+    activities:
+      - type: reading
+        title: Брисање података
+        file: 03a_brisanje.rst
+        guid: 921ac985-380e-4d06-b91c-ba146577adbc
+        

@@ -6,8 +6,25 @@
 1. Напиши упит који из табеле ученика издваја ``id``, ``ime`` и
    ``prezime`` сваког ученика.
 
+.. code-block:: sql
+
+   SELECT id, ime, prezime
+   FROM ucenik;
+
 2. Напиши упит који из табеле изостанака приказује све податке о
    оправданим изостанцима.
 
+.. code-block:: sql
+
+   SELECT *
+   FROM izostanak
+   WHERE status = 'оправдан';
+
 3. Напиши упит који приказује назив и фонд часова сваког предмета из
    другог разреда.
+
+.. code-block:: sql
+
+   SELECT naziv, fond
+   FROM predmet
+   WHERE razred = 2;

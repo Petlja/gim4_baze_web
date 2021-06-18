@@ -34,6 +34,7 @@
 
    2
    1
+   1
 
 Коначан резултат можемо добити тако што из табеле која се добија као
 резултат претходног упита израчуна максимална вредност колоне
@@ -71,7 +72,7 @@
         
 .. code-block:: sql
         
-   SELECT id_predmet, AVG(ocena) AS prosek
+   SELECT id_predmet, round(AVG(ocena), 2) AS prosek
    FROM ocena
    WHERE id_predmet IN (SELECT id
                         FROM predmet
@@ -83,9 +84,9 @@
 .. csv-table::
    :header:  "id_predmet", "prosek"
 
-   1, 3.095505617977528
-   2, 3.738888888888889
-   3, 3.3863636363636362
+   1, 3.1
+   2, 3.74
+   3, 3.39
 
 .. questionnote::
            
@@ -105,7 +106,7 @@
                 
    SELECT naziv, prosek
    FROM predmet
-        JOIN (SELECT id_predmet, AVG(ocena) AS prosek
+        JOIN (SELECT id_predmet, round(AVG(ocena), 2) AS prosek
               FROM ocena
               WHERE ocena.vrsta = 'писмени задатак'
               GROUP BY id_predmet
@@ -117,7 +118,7 @@
 .. csv-table::
    :header:  "naziv", "prosek"
 
-   Српски језик, 3.977777777777778
+   Српски језик, 3.98
 
           
 .. questionnote::
@@ -147,6 +148,7 @@
 
    1, 1, 1, 2
    8, 2, 1, 1
+   13, 1, 1, 1
 
 Када је у првој фази одређена оваква помоћна табела, тада у другој
 фази лако можемо одредити максимални број оправданих изостанака за

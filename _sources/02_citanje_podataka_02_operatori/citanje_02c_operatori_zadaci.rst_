@@ -4,8 +4,43 @@
 ===========================
 
 1. Приказати имена свих девојчица у одељењу III1.
+
+.. code-block:: sql
+
+   SELECT ime
+   FROM ucenik
+   WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1;
+   
 2. Приказати сва мушка имена која се завршавају словом ``а``.
+
+.. code-block:: sql
+                
+   SELECT ime
+   FROM ucenik
+   WHERE pol = 'м' AND ime LIKE '%а';
+   
 3. Приказати податке о свим ученицима рођеним у априлу 2006.
+
+.. code-block:: sql
+   
+   SELECT *
+   FROM ucenik
+   WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30';
+   
 4. Приказати податке о свим ученицима који су рођени у зимским
    месецима (у децембру, јануару или фебруару).
+
+.. code-block:: sql
+                
+   SELECT *
+   FROM ucenik
+   WHERE datum_rodjenja LIKE '%-12-%' OR datum_rodjenja LIKE '%-01-%' OR datum_rodjenja LIKE '%-02-%';
+   
 5. Приказати сва имена ученика која почињу самогласником.
+
+.. code-block:: sql
+                
+   SELECT *
+   FROM ucenik
+   WHERE ime LIKE 'А%' OR ime LIKE 'Е%'  OR ime LIKE 'И%'  OR ime LIKE 'О%'  OR ime LIKE 'У%';
+   

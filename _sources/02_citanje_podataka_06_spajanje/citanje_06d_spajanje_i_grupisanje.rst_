@@ -19,7 +19,7 @@
    
 .. code-block:: sql
 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet on ocena.id_predmet = predmet.id
    WHERE razred = 1
@@ -38,7 +38,7 @@
    
 .. code-block:: sql
                 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet on ocena.id_predmet = predmet.id
    GROUP BY predmet.id
@@ -52,13 +52,14 @@
    
    Приказати називе предмета и просечне оцене на писменим задацима за
    све предмете код којих је просечна оцена на писменим задацима бар
-   3.50.
+   3,50.
 
 .. code-block:: sql
                 
-   SELECT naziv, AVG(ocena) AS prosek
+   SELECT naziv, round(AVG(ocena), 2) AS prosek
    FROM ocena
         JOIN predmet ON ocena.id_predmet = predmet.id
    WHERE ocena.vrsta = 'писмени задатак'
    GROUP BY predmet.id
    HAVING prosek >= 3.50;
+
