@@ -12,7 +12,7 @@ def process_file(filename):
     with open(filename) as f:
        lines = f.readlines()
 
-    with open(filename[:-1], "w") as f:
+    with open(filename + ".tmp", "w") as f:
         i = 0
         while i < len(lines):
             print(lines[i], end="", file=f)
@@ -34,16 +34,17 @@ def process_file(filename):
                     con.create_collation("UNICODE", collate_UNICODE)
                     cur = con.cursor();
                     cur.execute(query)
-                
+
+                    result_str = "Извршавањем упита добија се следећи резултат:"
                     print(file=f)
-                    print("Извршавањем упита добија се следећи резултат:", file=f)
+                    print(result_str, file=f)
                     print(file=f)
                     print(".. csv-table::", file=f)
                     names = list(map(lambda x: x[0], cur.description))
                     print("   :header: ", ", ".join(map(lambda x: '"' + x + '"', names)), file=f)
                     print(file=f)
                     nr = 0
-                    for row in cur.fetchall():
+                    for row in cur:
                         nr += 1
                         if nr > 5:
                             print("  ", ", ".join(map(lambda x: "...", row)), file=f)
@@ -51,12 +52,19 @@ def process_file(filename):
 
                         print("  ", ", ".join(map(lambda x: str(x) if x is not None else "NULL", row)), file=f)
                     con.close();
+
+
+                    if i + 1 < len(lines) and lines[i+1].strip() == result_str:
+                        i += 6
+                        while lines[i].strip():
+                           i += 1
                 except:
                     print("Error executing query:", query, file=sys.stderr)
                     # traceback.print_exc()
                     
                 print(file=f)
             i += 1
+    os.rename(filename + ".tmp", filename)
     
 
 
@@ -67,9 +75,9 @@ if len(sys.argv) < 2:
 
 dirent = os.path.abspath(sys.argv[1])
 
-if dirent.endswith(".rst_"):
+if dirent.endswith(".rst"):
     process_file(dirent)
 else:
-    path = os.path.join(dirent, "**/*.rst_")
+    path = os.path.join(dirent, "**/*.rst")
     for filename in glob.iglob(path, recursive=True):
         process_file(filename)
