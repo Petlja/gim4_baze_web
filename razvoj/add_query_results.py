@@ -28,12 +28,19 @@ def process_file(filename):
                 if not query.startswith("SELECT"):
                     continue
 
-                try:
-                    db_file = os.path.join(BASE_DIR, 'dnevnik', 'dnevnik.db')
+                databases = [os.path.join('dnevnik', 'dnevnik.db'),
+                             'chinook.db']
+                OK = False
+                for database in databases:
+                    db_file = os.path.join(BASE_DIR, database)
                     con = sql.connect(db_file)
                     con.create_collation("UNICODE", collate_UNICODE)
                     cur = con.cursor();
-                    cur.execute(query)
+                    try:
+                        cur.execute(query)
+                    except:
+                        con.close()
+                        continue
 
                     result_str = "Извршавањем упита добија се следећи резултат:"
                     print(file=f)
@@ -50,7 +57,7 @@ def process_file(filename):
                             print("  ", ", ".join(map(lambda x: "...", row)), file=f)
                             break
 
-                        print("  ", ", ".join(map(lambda x: str(x) if x is not None else "NULL", row)), file=f)
+                        print("  ", ", ".join(map(lambda x: '"' + str(x) + '"' if x is not None else "NULL", row)), file=f)
                     con.close();
 
 
@@ -58,9 +65,11 @@ def process_file(filename):
                         i += 6
                         while lines[i].strip():
                            i += 1
-                except:
+                    OK = True
+                    break
+                
+                if not OK:
                     print("Error executing query:", query, file=sys.stderr)
-                    # traceback.print_exc()
                     
                 print(file=f)
             i += 1
