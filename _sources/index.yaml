@@ -194,7 +194,11 @@ lessons:
         title: Спајање - задаци за вежбу
         file: citanje_06e_spajanje_zadaci.rst
         guid: 3ea72fcf-d9d1-4ab9-ab79-2036a23b5c7d
-
+      - type: reading
+        title: Спајање - музика
+        file: citanje_06f_muzika.rst
+        guid: 2dd25213-5056-4713-93db-e5e871db32ca
+        
   - title: "2.7 SQL: Угнежђени упити"
     guid: b9fa3311-1b8c-4a6b-92f8-fa44d376d7e2
     folder: 02_citanje_podataka_07_ugnezdjeni_upiti
