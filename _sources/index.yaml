@@ -50,6 +50,10 @@ lessons:
         title: База компаније за продају песама
         file: baze_00f_muzika.rst
         guid: 64e3110d-a95b-47e1-a2da-68e272f94cb2
+      - type: reading # quiz ?
+        title: База компаније за продају песама - продаја
+        file: baze_00g_muzika_prodaja.rst
+        guid: 2dc59aeb-1111-4252-adf0-807d618ac482
         
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
   - title: "2 - SQL: Читање података из табела базе"
@@ -219,6 +223,10 @@ lessons:
         title: Угнежђени упити - задаци за вежбу
         file: citanje_07d_ugnezdjeni_zadaci.rst
         guid: 6c3fda23-22a3-410b-a8e9-f17aaee3e17f
+      - type: reading
+        title: Угнежђени упити - музика
+        file: citanje_07e_muzika.rst
+        guid: 97008da3-0408-4b4b-8129-be90bbb7ad7c
 
   - title: "3.1 SQL: Уписивање података у табеле"
     guid: 89cd79f3-08dd-477b-b0b3-19ad5ba339e2
@@ -251,3 +259,29 @@ lessons:
         file: 03a_brisanje.rst
         guid: 921ac985-380e-4d06-b91c-ba146577adbc
         
+  - title: "4. Python SQLite API"
+    guid: c94e776e-36e8-452d-8d12-5086106018e9
+    folder: 04_python_sqlite
+    activities:
+      - type: reading
+        title: 3.1 Python SQLite API -- увод
+        file: 04a_python_sqlite_uvod.rst
+        guid: fc3cdc65-e16a-45f9-a716-432d11e8773d
+      - type: reading
+        title: 3.2 Python SQLite API -- повезивање са базом
+        file: 04b_python_sqlite_povezivanje.rst
+        guid: a56df623-e387-4ca8-ae8c-ec99937d4a69
+      - type: reading
+        title: 3.3 Python SQLite API -- постављање упита
+        file: 04c_python_sqlite_postavljanje_upita.rst
+        guid: 239c0083-8c4a-426e-9ac1-b9ee3e1824ca
+      - type: reading
+        title: 3.4 Python SQLite API -- упити са параметрима
+        file: 04d_python_sqlite_upiti_sa_parametrima.rst
+        guid: 41581677-98cd-4b4e-9e8a-e7f4c54a782c
+      - type: reading
+        title: 3.5 Python SQLite API -- колационе секвенце
+        file: 04e_python_sqlite_kolacione_sekvence.rst
+        guid: e797e25b-ee9f-4595-b8b4-d5fa1441e703
+
+

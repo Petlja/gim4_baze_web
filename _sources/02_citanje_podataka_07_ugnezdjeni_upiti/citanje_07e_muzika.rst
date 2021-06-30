@@ -32,3 +32,37 @@
          FROM playlist_track JOIN
               playlist ON playlist.PlaylistId = playlist_track.PlaylistId
          GROUP BY playlist.PlaylistId);
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name", "MAX(Count)"
+
+   "Music", "3290"
+
+.. questionnote::
+
+   Приказати називе свих извођача који су снимали блуз (``Blues``)
+   композиције.
+
+.. code-block:: sql
+
+   SELECT Name
+   FROM artist
+   WHERE EXISTS (SELECT *
+                 FROM track JOIN
+                      album ON track.AlbumId = album.AlbumId JOIN
+                      genre ON track.GenreId = genre.GenreId
+                 WHERE album.ArtistId = artist.ArtistId AND genre.Name = 'Blues');
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name"
+
+   "Buddy Guy"
+   "Eric Clapton"
+   "Iron Maiden"
+   "Stevie Ray Vaughan & Double Trouble"
+   "The Black Crowes"
+

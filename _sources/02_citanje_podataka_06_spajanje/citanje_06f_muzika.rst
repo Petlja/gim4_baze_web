@@ -74,7 +74,32 @@
    "Accept", "Princess of the Dawn"
    ..., ...
 
+.. questionnote::
    
+   За сваког извођача приказати укупнан број снимљених минута,
+   заокружен на две децимале.
+
+.. code-block:: sql
+
+   SELECT artist.Name, round(SUM(track.Milliseconds) / (1000.0 * 60.0), 2) AS Minutes
+   FROM track JOIN
+        album ON track.AlbumId = album.AlbumId JOIN
+        artist ON artist.ArtistId = album.ArtistId
+   GROUP BY artist.ArtistId;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name", "Minutes"
+
+   "AC/DC", "80.89"
+   "Accept", "20.01"
+   "Aerosmith", "73.53"
+   "Alanis Morissette", "57.52"
+   "Alice In Chains", "54.16"
+   ..., ...
+
+
 .. questionnote::
 
    Прикажи називе свих поп композиција (жанр је ``Pop``) које су
@@ -100,6 +125,36 @@
    "Cold Turkey"
    ...
 
+.. questionnote::
+
+   За сваког извођача приказати број композиција снимљених у MPEG
+   формату. Занемарити оне извођаче који имају мање од 5 таквих
+   композиција.
+
+.. code-block:: sql
+                
+   SELECT artist.Name, COUNT(*) AS Num
+   FROM track JOIN
+        album ON track.AlbumId = album.AlbumId JOIN
+        artist ON artist.ArtistId = album.ArtistId JOIN
+        media_type ON track.MediaTypeId = media_type.MediaTypeId
+   WHERE media_type.Name LIKE '%MPEG%'
+   GROUP BY artist.ArtistId
+   HAVING Num >= 5;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name", "Num"
+
+   "AC/DC", "18"
+   "Aerosmith", "15"
+   "Alanis Morissette", "13"
+   "Alice In Chains", "12"
+   "Antônio Carlos Jobim", "31"
+   ..., ...
+
+   
 .. questionnote::
 
    Прикажи називе свих песама групе Queen.
@@ -221,4 +276,57 @@
    "Metallica", "10"
    "U2", "10"
    ..., ...
+
+
+.. questionnote::
+
+   За сваког извођача који је снимао композиције у неколико различитих
+   жанрова приказати број жанрова у којима је снимао композиције.
+   
+.. code-block:: sql
+   
+   SELECT artist.Name, count(DISTINCT track.GenreId) AS NumGenres
+   FROM track JOIN
+        album ON track.AlbumId = album.AlbumId JOIN
+        artist ON artist.ArtistId = album.ArtistId
+   GROUP BY artist.ArtistId
+   HAVING NumGenres > 1
+   ORDER BY NumGenres DESC;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name", "NumGenres"
+
+   "Iron Maiden", "4"
+   "Battlestar Galactica", "3"
+   "Lenny Kravitz", "3"
+   "Jamiroquai", "3"
+   "Gilberto Gil", "3"
+   ..., ...
+
+   
+.. questionnote::
+
+   Приказати називе свих различитих жанрова компоизиција групе ``Iron
+   Maiden``.
+   
+.. code-block:: sql
+   
+   SELECT DISTINCT genre.Name
+   FROM track JOIN
+        album ON track.AlbumId = album.AlbumId JOIN
+        artist ON artist.ArtistId = album.ArtistId JOIN
+        genre ON genre.GenreId = track.GenreId
+   WHERE artist.Name = 'Iron Maiden';
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name"
+
+   "Rock"
+   "Metal"
+   "Heavy Metal"
+   "Blues"
 
