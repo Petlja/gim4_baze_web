@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Спајање --- задаци за вежбу
-...........................
+Спајање --- задаци (дневник)
+............................
 
 1. Приказати све регулисане изостанке у читљивом формату (у ком се
    види и име и презиме ученика).
@@ -17,6 +17,7 @@
 
 .. csv-table::
    :header:  "ime", "prezime", "datum", "cas", "status"
+   :align: left
 
    Петар, Петровић, 2021-05-14, 1, оправдан
    Петар, Петровић, 2021-05-14, 2, неоправдан
@@ -37,6 +38,7 @@
 
 .. csv-table::
    :header:  "ime", "prezime", "razred", "odeljenje", "naziv"
+   :align: left
 
    Петар, Петровић, 1, 1, Математика
    Петар, Петровић, 1, 1, Рачунарство и информатика
@@ -60,6 +62,7 @@
 
 .. csv-table::
    :header:  "ime", "prezime", "naziv", "datum", "ocena"
+   :align: left
 
    Јован, Миленковић, Математика, 2020-11-23, 2
    Јована, Миленковић, Математика, 2020-11-23, 5
@@ -86,6 +89,7 @@
 
 .. csv-table::
    :header:  "razred", "odeljenje", "naziv", "datum", "prosek", "broj"
+   :align: left
 
    1, 1, Математика, 2020-10-15, 2.85, 26
    1, 1, Српски језик, 2020-12-03, 4.14, 28
@@ -111,6 +115,7 @@
 
 .. csv-table::
    :header:  "naziv", "razred", "mesec", "broj"
+   :align: left
 
    Математика, 1, 10, 19
    Математика, 4, 10, 1
@@ -134,6 +139,7 @@
 
 .. csv-table::
    :header:  "razred", "odeljenje", "broj"
+   :align: left
 
    1, 1, 1
    1, 2, 1
@@ -156,6 +162,7 @@
 
 .. csv-table::
    :header:  "razred", "odeljenje", "mesec", "broj"
+   :align: left
 
    2, 1, 03, 5
 
@@ -176,6 +183,7 @@
 
 .. csv-table::
    :header:  "ime", "prezime", "naziv", "prosek"
+   :align: left
 
    Петар, Петровић, Математика, 2.5
    Петар, Петровић, Српски језик, 4.5
@@ -205,6 +213,7 @@
 
 .. csv-table::
    :header:  "datum_rodjenja", "razred", "odeljenje", "id", "ime", "prezime", "id", "ime", "prezime"
+   :align: left
 
    2006-12-14, 1, 1, 3, Лидија, Петровић, 35, Павле, Радивојевић
    2007-01-16, 1, 1, 15, Елена, Ђурђевић, 21, Анђелија, Богдановић
@@ -230,6 +239,7 @@
 
 .. csv-table::
    :header:  "naziv", "razred", "broj_ocena"
+   :align: left
 
    Српски језик, 1, 180
    Математика, 1, 178

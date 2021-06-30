@@ -73,11 +73,11 @@ lessons:
         file: citanje_01b_restrikcija.rst
         guid: 5352c2d4-3fbf-48d3-97ab-fce40c48df20
       - type: reading # quiz ?
-        title: Пројекција и селекција - задаци за вежбу
+        title: Пројекција и селекција - задаци (дневник)
         file: citanje_01c_proj_restr_zadaci.rst
         guid: c7459add-98bf-4f02-8a8a-af2b433dec83
       - type: reading # quiz ?
-        title: Пројекција и селекција - музика
+        title: Пројекција и селекција - задаци (музика)
         file: citanje_01d_muzika.rst
         guid: 0035d4fe-7f2c-4bce-b835-82a13e51cb33
   - title: "2.2 SQL: Логички и релацијски оператори"
@@ -93,11 +93,11 @@ lessons:
         file: citanje_02b_relacijski_operatori.rst
         guid: ca886a03-944a-4c6e-a205-3b191a87b2eb
       - type: reading # quiz ?
-        title: Оператори - задаци за вежбу
+        title: Оператори - задаци (дневник)
         file: citanje_02c_operatori_zadaci.rst
         guid: c5268e25-819a-44ef-9495-6e013d125749
       - type: reading # quiz ?
-        title: Логички и релацијски оператори - музика
+        title: Оператори - задаци (музика)
         file: citanje_02d_muzika.rst
         guid: 21bb4ab3-5c49-46ff-b084-6d2771ab5327
   - title: "2.3 SQL: Изрази и функције"
@@ -113,11 +113,11 @@ lessons:
         file: citanje_03b_funkcije.rst
         guid: 5ce6c3d2-c316-4ddc-9b37-ac1613512bd3
       - type: reading # quiz ?
-        title: Изрази и функције - задаци за вежбу
+        title: Изрази и функције - задаци (дневник)
         file: citanje_03c_izrazi_funkcije_zadaci.rst
         guid: df85e68d-1e53-4a7e-b536-8656dd57e46b
       - type: reading # quiz ?
-        title: Изрази и функције - музика
+        title: Изрази и функције - задаци (музика)
         file: citanje_03d_muzika.rst
         guid: 07d3318c-2fda-4f8a-b6d0-9c31285d6544
   - title: "2.4 SQL: Сортирање, уклањање дупликата, ограничавање броја врста"
@@ -137,11 +137,11 @@ lessons:
         file: citanje_04c_uklanjanje_duplikata.rst
         guid: 4036d393-be46-4ec2-8004-3196f4a4676a
       - type: reading # quiz ?
-        title: Сортирање и ограничавање - задаци за вежбу
+        title: Сортирање и ограничавање - задаци (дневник)
         file: citanje_04d_sortiranje_ogranicavanje_zadaci.rst
         guid: 02b0323d-a82f-465e-a379-2c75d659b9a5
       - type: reading # quiz ?
-        title: Сортирање и ограничавање - музика
+        title: Сортирање и ограничавање - задаци (музика)
         file: citanje_04e_muzika.rst
         guid: 00aac1de-669b-4f4f-813d-8d40bad9d41d
 
@@ -162,11 +162,11 @@ lessons:
         file: citanje_05c_restrikcija_nakon_grupisanja.rst
         guid: 64dda07c-1a32-404d-aca8-2c77fca517d9
       - type: reading
-        title: Агрегатне функције и груписање - задаци за вежбу
+        title: Агрегатне функције и груписање - задаци (дневник)
         file: citanje_05d_agregatne_zadaci.rst
         guid: 86b92d7a-5be9-4af8-9e60-9ad7abd28b13
       - type: reading
-        title: Агрегатне функције и груписање - музика
+        title: Агрегатне функције и груписање - задаци (музика)
         file: citanje_05e_muzika.rst
         guid: fb620597-1bee-4b50-a803-7c1f4767a09d
 
@@ -191,11 +191,11 @@ lessons:
         file: citanje_06c_vrste_spajanja.rst
         guid: d82adffc-8d26-43c4-8190-8ee492f0639c
       - type: reading
-        title: Спајање - задаци за вежбу
+        title: Спајање - задаци (дневник)
         file: citanje_06e_spajanje_zadaci.rst
         guid: 3ea72fcf-d9d1-4ab9-ab79-2036a23b5c7d
       - type: reading
-        title: Спајање - музика
+        title: Спајање - задаци (музика)
         file: citanje_06f_muzika.rst
         guid: 2dd25213-5056-4713-93db-e5e871db32ca
         
@@ -216,7 +216,7 @@ lessons:
         file: citanje_07c_provera_postojanja.rst
         guid: 51df3cec-1076-467a-bc9c-0eb45c40dd59
       - type: reading
-        title: Угнежђени упити - задаци за вежбу
+        title: Угнежђени упити - задаци (дневник)
         file: citanje_07d_ugnezdjeni_zadaci.rst
         guid: 6c3fda23-22a3-410b-a8e9-f17aaee3e17f
 

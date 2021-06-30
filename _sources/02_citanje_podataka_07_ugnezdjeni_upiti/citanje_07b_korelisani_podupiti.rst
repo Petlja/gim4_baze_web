@@ -33,6 +33,7 @@
 
 .. csv-table::
    :header:  "id", "id_ucenik", "datum", "cas", "status"
+   :align: left
 
    1, 1, 2021-05-14, 1, оправдан
    2, 1, 2021-05-14, 2, неоправдан

@@ -17,6 +17,7 @@
 
 .. csv-table::
    :header:  "Name", "MAX(Bytes)"
+   :align: left
 
    "MPEG audio file", "117386255350"
 

@@ -18,6 +18,7 @@
 
 .. csv-table::
    :header:  "Name", "Name"
+   :align: left
 
    "For Those About To Rock (We Salute You)", "Rock"
    "Balls to the Wall", "Rock"
@@ -42,6 +43,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Desafinado"
    "Garota De Ipanema"
@@ -66,6 +68,7 @@
 
 .. csv-table::
    :header:  "Name", "Name"
+   :align: left
 
    "AC/DC", "For Those About To Rock (We Salute You)"
    "Accept", "Balls to the Wall"
@@ -92,6 +95,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Instant Karma"
    "#9 Dream"
@@ -116,6 +120,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "A Kind Of Magic"
    "Under Pressure"
@@ -142,6 +147,7 @@
 
 .. csv-table::
    :header:  "Name", "AverageMilliseconds"
+   :align: left
 
    "Sci Fi & Fantasy", "2911.0"
    "Science Fiction", "2625.0"
@@ -166,6 +172,7 @@
 
 .. csv-table::
    :header:  "MetallicaMs"
+   :align: left
 
    "38916130"
 
@@ -187,6 +194,7 @@
 
 .. csv-table::
    :header:  "Name", "AverageMinutes"
+   :align: left
 
    "Antônio Carlos Jobim", "3.83"
    "Body Count", "3.13"
@@ -214,6 +222,7 @@
 
 .. csv-table::
    :header:  "Name", "AlbumCount"
+   :align: left
 
    "Iron Maiden", "21"
    "Led Zeppelin", "14"

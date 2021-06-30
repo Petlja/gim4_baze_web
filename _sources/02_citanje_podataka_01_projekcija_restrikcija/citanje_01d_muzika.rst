@@ -1,5 +1,5 @@
-Пројекција и рестрикција -- музика
-----------------------------------
+Пројекција и селекција -- задаци за вежбу (музика)
+--------------------------------------------------
 
 .. questionnote::
 
@@ -14,6 +14,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    AC/DC
    Accept
@@ -36,6 +37,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    For Those About To Rock (We Salute You)
    Put The Finger On You
