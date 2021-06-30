@@ -22,9 +22,9 @@ description:
 
 lessons:
 ### СЕКЦИЈА Базе података
-  - title: 1 Базе података
-    guid: 28ff976e-5060-4463-ad3a-ebee67dc83ba
-    folder: 01_baze_i_tabele
+  - title: "1.0 Базе: Увод у базе података"
+    guid: 61dd63f6-a897-418c-8efd-e04c7db5dcf4
+    folder: 01_baze_i_tabele_00_uvod
     activities:
       - type: reading
         title: Шта су базе података?
@@ -34,25 +34,35 @@ lessons:
         title: Табеларна организација података
         file: baze_00b_tabele.rst
         guid: fdeb40b5-0627-4637-8551-d3e0f2ba9ec8
+
+  - title: "1.1 Базе: SQLite"
+    guid: bd1d3ac2-2a4e-4551-9184-093c8e1d52d9
+    folder: 01_baze_i_tabele_01_SQLite
+    activities:
       - type: reading
         title: SQLite и SQLite Studio
-        file: baze_00c_sqlite.rst
+        file: baze_01a_sqlite.rst
         guid: f2435c77-3c6d-478c-a3bb-e9f7da660177
       - type: reading
         title: Креирање базе у SQLite Studio
-        file: baze_00d_sqlite_baza.rst
+        file: baze_01b_sqlite_baza.rst
         guid: d3739013-648b-4cb1-8058-5d0515878a25
       - type: reading # quiz ?
         title: Креирање базе у SQLite Studio - задаци за вежбу
-        file: baze_00e_sqlite_vezba.rst
+        file: baze_01c_sqlite_vezba.rst
         guid: ea6bfcb5-e846-4561-8126-6ee7ae47265b
-      - type: reading # quiz ?
+
+  - title: "1.2 Базе: Дизајнирање базе података"
+    guid: ef450cee-f8d9-4e6d-ab7f-764bf4d799a7
+    folder: 01_baze_i_tabele_02_dizajniranje
+    activities:
+      - type: reading
         title: База компаније за продају песама
-        file: baze_00f_muzika.rst
+        file: baze_02a_dizajn_muzika.rst
         guid: 64e3110d-a95b-47e1-a2da-68e272f94cb2
         
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
-  - title: "2 - SQL: Читање података из табела базе"
+  - title: "2.0 - SQL: Читање података из табела базе"
     guid: dc254235-5707-446e-a482-25110340e3f4
     folder: 02_citanje_podataka_00_uvod
     activities:
@@ -60,6 +70,7 @@ lessons:
         title: "SQL: Читање података из табела"
         file: citanje_00a_uvod.rst
         guid: 02099b6b-cc88-49cd-a7b1-5e72d917fa16
+
   - title: "2.1 SQL: Пројекција и селекција"
     guid: 9a05a82c-a1e4-43b0-9b35-15cad3b4e582
     folder: 02_citanje_podataka_01_projekcija_restrikcija
@@ -80,6 +91,7 @@ lessons:
         title: Пројекција и селекција - задаци (музика)
         file: citanje_01d_muzika.rst
         guid: 0035d4fe-7f2c-4bce-b835-82a13e51cb33
+
   - title: "2.2 SQL: Логички и релацијски оператори"
     guid: 6ca88847-79bd-4e9f-92c9-e0052ffd990b
     folder: 02_citanje_podataka_02_operatori
@@ -100,6 +112,7 @@ lessons:
         title: Оператори - задаци (музика)
         file: citanje_02d_muzika.rst
         guid: 21bb4ab3-5c49-46ff-b084-6d2771ab5327
+
   - title: "2.3 SQL: Изрази и функције"
     guid: 5e3c70de-36af-4d83-b3ab-bc97aae31adb
     folder: 02_citanje_podataka_03_izrazi_funkcije
@@ -120,6 +133,7 @@ lessons:
         title: Изрази и функције - задаци (музика)
         file: citanje_03d_muzika.rst
         guid: 07d3318c-2fda-4f8a-b6d0-9c31285d6544
+
   - title: "2.4 SQL: Сортирање, уклањање дупликата, ограничавање броја врста"
     guid: f1f704a8-5d37-4c30-baa8-15a94f0dbd10
     folder: 02_citanje_podataka_04_soritiranje
@@ -219,6 +233,20 @@ lessons:
         title: Угнежђени упити - задаци (дневник)
         file: citanje_07d_ugnezdjeni_zadaci.rst
         guid: 6c3fda23-22a3-410b-a8e9-f17aaee3e17f
+      - type: reading
+        title: Угнежђени упити - задаци (музика) 
+        file: citanje_07e_muzika.rst
+        guid: d61e4960-55e4-423f-916b-390612aa197a
+
+### СЕКЦИЈА ПРОМЕНА САДРЖАЈА БАЗЕ
+  - title: "3.0 SQL: Промена садржаја базе"
+    guid: 677ee590-07ff-4741-a121-6ea347acaa1d
+    folder: 03_izmene_00_uvod
+    activities:
+      - type: reading
+        title: Уписивање података у табеле
+        file: 00a_izmene.rst
+        guid: a7f22cd8-c823-453c-bd73-b6d5edec1c3a
 
   - title: "3.1 SQL: Уписивање података у табеле"
     guid: 89cd79f3-08dd-477b-b0b3-19ad5ba339e2
