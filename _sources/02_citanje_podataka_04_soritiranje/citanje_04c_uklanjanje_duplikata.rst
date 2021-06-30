@@ -21,6 +21,7 @@
 
 .. csv-table::
    :header:  "ime"
+   :align: left
 
    Петар
    Милица
@@ -42,6 +43,7 @@
 
 .. csv-table::
    :header:  "ime"
+   :align: left
 
    Адам
    Адријана
@@ -50,7 +52,7 @@
    Александра
    ...
 
-Наравно, ``DISTICT`` се може комбиновати и са селекцијом (клаузулом
+Наравно, клаузула ``DISTICT`` може да се комбинује са селекцијом (клаузулом
 ``WHERE``).
 
 .. questionnote::
@@ -67,6 +69,7 @@
 
 .. csv-table::
    :header:  "ime"
+   :align: left
 
    Милица
    Лидија
@@ -93,6 +96,7 @@
 
 .. csv-table::
    :header:  "datum"
+   :align: left
 
    2021-05-14
 
@@ -112,6 +116,7 @@
 
 .. csv-table::
    :header:  "razred", "odeljenje"
+   :align: left
 
    1, 1
    2, 1

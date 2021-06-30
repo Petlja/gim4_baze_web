@@ -49,6 +49,7 @@ def process_file(filename):
                     print(".. csv-table::", file=f)
                     names = list(map(lambda x: x[0], cur.description))
                     print("   :header: ", ", ".join(map(lambda x: '"' + x + '"', names)), file=f)
+                    print("   :align: left")
                     print(file=f)
                     nr = 0
                     for row in cur:

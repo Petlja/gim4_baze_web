@@ -1,5 +1,5 @@
-Изрази и функције -- музика
----------------------------
+Изрази и функције - задаци (музика)
+-----------------------------------
 
 .. questionnote::
 
@@ -15,6 +15,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "For Those About To Rock (We Salute You)"
    "Balls to the Wall"
@@ -37,6 +38,7 @@
 
 .. csv-table::
    :header:  "Name", "Mb"
+   :align: left
 
    "For Those About To Rock (We Salute You)", "10.0"
    "Balls to the Wall", "5.0"
@@ -67,6 +69,7 @@
 
 .. csv-table::
    :header:  "Name", "Seconds", "Length"
+   :align: left
 
    "For Those About To Rock (We Salute You)", "343.0", "medium"
    "Balls to the Wall", "342.0", "medium"
@@ -91,6 +94,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "Minutes", "Seconds"
+   :align: left
 
    "1", "For Those About To Rock (We Salute You)", "5", "43"
    "2", "Balls to the Wall", "5", "42"

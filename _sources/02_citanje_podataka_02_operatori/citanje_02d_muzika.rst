@@ -1,5 +1,5 @@
-Логички и релацијски оператори -- музика
-----------------------------------------
+Логички и релацијски оператори -- задаци (музика)
+-------------------------------------------------
 
 .. questionnote::
 
@@ -16,6 +16,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :align: left
 
    "1", "For Those About To Rock (We Salute You)", "1", "1", "1", "343719", "11170334", "0.99"
    "15", "Go Down", "4", "1", "1", "331180", "10847611", "0.99"
@@ -38,6 +39,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Right Through You"
    "We Die Young"
@@ -61,6 +63,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Fast As a Shark"
    "Put The Finger On You"
@@ -83,6 +86,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :align: left
 
    "24", "Love In An Elevator", "5", "1", "1", "321828", "10552051", "0.99"
    "56", "Love, Hate, Love", "7", "1", "1", "387134", "12575396", "0.99"
@@ -105,6 +109,7 @@
 
 .. csv-table::
    :header:  "GenreId", "Name"
+   :align: left
 
    "1", "Rock"
    "5", "Rock And Roll"
@@ -124,6 +129,7 @@
 
 .. csv-table::
    :header:  "ArtistId", "Name"
+   :align: left
 
    "192", "DJ Dolores & Orchestra Santa Massa"
    "210", "Hilary Hahn, Jeffrey Kahane, Los Angeles Chamber Orchestra & Margaret Batjer"
@@ -148,6 +154,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :align: left
 
    "3339", "LOST Season 4 Trailer", "261", "3", "21", "112712", "20831818", "1.99"
    "3340", "LOST In 8:15", "261", "3", "21", "497163", "98460675", "1.99"

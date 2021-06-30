@@ -1,5 +1,5 @@
-Сортирање и ограничавање - музика
----------------------------------
+Сортирање и ограничавање - задаци (музика)
+------------------------------------------
 
 .. questionnote::
 
@@ -16,6 +16,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :align: left
 
    "3224", "Through a Looking Glass", "229", "3", "21", "5088838", "1059546140", "1.99"
    "2820", "Occupation / Precipice", "227", "3", "19", "5286953", "1054423946", "1.99"
@@ -37,6 +38,7 @@
 
 .. csv-table::
    :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice", "CompressionRatio"
+   :align: left
 
    "2844", "Better Halves", "228", "3", "21", "2573031", "549353481", "1.99", "213506"
    "3179", "Sexual Harassment", "250", "3", "19", "1294541", "273069146", "1.99", "211027"
@@ -57,6 +59,7 @@
 
 .. csv-table::
    :header:  "AlbumId"
+   :align: left
 
    "16"
    "30"

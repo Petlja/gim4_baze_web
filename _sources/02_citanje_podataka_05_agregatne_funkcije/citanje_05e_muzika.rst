@@ -1,22 +1,24 @@
 Агрегатне функције и груписање -- музика
 ----------------------------------------
 
-
 .. questionnote::
 
    Израчунати колико укупно гигабајта заузимају све композиције.
 
 .. code-block:: sql
 
-   SELECT SUM(Milliseconds) / (1024.0 * 1024.0 * 1024.0) AS GBTotal
+   SELECT SUM(Bytes) / (1024.0 * 1024.0 * 1024.0) AS GBTotal
    FROM track;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
    :header:  "GBTotal"
+   :align: left
 
-   "1.2840871140360832"
+   "109.32446955703199"
+
+|
 
 .. questionnote::
 
@@ -31,8 +33,11 @@
 
 .. csv-table::
    :header:  "Shortest", "Longest"
+   :align: left
 
    "1071", "5286953"
+
+|
 
 .. questionnote::
 
@@ -47,8 +52,11 @@
 
 .. csv-table::
    :header:  "COUNT(*)"
+   :align: left
 
    "25"
+
+|
 
 .. questionnote::
 
@@ -63,8 +71,11 @@
 
 .. csv-table::
    :header:  "COUNT(DISTINCT AlbumId)"
+   :align: left
 
    "347"
+
+|
 
 .. questionnote::
 
@@ -79,8 +90,11 @@
 
 .. csv-table::
    :header:  "COUNT(*)"
+   :align: left
 
    "347"
+
+|
 
 .. questionnote::
 
@@ -96,6 +110,7 @@
 
 .. csv-table::
    :header:  "GenreId", "COUNT(*)"
+   :align: left
 
    "1", "1297"
    "2", "130"
@@ -103,6 +118,8 @@
    "4", "332"
    "5", "12"
    ..., ...
+
+|
 
 .. questionnote::
 
@@ -121,6 +138,7 @@
 
 .. csv-table::
    :header:  "AlbumId", "TotalMs"
+   :align: left
 
    "340", "51780"
    "345", "66639"
@@ -128,6 +146,8 @@
    "328", "110266"
    "315", "120000"
    ..., ...
+
+|
 
 .. questionnote::
 
@@ -146,6 +166,7 @@
 
 .. csv-table::
    :header:  "Count"
+   :align: left
 
    "3290"
 
