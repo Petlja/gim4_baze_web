@@ -241,6 +241,19 @@ lessons:
         title: Угнежђени упити - задаци (музика) 
         file: citanje_07e_muzika.rst
         guid: d61e4960-55e4-423f-916b-390612aa197a
+        
+  - title: "2.8 SQL: Погледи"
+    guid: 2567b15f-97b6-4596-9ff4-8618c7706f93
+    folder: 02_citanje_podataka_08_pogledi
+    activities:
+      - type: reading
+        title: Погледи
+        file: citanje_08a_pogledi.rst
+        guid: fedbb648-9bae-4e3d-b35d-08534362ca26
+      - type: reading
+        title: Погледи - задаци (дневник)
+        file: citanje_08b_pogledi_zadaci.rst
+        guid: 15c55c44-a361-4e48-9652-55f061d969c4
 
 ### СЕКЦИЈА ПРОМЕНА САДРЖАЈА БАЗЕ
   - title: "3.0 SQL: Промена садржаја базе"
@@ -283,28 +296,30 @@ lessons:
         file: 03a_brisanje.rst
         guid: 921ac985-380e-4d06-b91c-ba146577adbc
         
-  - title: "4. Python SQLite API"
+### СЕКЦИЈА Python SQLite API
+
+  - title: "4.0 Python SQLite API"
     guid: c94e776e-36e8-452d-8d12-5086106018e9
     folder: 04_python_sqlite
     activities:
       - type: reading
-        title: 3.1 Python SQLite API -- увод
+        title: 4.1 Python SQLite API - увод
         file: 04a_python_sqlite_uvod.rst
         guid: fc3cdc65-e16a-45f9-a716-432d11e8773d
       - type: reading
-        title: 3.2 Python SQLite API -- повезивање са базом
+        title: 4.2 Python SQLite API - повезивање са базом
         file: 04b_python_sqlite_povezivanje.rst
         guid: a56df623-e387-4ca8-ae8c-ec99937d4a69
       - type: reading
-        title: 3.3 Python SQLite API -- постављање упита
+        title: 4.3 Python SQLite API - постављање упита
         file: 04c_python_sqlite_postavljanje_upita.rst
         guid: 239c0083-8c4a-426e-9ac1-b9ee3e1824ca
       - type: reading
-        title: 3.4 Python SQLite API -- упити са параметрима
+        title: 4.4 Python SQLite API - упити са параметрима
         file: 04d_python_sqlite_upiti_sa_parametrima.rst
         guid: 41581677-98cd-4b4e-9e8a-e7f4c54a782c
       - type: reading
-        title: 3.5 Python SQLite API -- колационе секвенце
+        title: 4.5 Python SQLite API - колационе секвенце
         file: 04e_python_sqlite_kolacione_sekvence.rst
         guid: e797e25b-ee9f-4595-b8b4-d5fa1441e703
 

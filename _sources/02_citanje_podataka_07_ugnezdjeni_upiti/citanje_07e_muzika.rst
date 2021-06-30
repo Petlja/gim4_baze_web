@@ -38,6 +38,7 @@
 
 .. csv-table::
    :header:  "Name", "MAX(Count)"
+   :align: left
 
    "Music", "3290"
 
@@ -60,6 +61,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Buddy Guy"
    "Eric Clapton"

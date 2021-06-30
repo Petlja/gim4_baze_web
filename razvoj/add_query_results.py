@@ -9,15 +9,20 @@ def collate_UNICODE(str1, str2):
     return locale.strcoll(str1, str2)
 
 def process_file(filename):
+    # citamo linije ulazne datoteke
     with open(filename) as f:
        lines = f.readlines()
 
+    # rezultate obrade upisujemo u privremenu datoteku
     with open(filename + ".tmp", "w") as f:
         i = 0
         while i < len(lines):
             print(lines[i], end="", file=f)
+            # proveravamo da li tekuca linija zapocinje upit
             if lines[i].startswith(".. code-block:: sql"):
                 print(lines[i+1], end="", file=f)
+
+                # citamo upit
                 i += 2
                 query = "";
                 while i < len(lines) and lines[i].strip() != "":
@@ -25,13 +30,17 @@ def process_file(filename):
                     query += lines[i].strip() + " ";
                     i += 1
 
+                # obradjujemo samo rezultate SELECT upita
                 if not query.startswith("SELECT"):
                     continue
 
+                # da li je upit uspesno izvrsen
+                OK = False
+                # iteriramo kroz baze nad kojima se pokusava izvrasavanje upita
                 databases = [os.path.join('dnevnik', 'dnevnik.db'),
                              'chinook.db']
-                OK = False
                 for database in databases:
+                    # pokusavamo izvrsavanje upita
                     db_file = os.path.join(BASE_DIR, database)
                     con = sql.connect(db_file)
                     con.create_collation("UNICODE", collate_UNICODE)
@@ -42,14 +51,17 @@ def process_file(filename):
                         con.close()
                         continue
 
+                    # Upit je uspesno izvrsen
                     result_str = "Извршавањем упита добија се следећи резултат:"
+                    
+                    # upisujemo rezultujucu tabelu 
                     print(file=f)
                     print(result_str, file=f)
                     print(file=f)
                     print(".. csv-table::", file=f)
                     names = list(map(lambda x: x[0], cur.description))
                     print("   :header: ", ", ".join(map(lambda x: '"' + x + '"', names)), file=f)
-                    print("   :align: left")
+                    print("   :align: left", file=f)
                     print(file=f)
                     nr = 0
                     for row in cur:
@@ -62,21 +74,26 @@ def process_file(filename):
                     con.close();
 
 
+                    # ako je ranije vec postojala rezultujuca tabela, staru tabelu preskacemo
                     if i + 1 < len(lines) and lines[i+1].strip() == result_str:
-                        i += 6
+                        i += 7 # preskacemo zaglavlje tabele
                         while lines[i].strip():
                            i += 1
+
+                    # posto smo uspesno izvrsili upit, mozemo prekinuti iteraciju kroz baze
                     OK = True
                     break
-                
+
+                # ako upit nije mogao biti izvrsen ni nad jednom bazom, prijavljujemo gresku
                 if not OK:
                     print("Error executing query:", query, file=sys.stderr)
                     
                 print(file=f)
             i += 1
+
+    # privremenu datoteku proglasavamo glavnom
     os.rename(filename + ".tmp", filename)
     
-
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 

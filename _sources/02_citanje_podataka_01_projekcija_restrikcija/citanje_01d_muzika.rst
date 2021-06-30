@@ -16,11 +16,11 @@
    :header:  "Name"
    :align: left
 
-   AC/DC
-   Accept
-   Aerosmith
-   Alanis Morissette
-   Alice In Chains
+   "AC/DC"
+   "Accept"
+   "Aerosmith"
+   "Alanis Morissette"
+   "Alice In Chains"
    ...
 
 .. questionnote::
@@ -39,10 +39,10 @@
    :header:  "Name"
    :align: left
 
-   For Those About To Rock (We Salute You)
-   Put The Finger On You
-   Let's Get It Up
-   Inject The Venom
-   Snowballed
+   "For Those About To Rock (We Salute You)"
+   "Put The Finger On You"
+   "Let's Get It Up"
+   "Inject The Venom"
+   "Snowballed"
    ...
 

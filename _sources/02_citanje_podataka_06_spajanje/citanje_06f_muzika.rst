@@ -94,6 +94,7 @@
 
 .. csv-table::
    :header:  "Name", "Minutes"
+   :align: left
 
    "AC/DC", "80.89"
    "Accept", "20.01"
@@ -150,6 +151,7 @@
 
 .. csv-table::
    :header:  "Name", "Num"
+   :align: left
 
    "AC/DC", "18"
    "Aerosmith", "15"
@@ -306,6 +308,7 @@
 
 .. csv-table::
    :header:  "Name", "NumGenres"
+   :align: left
 
    "Iron Maiden", "4"
    "Battlestar Galactica", "3"
@@ -333,6 +336,7 @@
 
 .. csv-table::
    :header:  "Name"
+   :align: left
 
    "Rock"
    "Metal"
