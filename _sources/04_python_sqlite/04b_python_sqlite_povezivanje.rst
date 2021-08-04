@@ -28,6 +28,6 @@
    import os
    import sqlite3
    
-   conn = sqlite3.connect(os.path.join(os.getcwd(), 'baza.db'))
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'baza.db'))
    # ...
-   conn.close()
+   db_conn.close()

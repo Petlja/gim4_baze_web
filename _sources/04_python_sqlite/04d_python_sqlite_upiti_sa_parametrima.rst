@@ -12,13 +12,13 @@
 
    prezime = input("Унеси презиме: ")
    razred = int(input("Унеси разред: "))
-   conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
-   cur = conn.cursor()
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
+   cur = db_conn.cursor()
    res = cur.execute("SELECT ime, prezime FROM ucenik WHERE prezime=? AND razred=?",
                      (prezime, razred))
    for ime, prezime in res:
        print(ime, prezime)
-   conn.close()
+   db_conn.close()
 
 На почетку скрипта корисник уноси презиме које се смешта у променљиву
 ``prezime`` и разред који се смешта у променљиву ``razred``. Упит који
@@ -115,9 +115,9 @@ Python. На пример, могло би се урадити овако неш
                ("Мајда", "Зорановић", 2, 3),
                ("Лазар", "Табаковић", 4, 1),
                ("Мирна", "Ђерић", 3, 3) ]
-   conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
-   cur = conn.cursor()
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
+   cur = db_conn.cursor()
    cur.executemany("INSERT INTO ucenik (ime, prezime, razred, odeljenje)" +
                    "VALUES (?, ?, ?, ?)", ucenici)
-   conn.commit()         
-   conn.close()
+   db_conn.commit()         
+   db_conn.close()

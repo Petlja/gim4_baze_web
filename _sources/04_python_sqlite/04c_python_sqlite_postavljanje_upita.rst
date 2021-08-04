@@ -10,10 +10,10 @@
 
    import sqlite3
    
-   conn = sqlite3.connect(...)
-   cur = conn.cursor()
+   db_conn = sqlite3.connect(...)
+   cur = db_conn.cursor()
    ...
-   conn.close()
+   db_conn.close()
 
 Упит затим можемо да извршимо позивом методе ``execute`` на креираном
 курсору. Параметар је ниска која садржи текст упита на језику SQL. На
@@ -38,12 +38,12 @@
    import os
    import sqlite3
    
-   conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
-   cur = conn.cursor()
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
+   cur = db_conn.cursor()
    cur.execute("INSERT INTO ucenik (ime, prezime, razred, odeljenje)" +
                "VALUES ('Петар', 'Петровић', 1, 1)");
-   conn.commit()
-   conn.close()
+   db_conn.commit()
+   db_conn.close()
 
    
 Ако се методом ``execute`` извршава упит читања података из базе (упит
@@ -60,12 +60,12 @@
    import os
    import sqlite3
    
-   conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
-   cur = conn.cursor()
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
+   cur = db_conn.cursor()
    res = cur.execute("SELECT ime, prezime FROM ucenik");
    for row in res:
        print(row[0], row[1])
-   conn.close()
+   db_conn.close()
 
 Променљива ``res`` садржи резултат упита, док променљива ``row``
 садржи редом једну по једну врсту тог резултата. Врсте су уређени
@@ -77,7 +77,27 @@
                 
    for ime, prezime in res:
        print(ime, prezime)
+       
+Могуће је подесити и да врсте резултата упита буду речници (а не
+уређене торке), тако да се подацима унутар врсте може приступити било
+на основу редног броја, било на основу назива колоне. Након повезивања
+са базом, отвореној конекцији је потребно променити атрибут
+``row_factory``, чији је параметар функција која трансформише сваку
+врсту пре него што јој се приступи. Да би се торка трансформисала у
+речник, довољно је вредност тог параметра поставити на функцију
+``sqlite3.Row``.
+       
+.. code-block:: py
 
+   ...             
+   db_conn = sqlite3.connect(os.path.join(os.getcwd(), 'dnevnik.db'))
+   db_conn.row_factory = sqlite3.Row
+   cur = db_conn.cursor()
+   res = cur.execute("SELECT ime, prezime FROM ucenik");
+   for row in res:
+       print(row["ime"], row["prezime"])
+   db_conn.close()
+   
 Нагласимо још једном да је у реалним програмима у склопу упита
 ``SELECT`` увек пожељно експлицитно навести називе и редослед колона
 које се читају из базе. Тај редослед се после користи и у петљама које
@@ -90,11 +110,10 @@
 можемо да итерирамо помоћу петље ``for``. Та структура података није
 листа и сасвим је могуће да се врше разне оптимизације које доводе до
 тога да се цела табела резултата никада не чува истовремено у
-меморији. 
+меморији.
 
-Ако нам итерирање кроз редове резултата није довољно, већ желимо да 
-се кроз резултат крећемо слободније, листу торки у којој се чува цео 
-резултат можемо да добијемо коришћењем метода ``fetchall`` над курсором 
-над којим је извршен упит.
-Слично, метод ``fetchone`` враћа наредну врсту у резултату претходно
-извршеног упита.
+Ако нам итерирање кроз редове резултата није довољно, већ желимо да се
+кроз резултат крећемо слободније, листу торки у којој се чува цео
+резултат можемо да добијемо коришћењем метода ``fetchall`` над
+курсором над којим је извршен упит. Слично, метод ``fetchone`` враћа
+наредну врсту у резултату претходно извршеног упита.

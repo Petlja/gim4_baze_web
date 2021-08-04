@@ -19,8 +19,9 @@ Python програмима постигао рад са овим каракте
    def collate_UNICODE(str1, str2):
        return locale.strcoll(str1, str2)
 
-   conn = sqlite3.connect(...)
-   conn.create_collation("UNICODE", collate_UNICODE)
+   db_conn = sqlite3.connect(...)
+   db_conn.create_collation("UNICODE", collate_UNICODE)
+   ...
 
 Након отварања конекције ка бази података, позива се метода
 ``create_collation`` којом се каже да се за све колоне за које је у

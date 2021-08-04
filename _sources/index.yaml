@@ -322,5 +322,90 @@ lessons:
         title: 4.5 Python SQLite API - колационе секвенце
         file: 04e_python_sqlite_kolacione_sekvence.rst
         guid: e797e25b-ee9f-4595-b8b4-d5fa1441e703
+      - type: reading
+        title: 4.6 Python SQLite API - помоћне функције
+        file: 04f_pomocne_funkcije.rst
+        guid: 4408ab43-0efa-4bd6-a330-65f6cd053c42
 
+### СЕКЦИЈА Flask
+  - title: "6.0 Серверско веб-програмирање"
+    guid: 625ae3ea-40d7-4d46-8512-fccc74050597
+    folder: 06_serverske_veb_aplikacije_01_uvod
+    activities:
+      - type: reading
+        title: Веб-апликације - увод
+        file: 06a_veb_aplikacije_uvod.rst
+        guid: 34a122ff-097e-4289-bd11-27e5d69e794c
+  - title: "6.1 Библиотека Flask - основни појмови"
+    guid: 453b61a9-27e3-4ccb-9868-ad3143daea52
+    folder: 06_serverske_veb_aplikacije_02_flask
+    activities:
+      - type: reading
+        title: Библиотека Flask - увод
+        file: 06a_flask_uvod.rst
+        guid: f0ea5ca8-a012-4142-b689-4e1c59825c50
+      - type: reading
+        title: Библиотека Flask - први програм
+        file: 06b_flask_prvi_program.rst
+        guid: d5387ecb-837c-4719-8d22-fd30764d0434
+      - type: reading
+        title: Библиотека Flask - шаблони
+        file: 06c_flask_sabloni.rst
+        guid: 4e988ce0-d217-4b23-871c-0320c094c76f
+      - type: reading
+        title: Библиотека Flask - статичке датотеке
+        file: 06d_flask_staticke_datoteke.rst
+        guid: 8a3021fe-37f1-4f8f-b025-5f7d636ebacd
+      - type: reading
+        title: Библиотека Flask - GET параметри
+        file: 06e_flask_parametri_get.rst
+        guid: 7624ef28-0ed6-4498-a6ba-0e3dd528fdce
+      - type: reading
+        title: Библиотека Flask - POST параметри
+        file: 06f_flask_parametri_post.rst
+        guid: 9f4f163c-eb3f-4276-ac9f-0e6d56ad60ae
+      - type: reading
+        title: Библиотека Flask - параметри унутар рута
+        file: 06g_flask_parametri_rutiranje.rst
+        guid: 1e7d3ba9-64e7-40fc-9436-8027d3a40aac
+      - type: reading
+        title: Библиотека Flask - колачићи
+        file: 06h_flask_kolacici.rst
+        guid: b2f2e885-b34c-4427-af5e-33740504d684
+      - type: reading
+        title: Библиотека Flask - сесије
+        file: 06i_flask_sesije.rst
+        guid: f565976d-3b38-49c1-8529-cf53433509f9
+  - title: "6.2 Библиотека Flask - повезивање са базом података"
+    guid: 0d2c244b-ca2c-474b-b586-61b4ba200038
+    folder: 06_serverske_veb_aplikacije_03_baze
+    activities:
+      - type: reading
+        title: Повезивање са базом и основни упити
+        file: 06a_povezivanje_i_osnovni_upiti.rst
+        guid: 67cb551d-6234-40b3-8f14-4b36519ceaaf
+      - type: reading
+        title: Пренос аргумената упита
+        file: 06b_prenos_argumenata_upita.rst
+        guid: 0ac7a838-4a75-40ff-b219-0b4adb162b9e
+      - type: reading
+        title: Формулари и упити
+        file: 06c_formulari_i_baze.rst
+        guid: a32d6322-a8d5-4b2a-9ea2-8f109899fbe8
+      - type: reading
+        title: Упис података у базу
+        file: 06d_upis_u_bazu.rst
+        guid: d69808d3-599f-4580-998b-d64df71502a4
+      - type: reading
+        title: Флешоване поруке
+        file: 06e_flesovane_poruke.rst
+        guid: 4d8856f1-b73e-45a6-98e5-7ab96d0fbfcf
+      - type: reading
+        title: Валидација формулара
+        file: 06f_validacija_formulara.rst
+        guid: 33148d53-ff5a-4e86-af4f-2c03a4948d76
+      - type: reading
+        title: AJAX
+        file: 06g_baze_i_ajax.rst
+        guid: ff6691b9-e045-48e1-b645-e23cbef6b4ec
 
