@@ -213,3 +213,25 @@
 једнакости. У даљем раду ћеш научити да језик SQL подржава и друге
 релације.
 
+
+Пробај сада да самостално напишеш наредних неколико упита. 
+
+.. questionnote::
+
+   Приказати све податке о предметима који имају недељни фонд од 2 часа.
+
+.. dbpetlja:: db_restrikcija_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT * FROM predmet WHERE fond = 2
+   :checkcolumnname:                
+      
+
+.. questionnote::
+
+   Издвојити имена и презимена ученика рођених 7. априла 2006. године.
+
+.. dbpetlja:: db_restrikcija_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime, prezime FROM ucenik WHERE datum_rodjenja = '2007-04-07'
+   :checkcolumnname:                
+

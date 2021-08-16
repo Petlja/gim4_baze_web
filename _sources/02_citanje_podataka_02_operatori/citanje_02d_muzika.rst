@@ -1,5 +1,8 @@
-Логички и релацијски оператори -- задаци (музика)
--------------------------------------------------
+Логички и релацијски оператори -- музика
+----------------------------------------
+
+Прикажимо сада неколико упита над базом продавнице музичких
+композиција.
 
 .. questionnote::
 
@@ -159,3 +162,37 @@
    "3339", "LOST Season 4 Trailer", "261", "3", "21", "112712", "20831818", "1.99"
    "3340", "LOST In 8:15", "261", "3", "21", "497163", "98460675", "1.99"
 
+
+
+Логички и релацијски оператори -- задаци (музика)
+.................................................
+
+Покушај сада да самостално решиш наредних неколико задатака.
+
+
+.. questionnote::
+
+   Приказати називе свих композиција које се завршавају са *you*
+
+.. dbpetlja:: db_operatori_zadaci_muzika_01
+   :dbfile: music.sql
+   :solutionquery: SELECT Name FROM track WHERE Name LIKE '% you';
+
+.. questionnote::
+
+   Приказати имена и презимена и земљу свих купаца који се зову *Luis*
+   а нису из Бразила.
+
+.. dbpetlja:: db_operatori_zadaci_muzika_02
+   :dbfile: music.sql
+   :solutionquery: SELECT FirstName, LastName, Country FROM customer WHERE FirstName = 'Luis' AND Country != 'Brasil';
+
+.. questionnote::
+
+   Приказати имена, презимена и датуме рођења свих запослених који су
+   рођени током 1970-их.
+
+   
+.. dbpetlja:: db_operatori_zadaci_muzika_03
+   :dbfile: music.sql
+   :solutionquery: SELECT FirstName, LastName, BirthDate FROM employee WHERE BirthDate BETWEEN '1970-01-01' AND '1979-12-31';

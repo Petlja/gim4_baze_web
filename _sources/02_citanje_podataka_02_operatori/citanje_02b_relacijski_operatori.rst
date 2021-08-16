@@ -351,3 +351,21 @@
    "7", "Физика", "2", "3"
    ..., ..., ..., ...
 
+Покушај сада да самостално реших наредних неколико задатака.
+   
+.. questionnote::
+
+   Приказати све податке о изостанцима добијеним током прва три часа.
+   
+.. dbpetlja:: db_relacijski_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT * FROM izostanak WHERE cas <= 3;
+
+.. questionnote::
+
+   Приказати сва имена и презимена ученика чија презимена почињу на *Ми*.
+   
+.. dbpetlja:: db_relacijski_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime, prezime FROM ucenik WHERE prezime LIKE 'Ми%';
+                   

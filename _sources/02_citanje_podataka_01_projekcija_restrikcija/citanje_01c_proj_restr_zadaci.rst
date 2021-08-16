@@ -3,63 +3,33 @@
 Пројекција и селекција -- задаци за вежбу (дневник)
 ---------------------------------------------------
 
-1. Напиши упит који из табеле ученика издваја ``id``, ``ime`` и
+Покушај самостално да решиш наредних неколико задатака.
+
+.. questionnote::
+
+   Напиши упит који из табеле ученика издваја ``id``, ``ime`` и
    ``prezime`` сваког ученика.
 
-.. code-block:: sql
+.. dbpetlja:: db_proj_restr_01
+   :dbfile: dnevnik.sql
+   :solutionquery:  SELECT id, ime, prezime FROM ucenik;
+   :checkcolumnname:                
+   
+.. questionnote::
 
-   SELECT id, ime, prezime
-   FROM ucenik;
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "id", "ime", "prezime"
-   :align: left
-
-   "1", "Петар", "Петровић"
-   "2", "Милица", "Јовановић"
-   "3", "Лидија", "Петровић"
-   "4", "Петар", "Миловановић"
-   "5", "Ана", "Пекић"
-   ..., ..., ...
-
-2. Напиши упит који из табеле изостанака приказује све податке о
+   Напиши упит који из табеле изостанака приказује све податке о
    оправданим изостанцима.
 
-.. code-block:: sql
+.. dbpetlja:: db_proj_restr_02
+   :dbfile: dnevnik.sql
+   :solutionquery:  SELECT * FROM izostanak WHERE status = 'оправдан';
 
-   SELECT *
-   FROM izostanak
-   WHERE status = 'оправдан';
+.. questionnote::
 
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "id", "id_ucenik", "datum", "cas", "status"
-   :align: left
-
-   "1", "1", "2021-05-14", "1", "оправдан"
-   "6", "1", "2021-05-14", "3", "оправдан"
-   "7", "8", "2021-06-01", "1", "оправдан"
-   "14", "13", "2021-03-02", "1", "оправдан"
-
-3. Напиши упит који приказује назив и фонд часова сваког предмета из
+   Напиши упит који приказује назив и фонд часова сваког предмета из
    другог разреда.
 
-.. code-block:: sql
-
-   SELECT naziv, fond
-   FROM predmet
-   WHERE razred = 2;
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "naziv", "fond"
-   :align: left
-
-   "Математика", "5"
-   "Психологија", "2"
-   "Физика", "3"
-
+.. dbpetlja:: db_proj_restr_03
+   :dbfile: dnevnik.sql
+   :solutionquery:     SELECT naziv, fond FROM predmet WHERE razred = 2;
+   :checkcolumnname:                

@@ -3,109 +3,49 @@
 Логички и релацијски оператори -- задаци (дневник)
 ..................................................
 
-1. Приказати имена свих девојчица у одељењу III1.
+Покушај сада да самостално решиш наредних неколико задатака.
 
-.. code-block:: sql
+.. questionnote::
 
-   SELECT ime
-   FROM ucenik
-   WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1;
+   Приказати имена свих девојчица у одељењу III1.
 
-Извршавањем упита добија се следећи резултат:
+.. dbpetlja:: db_operatori_zadaci_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime FROM ucenik WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1;
 
-.. csv-table::
-   :header:  "ime"
-   :align: left
 
-   "Николина"
-   "Вида"
-   "Анђела"
-   "Драгица"
-   "Тања"
-   ...
+.. questionnote::
 
-2. Приказати сва мушка имена која се завршавају словом ``а``.
+   Приказати сва мушка имена ученика која се завршавају словом ``а``.
 
-.. code-block:: sql
-                
-   SELECT ime
-   FROM ucenik
-   WHERE pol = 'м' AND ime LIKE '%а';
+.. dbpetlja:: db_operatori_zadaci_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime FROM ucenik WHERE pol = 'м' AND ime LIKE '%а';
 
-Извршавањем упита добија се следећи резултат:
 
-.. csv-table::
-   :header:  "ime"
-   :align: left
+.. questionnote::
 
-   "Вања"
-   "Алекса"
-   "Коста"
-   "Никола"
-   "Алекса"
-   ...
+   Приказати податке о свим ученицима рођеним у априлу 2006.
 
-3. Приказати податке о свим ученицима рођеним у априлу 2006.
+.. dbpetlja:: db_operatori_zadaci_03
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT * FROM ucenik WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30';
 
-.. code-block:: sql
-   
-   SELECT *
-   FROM ucenik
-   WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30';
 
-Извршавањем упита добија се следећи резултат:
+.. questionnote::
 
-.. csv-table::
-   :header:  "id", "ime", "prezime", "pol", "datum_rodjenja", "razred", "odeljenje"
-   :align: left
-
-   "2", "Милица", "Јовановић", "ж", "2006-04-03", "1", "1"
-   "6", "Јован", "Миленковић", "м", "2006-04-07", "1", "2"
-   "7", "Јована", "Миленковић", "ж", "2006-04-07", "1", "2"
-   "19", "Александра", "Гајин", "ж", "2006-04-24", "1", "1"
-   "27", "Војин", "Милошевић", "м", "2006-04-30", "1", "1"
-   ..., ..., ..., ..., ..., ..., ...
-
-4. Приказати податке о свим ученицима који су рођени у зимским
+   Приказати податке о свим ученицима који су рођени у зимским
    месецима (у децембру, јануару или фебруару).
 
-.. code-block:: sql
-                
-   SELECT *
-   FROM ucenik
-   WHERE datum_rodjenja LIKE '%-12-%' OR datum_rodjenja LIKE '%-01-%' OR datum_rodjenja LIKE '%-02-%';
+.. dbpetlja:: db_operatori_zadaci_04
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT * FROM ucenik WHERE datum_rodjenja LIKE '%-12-%' OR datum_rodjenja LIKE '%-01-%' OR datum_rodjenja LIKE '%-02-%';
 
-Извршавањем упита добија се следећи резултат:
 
-.. csv-table::
-   :header:  "id", "ime", "prezime", "pol", "datum_rodjenja", "razred", "odeljenje"
-   :align: left
+.. questionnote::
 
-   "3", "Лидија", "Петровић", "ж", "2006-12-14", "1", "1"
-   "4", "Петар", "Миловановић", "м", "2005-12-08", "2", "1"
-   "5", "Ана", "Пекић", "ж", "2005-02-23", "2", "1"
-   "8", "Гордана", "Сарић", "ж", "2005-01-03", "2", "1"
-   "13", "Дуња", "Травица", "ж", "2007-01-03", "1", "1"
-   ..., ..., ..., ..., ..., ..., ...
+   Приказати сва имена ученика која почињу самогласником.
 
-5. Приказати сва имена ученика која почињу самогласником.
-
-.. code-block:: sql
-                
-   SELECT *
-   FROM ucenik
-   WHERE ime LIKE 'А%' OR ime LIKE 'Е%'  OR ime LIKE 'И%'  OR ime LIKE 'О%'  OR ime LIKE 'У%';
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "id", "ime", "prezime", "pol", "datum_rodjenja", "razred", "odeljenje"
-   :align: left
-
-   "5", "Ана", "Пекић", "ж", "2005-02-23", "2", "1"
-   "12", "Ана", "Анђелковић", "ж", "2007-04-23", "1", "2"
-   "15", "Елена", "Ђурђевић", "ж", "2007-01-16", "1", "1"
-   "19", "Александра", "Гајин", "ж", "2006-04-24", "1", "1"
-   "20", "Анита", "Урошевић", "ж", "2007-02-05", "1", "1"
-   ..., ..., ..., ..., ..., ..., ...
-
+.. dbpetlja:: db_operatori_zadaci_05
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT * FROM ucenik WHERE ime LIKE 'А%' OR ime LIKE 'Е%'  OR ime LIKE 'И%'  OR ime LIKE 'О%'  OR ime LIKE 'У%';

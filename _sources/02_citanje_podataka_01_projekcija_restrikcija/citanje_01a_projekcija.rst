@@ -103,3 +103,14 @@
    "5", "Психологија", "2"
    ..., ..., ...
 
+
+Пробај сада самостално да напишеш наредни упит.
+   
+.. questionnote::
+
+   Приказати само имена и презимена свих ученика.
+   
+.. dbpetlja:: db_projekcija_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime, prezime FROM ucenik
+   :checkcolumnname:                

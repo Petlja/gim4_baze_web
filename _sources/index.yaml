@@ -327,6 +327,29 @@ lessons:
         file: 04f_pomocne_funkcije.rst
         guid: 4408ab43-0efa-4bd6-a330-65f6cd053c42
 
+### СЕКЦИЈА Računarske mreže
+  - title: "5.0 Рачунарске мреже"
+    guid: 0eb2a0ec-d038-42b7-a30f-e4ef41be3cfd
+    folder: 05_racunarske_mreze
+    activities:
+      - type: reading
+        title: 5.1 Рачунарске мреже
+        file: 05a_pojam_racunarske_mreze.rst
+        guid: 3464bc77-999c-4b84-a156-4ac56eb05feb
+      - type: reading
+        title: 5.2 Мрежни хардвер и мрежни софтвер
+        file: 05b_mrezni_hardver_i_softver.rst
+        guid: f73273cc-603e-42f2-bca0-28b3268a3800
+      - type: reading
+        title: 5.3 Повезивање и постављање кућне мреже
+        file: 05c_povezivanje_i_postavljanje_mreze.rst
+        guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
+      - type: reading
+        title: 5.4 Детаљнији преглед мрежних слојева и протокола
+        file: 05d_mrezni_slojevi.rst
+        guid: bece5c6d-e08e-4ffd-bde7-1880e9f844f9
+
+        
 ### СЕКЦИЈА Flask
   - title: "6.0 Серверско веб-програмирање"
     guid: 625ae3ea-40d7-4d46-8512-fccc74050597
@@ -336,6 +359,10 @@ lessons:
         title: Веб-апликације - увод
         file: 06a_veb_aplikacije_uvod.rst
         guid: 34a122ff-097e-4289-bd11-27e5d69e794c
+      - type: reading
+        title: Протокол HTTP
+        file: 06b_http_zahtevi.rst
+        guid: 7785bbe6-08f1-4b77-b95f-1e825301e355
   - title: "6.1 Библиотека Flask - основни појмови"
     guid: 453b61a9-27e3-4ccb-9868-ad3143daea52
     folder: 06_serverske_veb_aplikacije_02_flask
@@ -408,4 +435,13 @@ lessons:
         title: AJAX
         file: 06g_baze_i_ajax.rst
         guid: ff6691b9-e045-48e1-b645-e23cbef6b4ec
+
+  - title: "7.0 Библиотека Flask - пројектни задатак"
+    guid: a31afe76-871b-4578-91df-d79a067fde45
+    folder: 07_projekat
+    activities:
+      - type: reading
+        title: Регистрација корисника и логовање
+        file: 01_registracija_i_logovanje.rst
+        guid: e279469e-e31c-41c9-8df8-227de0cdb002
 
