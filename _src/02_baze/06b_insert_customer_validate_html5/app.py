@@ -34,7 +34,7 @@ def customer():
             error = "Last name is missing"
         elif not phone  or not phone.strip():
             error = "Phone is missing"
-        elif not email or not re.match(r"[a-z0-9+_.-]+@[a-z0-9.-]+", email):
+        elif not email or not re.match(r"[a-z0-9+_\.-]+@[a-z0-9\.-]+", email):
             error = "E-mail is not valid"
 
         if error:
