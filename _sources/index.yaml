@@ -64,6 +64,7 @@ lessons:
         title: База компаније за продају песама - продаја
         file: baze_02g_muzika_prodaja.rst
         guid: 2dc59aeb-1111-4252-adf0-807d618ac482
+
         
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
   - title: "2.0 - SQL: Читање података из табела базе"
@@ -255,6 +256,7 @@ lessons:
         file: citanje_08b_pogledi_zadaci.rst
         guid: 15c55c44-a361-4e48-9652-55f061d969c4
 
+
 ### СЕКЦИЈА ПРОМЕНА САДРЖАЈА БАЗЕ
   - title: "3.0 SQL: Промена садржаја базе"
     guid: 677ee590-07ff-4741-a121-6ea347acaa1d
@@ -295,9 +297,9 @@ lessons:
         title: Брисање података
         file: 03a_brisanje.rst
         guid: 921ac985-380e-4d06-b91c-ba146577adbc
-        
-### СЕКЦИЈА Python SQLite API
 
+   
+### СЕКЦИЈА Python SQLite API
   - title: "4.0 Python SQLite API"
     guid: c94e776e-36e8-452d-8d12-5086106018e9
     folder: 04_python_sqlite
@@ -327,6 +329,7 @@ lessons:
         file: 04f_pomocne_funkcije.rst
         guid: 4408ab43-0efa-4bd6-a330-65f6cd053c42
 
+
 ### СЕКЦИЈА Računarske mreže
   - title: "5.0 Рачунарске мреже"
     guid: 0eb2a0ec-d038-42b7-a30f-e4ef41be3cfd
@@ -345,7 +348,7 @@ lessons:
         file: 05c_povezivanje_i_postavljanje_mreze.rst
         guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
       - type: reading
-        title: 5.4 Детаљнији преглед мрежних слојева и протокола
+        title: 5.4 Додатак: мрежни слојеви и протоколи, детаљније
         file: 05d_mrezni_slojevi.rst
         guid: bece5c6d-e08e-4ffd-bde7-1880e9f844f9
 
