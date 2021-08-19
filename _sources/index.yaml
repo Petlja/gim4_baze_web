@@ -348,7 +348,7 @@ lessons:
         file: 05c_povezivanje_i_postavljanje_mreze.rst
         guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
       - type: reading
-        title: 5.4 Додатак: мрежни слојеви и протоколи, детаљније
+        title: "5.4 Додатак: мрежни слојеви и протоколи, детаљније"
         file: 05d_mrezni_slojevi.rst
         guid: bece5c6d-e08e-4ffd-bde7-1880e9f844f9
 
