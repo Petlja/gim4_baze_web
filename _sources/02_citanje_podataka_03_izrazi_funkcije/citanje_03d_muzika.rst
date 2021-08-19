@@ -1,5 +1,8 @@
-Изрази и функције - задаци (музика)
------------------------------------
+Изрази и функције - музика
+--------------------------
+
+Прикажимо сада неколико упита над базом продавнице музичких
+композиција.
 
 .. questionnote::
 
@@ -102,4 +105,39 @@
    "4", "Restless and Wild", "4", "12"
    "5", "Princess of the Dawn", "6", "15"
    ..., ..., ..., ...
+
+
+Вежба
+.....
+
+Наредних неколико упита напиши самостално.
+
+.. questionnote::
+
+   За сваку ставку наруџбенице прикажи идентификатор *InvoiceLineId* и
+   укупну цену (она се добија множењем јединичне цене *UnitPrice* и
+   количине *Quantity*). Укупну цену прикажи у колони *TotalPrice*.
+
+
+.. dbpetlja:: db_izrazi_zadaci_muzika_01
+   :dbfile: music.sql
+   :checkcolumnname:
+   :solutionquery: SELECT InvoiceLineId, Quantity * UnitPrice AS TotalPrice
+                   FROM invoice_item
+
+.. questionnote::
+
+   Прикажи називе свих композиција које заузимају више од 10,5 мегабајта.
+
+
+.. dbpetlja:: db_izrazi_zadaci_muzika_02
+   :dbfile: music.sql
+   :checkcolumnname:
+   :solutionquery: SELECT name
+                   FROM track
+                   WHERE Bytes > 10.5 * 1024 * 1024
+
+   
+
+   
 

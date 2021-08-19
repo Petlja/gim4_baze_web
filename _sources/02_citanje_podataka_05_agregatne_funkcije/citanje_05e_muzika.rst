@@ -1,6 +1,9 @@
 Агрегатне функције и груписање -- музика
 ----------------------------------------
 
+Прикажимо сада неколико упита који користе агегатне функције и
+груписање над базом продавнице музичких композиција.
+
 .. questionnote::
 
    Израчунати колико укупно гигабајта заузимају све композиције.
@@ -170,3 +173,126 @@
 
    "3290"
 
+Вежба
+.....
+
+.. questionnote::
+
+   На основу свих наруџбеница одредити укупан промет компаније.
+
+   
+.. dbpetlja:: db_agregatne_muzika_zadaci_01
+   :dbfile: music.sql
+   :solutionquery: SELECT SUM(Total)
+                   FROM Invoice
+
+.. questionnote::
+
+   Одредити просечни износ наруџбенице током 2010. године.
+   
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_02
+   :dbfile: music.sql
+   :solutionquery: SELECT AVG(Total)
+                   FROM Invoice
+                   WHERE InvoiceDate LIKE '2010-%'
+
+.. questionnote::
+
+   За сваку земљу у коју је послата нека наруџбина приказати укупан
+   износ наруџбина послатих у ту земљу. Резултате приказати заокружене
+   на најближи цео број у нерастућем редоследу укупног износа
+   наруџбина.
+   
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_03
+   :dbfile: music.sql
+   :solutionquery: SELECT BillingCountry, ROUND(SUM(Total)) AS ukupno
+                   FROM Invoice
+                   GROUP BY BillingCountry
+                   ORDER BY ukupno DESC
+
+
+.. questionnote::
+
+   За сваку годину приказати укупан број наруџбина испоручених у
+   САД. Резултат сортирати на основу године.
+   
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_04
+   :dbfile: music.sql
+   :solutionquery: SELECT strftime('%Y', InvoiceDate) AS godina, COUNT(*) AS ukupno
+                   FROM Invoice
+                   WHERE BillingCountry = 'USA'
+                   GROUP BY godina
+                   ORDER BY godina
+
+
+.. questionnote::
+
+   На табеле ставки наруџбина ``InvoiceItem`` приказати укупан износ
+   наруџбина на свакој наруџбеници (износ сваке ставке се добија
+   множењем количине ``Quantity`` и јединичне цене ``UnitPrice``, а
+   укупан износ наруџбине се добија сабирањем свих овако израчунатих
+   износа ставки са те наруџбине). Сваки износ заокружити на две
+   децимале.
+   
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_05
+   :dbfile: music.sql
+   :solutionquery: SELECT InvoiceId, ROUND(SUM(Quantity * UnitPrice), 2) AS Ukupno
+                   FROM invoice_item
+                   GROUP BY InvoiceId
+
+
+      
+.. questionnote::
+
+   За сваку земљу из које постоји неки купац приказати укупан број
+   купаца.
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_06
+   :dbfile: music.sql
+   :solutionquery: SELECT Country, COUNT(*) AS broj_kupaca
+                   FROM Customer
+                   GROUP BY Country
+
+                   
+.. questionnote::
+
+   За сваку земљу из које постоји бар 5 купаца приказати укупан број
+   купаца (резултат сортирати по броју купаца, нерастући).
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_07
+   :dbfile: music.sql
+   :solutionquery: SELECT Country, COUNT(*) AS broj_kupaca
+                   FROM Customer
+                   GROUP BY Country
+                   HAVING broj_kupaca >= 5
+                   ORDER BY broj_kupaca DESC
+                   
+.. questionnote::
+
+   Приказати идентификаторе жанрова за које је у понуди више од 10
+   сати музике.
+
+.. dbpetlja:: db_agregatne_muzika_zadaci_08
+   :dbfile: music.sql
+   :solutionquery: SELECT GenreId
+                   FROM Track
+                   GROUP BY GenreId
+                   HAVING SUM(Milliseconds) >= 10 * 60 * 60 * 1000
+
+
+.. questionnote::
+
+   За сваки жанр приказати број различитих типова медија на којима су
+   снимане песме тог жанра (приказати идентификатор жанра и број
+   типова медија).
+
+   
+.. dbpetlja:: db_agregatne_muzika_zadaci_09
+   :dbfile: music.sql
+   :solutionquery: SELECT GenreId, COUNT (DISTINCT MediaTypeId)
+                   FROM Track
+                   GROUP BY GenreId

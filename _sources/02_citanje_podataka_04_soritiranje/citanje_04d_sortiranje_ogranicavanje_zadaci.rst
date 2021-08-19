@@ -3,69 +3,35 @@
 Сортирање и ограничавање - задаци (дневник)
 ...........................................
 
-1. Прикажи сва различита мушка имена која почињу на слово ``M``.
+.. questionnote::
 
-.. code-block:: sql
+   Прикажи сва различита мушка имена која почињу на слово ``M``.
 
-   SELECT DISTINCT ime
-   FROM ucenik
-   WHERE pol = 'м' AND ime LIKE 'М%';
+.. dbpetlja:: db_sortiranje_zadaci_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT DISTINCT ime
+                   FROM ucenik
+                   WHERE pol = 'м' AND ime LIKE 'М%'
 
-Извршавањем упита добија се следећи резултат:
+.. questionnote::
 
-.. csv-table::
-   :header:  "ime"
-   :align: left
+   Прикажи списак првих 10 различитих презимена у азбучном редоследу.
 
-   "Младен"
-   "Милан"
-   "Милутин"
-   "Матеј"
-   "Матео"
-   ...
+.. dbpetlja:: db_sortiranje_zadaci_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT DISTINCT prezime
+                   FROM ucenik
+                   ORDER BY prezime
+                   LIMIT 10
 
-2. Прикажи списак првих 10 различитих презимена у азбучном редоследу.
+.. questionnote::
 
-.. code-block:: sql
-
-   SELECT DISTINCT prezime
-   FROM ucenik
-   ORDER BY prezime
-   LIMIT 10;
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "prezime"
-   :align: left
-
-   "Алексић"
-   "Анђелковић"
-   "Антић"
-   "Арсић"
-   "Бабић"
-   ...
-
-3. Прикажи податке о свим оценама на писменим задацима сортиране
+   Прикажи податке о свим оценама на писменим задацима сортиране
    опадајући по оцени.
 
-.. code-block:: sql
-
-   SELECT *
-   FROM ocena
-   WHERE vrsta = 'писмени задатак'
-   ORDER BY ocena DESC;
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "id", "id_predmet", "id_ucenik", "ocena", "datum", "vrsta"
-   :align: left
-
-   "20", "1", "19", "5", "2020-10-15", "писмени задатак"
-   "27", "1", "26", "5", "2020-10-15", "писмени задатак"
-   "38", "1", "37", "5", "2020-10-15", "писмени задатак"
-   "43", "1", "39", "5", "2020-10-15", "писмени задатак"
-   "44", "1", "40", "5", "2020-10-15", "писмени задатак"
-   ..., ..., ..., ..., ..., ...
-
+.. dbpetlja:: db_sortiranje_zadaci_03
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT *
+                   FROM ocena
+                   WHERE vrsta = 'писмени задатак'
+                   ORDER BY ocena DESC

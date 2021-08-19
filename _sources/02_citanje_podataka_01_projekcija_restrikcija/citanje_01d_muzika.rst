@@ -73,8 +73,8 @@
    ..., ...
 
 
-Пројекција и селекција -- задаци за вежбу (музика)
-..................................................
+Вежба
+.....
 
 Покушај сада самостално да решиш наредних неколико задатака.
 
@@ -84,7 +84,9 @@
 
 .. dbpetlja:: db_proj_restr_muz_01
    :dbfile: music.sql
-   :solutionquery:  SELECT title FROM album WHERE artistId = 1;
+   :solutionquery: SELECT title
+                   FROM album
+                   WHERE artistId = 1
 
 .. questionnote::
 
@@ -92,5 +94,7 @@
 
 .. dbpetlja:: db_proj_restr_muz_02
    :dbfile: music.sql
-   :solutionquery:  SELECT CustomerId, FirstName, LastName  FROM customer WHERE FirstName = 'Jack';
+   :solutionquery:  SELECT CustomerId, FirstName, LastName
+                    FROM customer
+                    WHERE FirstName = 'Jack'
                     

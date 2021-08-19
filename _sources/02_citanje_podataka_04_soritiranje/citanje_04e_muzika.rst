@@ -1,5 +1,8 @@
-Сортирање и ограничавање - задаци (музика)
-------------------------------------------
+Сортирање и ограничавање - музика
+---------------------------------
+
+У наставку ћемо приказати неколико упита над базом продавнице музичких
+композиција.
 
 .. questionnote::
 
@@ -68,3 +71,56 @@
    "43"
    ...
 
+
+Вежба
+.....
+   
+Покушајте да самостално напишете наредних неколико упита.
+
+.. questionnote::
+
+   Приказати списак назива свих албума сортирано по називима албума у
+   абецедном реду.
+
+.. dbpetlja:: db_sortiranje_zadaci_muzika_01
+   :dbfile: music.sql
+   :solutionquery: SELECT Title
+                   FROM Album
+                   ORDER BY Title
+   
+
+.. questionnote::
+
+   Приказати податке о свим купцима из САД сортирано по називу града
+   из којег долазе.
+
+.. dbpetlja:: db_sortiranje_zadaci_muzika_02
+   :dbfile: music.sql
+   :solutionquery: SELECT *
+                   FROM Customer
+                   WHERE Country = 'USA'
+                   ORDER BY City
+
+                   
+.. questionnote::
+
+   Приказати имена, презимена и датуме рођења три најмлађа запослена у
+   компанији.
+   
+.. dbpetlja:: db_sortiranje_zadaci_muzika_03
+   :dbfile: music.sql
+   :solutionquery: SELECT Name, BirthDate
+                   FROM employee
+                   ORDER BY BirthDate DESC
+                   LIMIT 3
+
+.. questionnote::
+
+   Исписати ознаке различитих држава у САД из којих долазе купци.
+   
+.. dbpetlja:: db_sortiranje_zadaci_muzika_04
+   :dbfile: music.sql
+   :solutionquery: SELECT DISTINCT State
+                   FROM Customer
+                   WHERE Country = 'USA'
+                   

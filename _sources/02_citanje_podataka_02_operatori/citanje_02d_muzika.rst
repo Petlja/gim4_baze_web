@@ -163,9 +163,8 @@
    "3340", "LOST In 8:15", "261", "3", "21", "497163", "98460675", "1.99"
 
 
-
-Логички и релацијски оператори -- задаци (музика)
-.................................................
+Вежба
+.....
 
 Покушај сада да самостално решиш наредних неколико задатака.
 
@@ -176,7 +175,9 @@
 
 .. dbpetlja:: db_operatori_zadaci_muzika_01
    :dbfile: music.sql
-   :solutionquery: SELECT Name FROM track WHERE Name LIKE '% you';
+   :solutionquery: SELECT Name
+                   FROM track
+                   WHERE Name LIKE '% you'
 
 .. questionnote::
 
@@ -185,7 +186,9 @@
 
 .. dbpetlja:: db_operatori_zadaci_muzika_02
    :dbfile: music.sql
-   :solutionquery: SELECT FirstName, LastName, Country FROM customer WHERE FirstName = 'Luis' AND Country != 'Brasil';
+   :solutionquery: SELECT FirstName, LastName, Country
+                   FROM customer
+                   WHERE FirstName = 'Luis' AND Country != 'Brasil'
 
 .. questionnote::
 
@@ -195,4 +198,6 @@
    
 .. dbpetlja:: db_operatori_zadaci_muzika_03
    :dbfile: music.sql
-   :solutionquery: SELECT FirstName, LastName, BirthDate FROM employee WHERE BirthDate BETWEEN '1970-01-01' AND '1979-12-31';
+   :solutionquery: SELECT FirstName, LastName, BirthDate
+                   FROM employee
+                   WHERE BirthDate BETWEEN '1970-01-01' AND '1979-12-31'

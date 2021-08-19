@@ -214,6 +214,9 @@
 релације.
 
 
+Вежба
+.....
+
 Пробај сада да самостално напишеш наредних неколико упита. 
 
 .. questionnote::
@@ -222,7 +225,9 @@
 
 .. dbpetlja:: db_restrikcija_02
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT * FROM predmet WHERE fond = 2
+   :solutionquery: SELECT *
+                   FROM predmet
+                   WHERE fond = 2
    :checkcolumnname:                
       
 
@@ -232,6 +237,8 @@
 
 .. dbpetlja:: db_restrikcija_01
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT ime, prezime FROM ucenik WHERE datum_rodjenja = '2007-04-07'
+   :solutionquery: SELECT ime, prezime
+                   FROM ucenik
+                   WHERE datum_rodjenja = '2007-04-07'
    :checkcolumnname:                
 

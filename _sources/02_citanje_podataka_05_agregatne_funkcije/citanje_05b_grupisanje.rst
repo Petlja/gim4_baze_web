@@ -151,3 +151,74 @@
 девојчице (код којих је вредност у колони ``pol`` једнака ``ж``), а
 затим се те врсте групишу у четири групе на основу разреда и затим се
 одређује број елемената у свакој од те четири групе.
+
+
+Груписани резултати се могу сортирати, може се ограничавати број врста
+у резултату и слично.
+
+.. questionnote::
+
+   Приказати нека три најчешћа презимена.
+    
+.. code-block:: sql
+
+   SELECT prezime, COUNT(*) AS broj_ucenika
+   FROM ucenik
+   GROUP BY prezime
+   ORDER BY broj_ucenika DESC
+   LIMIT 3;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "prezime", "broj_ucenika"
+   :align: left
+
+   "Милић", "8"
+   "Цветковић", "7"
+   "Ристић", "7"
+
+
+Вежба
+.....
+
+Покушај да самостално напишеш наредних неколико упита.
+
+.. questionnote::
+
+   Прикажи укупан број изостанака за сваки статус изостанака
+   (оправдане, неоправдане, нерегулисане).
+
+.. dbpetlja:: db_grupisanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT status, COUNT(*) AS broj_izostanak
+                   FROM izostanak
+                   GROUP BY status
+
+                   
+.. questionnote::
+
+   Прикажи највећи фонд часова неког предмета за сваки од разреда
+   (приказати редни број разреда и максимални фонд).
+
+.. dbpetlja:: db_grupisanje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT razred, MAX(fond) AS najveci_fond
+                   FROM predmet
+                   GROUP BY razred
+
+.. questionnote::
+
+   Прикажи три датума у којима је остварено највише изостанака (уз
+   датум приказати и број изостанака).
+
+.. dbpetlja:: db_grupisanje_03
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT datum, COUNT(*) AS broj_izostanaka
+                   FROM izostanak
+                   GROUP BY datum
+                   ORDER BY broj_izostanaka DESC
+                   LIMIT 3
+
+   
+    

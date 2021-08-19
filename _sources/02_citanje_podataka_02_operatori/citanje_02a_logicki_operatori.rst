@@ -204,6 +204,9 @@
    "126", "Марија", "Петровић", "ж", "2005-03-27", "2", "2"
    "285", "Илија", "Петровић", "м", "2003-10-27", "4", "1"
 
+Вежба
+.....
+
 Покушај сада да самостално реших наредни задатак.
    
 .. questionnote::
@@ -213,4 +216,6 @@
 
 .. dbpetlja:: db_logicki_operatori_01
    :dbfile: dnevnik.sql
-   :solutionquery:  SELECT naziv FROM predmet WHERE razred = 2 AND fond = 2
+   :solutionquery:  SELECT naziv
+                    FROM predmet
+                    WHERE razred = 2 AND fond = 2

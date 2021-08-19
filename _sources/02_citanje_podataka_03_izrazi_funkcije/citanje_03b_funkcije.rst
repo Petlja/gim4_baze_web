@@ -127,3 +127,114 @@ SQL подржава велики број библиотечких функци
 документацији система SQLite
 (https://www.sqlite.org/lang_corefunc.html и
 https://www.sqlite.org/lang_datefunc.html).
+
+Прикажимо неколико примера употребе ових функција.
+
+.. questionnote::
+
+   Неки изостанци су грешком уписани после последњег дана
+   школе, 20. јуна 2021. Како би изгледала таблица изостанака ако би
+   се сви ти изостанци преправили тако да им датум буде 20. јун 2021.
+   
+.. code-block:: sql
+
+   SELECT id, id_ucenik, MIN(datum, '2021-06-20') AS datum, cas, status
+   FROM izostanak;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "id", "id_ucenik", "datum", "cas", "status"
+   :align: left
+
+   "1", "1", "2021-05-14", "1", "оправдан"
+   "2", "1", "2021-05-14", "2", "неоправдан"
+   "3", "4", "2021-05-14", "1", "нерегулисан"
+   "4", "4", "2021-05-14", "2", "нерегулисан"
+   "5", "6", "2021-06-01", "1", "неоправдан"
+   ..., ..., ..., ..., ...
+
+
+.. questionnote::
+
+   Коришћњем функције за издвајање првог слова ниске одредити ученике
+   мушког пола чије име почиње самогласником.
+
+.. code-block:: sql
+
+   SELECT ime
+   FROM ucenik
+   WHERE pol = 'м' AND substr(ime, 1, 1) IN ('А', 'Е', 'И', 'О', 'У');
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "ime"
+   :align: left
+
+   "Огњен"
+   "Андреј"
+   "Алекса"
+   "Урош"
+   "Алекса"
+   ...
+
+
+.. questionnote::
+
+   За сваког ученика приказати име, презиме, дан рођења, месец рођења
+   и годину рођења (засебно, као целе бројеве).
+
+.. code-block:: sql
+                
+   SELECT ime, prezime,
+          CAST(strftime('%d', datum_rodjenja) AS INTEGER) AS dan,
+          CAST(strftime('%m', datum_rodjenja) AS INTEGER) AS mesec,
+          CAST(strftime('%Y', datum_rodjenja) AS INTEGER) AS godina
+   FROM ucenik;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "ime", "prezime", "dan", "mesec", "godina"
+   :align: left
+
+   "Петар", "Петровић", "1", "7", "2006"
+   "Милица", "Јовановић", "3", "4", "2006"
+   "Лидија", "Петровић", "14", "12", "2006"
+   "Петар", "Миловановић", "8", "12", "2005"
+   "Ана", "Пекић", "23", "2", "2005"
+   ..., ..., ..., ..., ...
+
+
+Вежба
+.....
+   
+Наредних неколико упита пробај да напишеш самостално.
+
+
+.. questionnote::
+
+   За сваки регулисани изостанак издвојити идентификатор и ознаку
+   статуса (*о* за оправдане и *н* за неоправдане) у колони која се
+   опет назива *status* -- употребити функцију за издвајање првог
+   карактера ниске.
+
+.. dbpetlja:: db_izrazi_funkcije_02
+   :dbfile: dnevnik.sql
+   :checkcolumnname:
+   :solutionquery: SELECT id, substr(status, 1, 1) AS status
+                   FROM izostanak
+                   WHERE status != 'нерегулисан'
+   
+
+.. questionnote::
+
+   Коришћењем функције за издвајање године из датума, приказати имена
+   и презимена ученицика рођених током 2006 године.
+
+.. dbpetlja:: db_izrazi_funkcije_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT ime, prezime
+                   FROM ucenik
+                   WHERE strftime('%Y', datum_rodjenja) = '2006'

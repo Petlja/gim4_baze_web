@@ -11,7 +11,9 @@
 
 .. dbpetlja:: db_operatori_zadaci_01
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT ime FROM ucenik WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1;
+   :solutionquery: SELECT ime
+                   FROM ucenik
+                   WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1
 
 
 .. questionnote::
@@ -20,7 +22,9 @@
 
 .. dbpetlja:: db_operatori_zadaci_02
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT ime FROM ucenik WHERE pol = 'м' AND ime LIKE '%а';
+   :solutionquery: SELECT ime
+                   FROM ucenik
+                   WHERE pol = 'м' AND ime LIKE '%а'
 
 
 .. questionnote::
@@ -29,7 +33,9 @@
 
 .. dbpetlja:: db_operatori_zadaci_03
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT * FROM ucenik WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30';
+   :solutionquery: SELECT *
+                   FROM ucenik
+                   WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30'
 
 
 .. questionnote::
@@ -39,7 +45,11 @@
 
 .. dbpetlja:: db_operatori_zadaci_04
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT * FROM ucenik WHERE datum_rodjenja LIKE '%-12-%' OR datum_rodjenja LIKE '%-01-%' OR datum_rodjenja LIKE '%-02-%';
+   :solutionquery: SELECT *
+                   FROM ucenik
+                   WHERE datum_rodjenja LIKE '%-12-%' OR
+                         datum_rodjenja LIKE '%-01-%' OR
+                         datum_rodjenja LIKE '%-02-%'
 
 
 .. questionnote::
@@ -48,4 +58,10 @@
 
 .. dbpetlja:: db_operatori_zadaci_05
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT * FROM ucenik WHERE ime LIKE 'А%' OR ime LIKE 'Е%'  OR ime LIKE 'И%'  OR ime LIKE 'О%'  OR ime LIKE 'У%';
+   :solutionquery: SELECT *
+                   FROM ucenik
+                   WHERE ime LIKE 'А%' OR
+                         ime LIKE 'Е%' OR
+                         ime LIKE 'И%' OR
+                         ime LIKE 'О%' OR
+                         ime LIKE 'У%'

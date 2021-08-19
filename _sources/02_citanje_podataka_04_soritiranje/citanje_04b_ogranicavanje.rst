@@ -104,3 +104,20 @@ start``.
 врсте уреде по датуму рођења, и то опадајући (тако да највећи,
 тј. најновији датум буде први), а након тога смо клаузулом
 ``LIMIT 5`` издвојили само првих 5 врста резултата.
+
+Вежба
+.....
+
+Покушај да наредни упит напишеш самостално.
+
+.. questionnote::
+
+   Приказати податке о десет последње направљених изостанака.
+
+   
+.. dbpetlja:: db_sortiranje_ogranicavanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT *
+                   FROM izostanak
+                   ORDER BY datum DESC, cas DESC
+                   LIMIT 10

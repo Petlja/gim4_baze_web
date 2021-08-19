@@ -104,13 +104,17 @@
    ..., ..., ...
 
 
+Вежба
+.....
+   
 Пробај сада самостално да напишеш наредни упит.
    
 .. questionnote::
 
-   Приказати само имена и презимена свих ученика.
+   Приказати само називе свих предмета.
    
 .. dbpetlja:: db_projekcija_01
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT ime, prezime FROM ucenik
+   :solutionquery: SELECT naziv
+                   FROM predmet
    :checkcolumnname:                

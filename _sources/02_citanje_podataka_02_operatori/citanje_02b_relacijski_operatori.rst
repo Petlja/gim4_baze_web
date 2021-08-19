@@ -351,6 +351,10 @@
    "7", "Физика", "2", "3"
    ..., ..., ..., ...
 
+   
+Вежба
+.....
+   
 Покушај сада да самостално реших наредних неколико задатака.
    
 .. questionnote::
@@ -359,7 +363,9 @@
    
 .. dbpetlja:: db_relacijski_01
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT * FROM izostanak WHERE cas <= 3;
+   :solutionquery: SELECT *
+                   FROM izostanak
+                   WHERE cas <= 3
 
 .. questionnote::
 
@@ -367,5 +373,7 @@
    
 .. dbpetlja:: db_relacijski_02
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT ime, prezime FROM ucenik WHERE prezime LIKE 'Ми%';
+   :solutionquery: SELECT ime, prezime
+                   FROM ucenik
+                   WHERE prezime LIKE 'Ми%'
                    
