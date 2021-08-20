@@ -231,7 +231,7 @@ https://www.sqlite.org/lang_datefunc.html).
 .. questionnote::
 
    Коришћењем функције за издвајање године из датума, приказати имена
-   и презимена ученицика рођених током 2006 године.
+   и презимена ученика рођених током 2006 године.
 
 .. dbpetlja:: db_izrazi_funkcije_01
    :dbfile: dnevnik.sql
