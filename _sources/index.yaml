@@ -38,6 +38,10 @@ lessons:
         title: Повезане табеле
         file: baze_00c_povezane_tabele.rst
         guid: cea6af07-8241-4a4f-966e-d575e71a6077
+      - type: quiz
+        title: Базе и табеле - квиз
+        file: baze_00d_kviz.rst
+        guid: 3c772bba-05b3-4a6a-a44e-4aff55718f0d
 
   - title: "1.1 Базе: SQLite"
     guid: bd1d3ac2-2a4e-4551-9184-093c8e1d52d9
@@ -51,7 +55,11 @@ lessons:
         title: Креирање базе у SQLite Studio
         file: baze_01b_sqlite_baza.rst
         guid: d3739013-648b-4cb1-8058-5d0515878a25
-      - type: reading # quiz ?
+      - type: quiz
+        title: SQLite и SQLite Studio - квиз
+        file: baze_01c_sqlite_kviz.rst
+        guid: fedfece4-b17e-40d0-97cf-4661afbe4604
+      - type: reading
         title: Креирање базе у SQLite Studio - задаци за вежбу
         file: baze_01c_sqlite_vezba.rst
         guid: ea6bfcb5-e846-4561-8126-6ee7ae47265b
@@ -68,6 +76,10 @@ lessons:
         title: База компаније за продају песама - продаја
         file: baze_02g_muzika_prodaja.rst
         guid: 2dc59aeb-1111-4252-adf0-807d618ac482
+      - type: quiz
+        title: Дизајнирање базе података - квиз
+        file: baze_02c_dizajn_kviz.rst
+        guid: accc6444-ed67-43d4-b025-ae2456769666
 
         
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
@@ -79,6 +91,10 @@ lessons:
         title: "SQL: Читање података из табела"
         file: citanje_00a_uvod.rst
         guid: 02099b6b-cc88-49cd-a7b1-5e72d917fa16
+      - type: quiz
+        title: Читање података - квиз
+        file: citanje_00b_citanje_kviz.rst
+        guid: d18a4aef-e340-47cd-ab8b-3e55b092bfbe
 
   - title: "2.1 SQL: Пројекција и селекција"
     guid: 9a05a82c-a1e4-43b0-9b35-15cad3b4e582
@@ -92,11 +108,15 @@ lessons:
         title: Селекција
         file: citanje_01b_restrikcija.rst
         guid: 5352c2d4-3fbf-48d3-97ab-fce40c48df20
-      - type: reading # quiz ?
+      - type: quiz
+        title: Пројекција и селекција - квиз
+        file: citanje_01c_proj_restr_kviz.rst
+        guid: 017eacf2-ec62-45b3-b246-74e80366cb3c
+      - type: reading
         title: Пројекција и селекција - задаци (дневник)
         file: citanje_01c_proj_restr_zadaci.rst
         guid: c7459add-98bf-4f02-8a8a-af2b433dec83
-      - type: reading # quiz ?
+      - type: reading
         title: Пројекција и селекција - задаци (музика)
         file: citanje_01d_muzika.rst
         guid: 0035d4fe-7f2c-4bce-b835-82a13e51cb33
@@ -113,11 +133,15 @@ lessons:
         title: Релацијски оператори
         file: citanje_02b_relacijski_operatori.rst
         guid: ca886a03-944a-4c6e-a205-3b191a87b2eb
-      - type: reading # quiz ?
+      - type: quiz
+        title: Оператори - квиз
+        file: citanje_02c_operatori_kviz.rst
+        guid: e5f38f80-4483-40ac-925a-9679c7cbba4b
+      - type: reading
         title: Оператори - задаци (дневник)
         file: citanje_02c_operatori_zadaci.rst
         guid: c5268e25-819a-44ef-9495-6e013d125749
-      - type: reading # quiz ?
+      - type: reading
         title: Оператори - задаци (музика)
         file: citanje_02d_muzika.rst
         guid: 21bb4ab3-5c49-46ff-b084-6d2771ab5327
@@ -134,11 +158,15 @@ lessons:
         title: Функције
         file: citanje_03b_funkcije.rst
         guid: 5ce6c3d2-c316-4ddc-9b37-ac1613512bd3
-      - type: reading # quiz ?
+      - type: quiz
+        title: Изрази и функције - квиз
+        file: citanje_03c_izrazi_funkcije_kviz.rst
+        guid: 92ac269f-bb47-4b2a-856d-f080ad8d8a17
+      - type: reading
         title: Изрази и функције - задаци (дневник)
         file: citanje_03c_izrazi_funkcije_zadaci.rst
         guid: df85e68d-1e53-4a7e-b536-8656dd57e46b
-      - type: reading # quiz ?
+      - type: reading
         title: Изрази и функције - задаци (музика)
         file: citanje_03d_muzika.rst
         guid: 07d3318c-2fda-4f8a-b6d0-9c31285d6544
@@ -159,11 +187,15 @@ lessons:
         title: Уклањање дупликата
         file: citanje_04c_uklanjanje_duplikata.rst
         guid: 4036d393-be46-4ec2-8004-3196f4a4676a
-      - type: reading # quiz ?
+      - type: quiz
+        title: Сортирање, уклањање дупликата, ограничавање одговора - квиз
+        file: citanje_04d_sort_ogr_kviz.rst
+        guid: 2a8b92b7-df37-4b45-ae0b-f88a12826042
+      - type: reading
         title: Сортирање и ограничавање - задаци (дневник)
         file: citanje_04d_sortiranje_ogranicavanje_zadaci.rst
         guid: 02b0323d-a82f-465e-a379-2c75d659b9a5
-      - type: reading # quiz ?
+      - type: reading
         title: Сортирање и ограничавање - задаци (музика)
         file: citanje_04e_muzika.rst
         guid: 00aac1de-669b-4f4f-813d-8d40bad9d41d
@@ -184,6 +216,10 @@ lessons:
         title: Селекција након груписања
         file: citanje_05c_restrikcija_nakon_grupisanja.rst
         guid: 64dda07c-1a32-404d-aca8-2c77fca517d9
+      - type: quiz
+        title: Агрегатне функције и груписање - квиз
+        file: citanje_05d_agregatne_grupisanje_kviz.rst
+        guid: 94bb237a-a39a-4ae4-ae78-dbd31010bc28
       - type: reading
         title: Агрегатне функције и груписање - задаци (дневник)
         file: citanje_05d_agregatne_zadaci.rst
@@ -213,6 +249,10 @@ lessons:
         title: Врсте спајања
         file: citanje_06c_vrste_spajanja.rst
         guid: d82adffc-8d26-43c4-8190-8ee492f0639c
+      - type: quiz
+        title: Спајање табела - квиз
+        file: citanje_06e_spajanje_kviz.rst
+        guid: 7be8db65-422d-4a35-b86e-e1b3f0660458
       - type: reading
         title: Спајање - задаци (дневник)
         file: citanje_06e_spajanje_zadaci.rst
@@ -238,6 +278,10 @@ lessons:
         title: Провера постојања
         file: citanje_07c_provera_postojanja.rst
         guid: 51df3cec-1076-467a-bc9c-0eb45c40dd59
+      - type: quiz
+        title: Угнежђени упити - квиз
+        file: citanje_06d_ugnezdjeni_kviz.rst
+        guid: 9fe307aa-2dfe-4599-a344-55ee26746186
       - type: reading
         title: Угнежђени упити - задаци (дневник)
         file: citanje_07d_ugnezdjeni_zadaci.rst
@@ -255,6 +299,10 @@ lessons:
         title: Погледи
         file: citanje_08a_pogledi.rst
         guid: fedbb648-9bae-4e3d-b35d-08534362ca26
+      - type: quiz
+        title: Погледи - квиз
+        file: citanje_07b_pogledi_kviz.rst
+        guid: 657c546c-b491-437d-9d33-c836f9c4415c
       - type: reading
         title: Погледи - задаци (дневник)
         file: citanje_08b_pogledi_zadaci.rst
