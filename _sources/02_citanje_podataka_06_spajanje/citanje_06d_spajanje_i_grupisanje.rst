@@ -94,3 +94,32 @@
 
    "Српски језик", "3.98"
 
+Вежба
+.....
+
+Покушај да наредне упите напишеш самостално.
+
+.. questionnote::
+   
+   За свако одељење приказати укупан број неоправданих изостанака.
+
+.. dbpetlja:: db_spajanje_i_grupisanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT razred, odeljenje, COUNT(*) AS broj
+                   FROM izostanak i JOIN
+                        ucenik u ON i.id_ucenik = u.id
+                   WHERE status = 'неоправдан'
+                   GROUP BY razred, odeljenje
+                   
+.. questionnote::
+   
+   Приказати просечну оцену (заокружено на две децимале) из математике за свако одељење.   
+
+.. dbpetlja:: db_spajanje_i_grupisanje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT u.razred, u.odeljenje, ROUND(AVG(ocena), 2) AS prosek
+                   FROM ucenik u JOIN 
+                        ocena o ON u.id = o.id_ucenik JOIN
+                        predmet p ON p.id = o.id_predmet
+                   WHERE p.naziv = 'Математика'
+                   GROUP BY u.razred, u.odeljenje

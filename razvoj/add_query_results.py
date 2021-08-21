@@ -47,7 +47,8 @@ def process_file(filename):
                     cur = con.cursor();
                     try:
                         cur.execute(query)
-                    except:
+                    except sql.Error as er:
+                        # print('SQLite error: %s' % (' '.join(er.args)))
                         con.close()
                         continue
 
@@ -77,7 +78,7 @@ def process_file(filename):
                     # ako je ranije vec postojala rezultujuca tabela, staru tabelu preskacemo
                     if i + 1 < len(lines) and lines[i+1].strip() == result_str:
                         i += 7 # preskacemo zaglavlje tabele
-                        while lines[i].strip():
+                        while i < len(lines) and lines[i].strip():
                            i += 1
 
                     # posto smo uspesno izvrsili upit, mozemo prekinuti iteraciju kroz baze

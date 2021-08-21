@@ -1,7 +1,11 @@
 .. -*- mode: rst -*-
 
 Спајање --- музика
-..................
+------------------
+
+У наставку ћемо приказати неколико упита у којима се користи спајање,
+а који читају податке из базе компаније која врши продају музичких
+композиција.
 
 .. questionnote::
 
@@ -52,30 +56,6 @@
    "Ligia"
    ...
 
-
-.. questionnote::
-
-   Приказати списак композиција који садржи назив извођача и назив композиције.
-   
-.. code-block:: sql
-
-   SELECT artist.Name, track.Name
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId;
-
-Извршавањем упита добија се следећи резултат:
-
-.. csv-table::
-   :header:  "Name", "Name"
-   :align: left
-
-   "AC/DC", "For Those About To Rock (We Salute You)"
-   "Accept", "Balls to the Wall"
-   "Accept", "Fast As a Shark"
-   "Accept", "Restless and Wild"
-   "Accept", "Princess of the Dawn"
-   ..., ...
 
 .. questionnote::
    
@@ -343,3 +323,143 @@
    "Heavy Metal"
    "Blues"
 
+
+.. questionnote::
+
+   За сваког извођача приказати идентификатор, име и укупан број рок
+   композиција које је снимио (ако није снимио ни једну, приказати
+   нулу).
+
+Пошто се тражи приказ броја композиција за све извођаче, а многи
+извођачи нису снимили ниједну рок композицију, потребно је да
+употребимо лево спајање.
+
+.. code-block:: sql
+                
+   SELECT ar.Name, COUNT(t.Name) AS broj_rok_kompozicija
+   FROM (artist ar JOIN
+         album al ON ar.ArtistId = al.ArtistId)
+   LEFT JOIN
+        (track t JOIN
+         genre g ON t.GenreId = g.GenreId AND g.Name = 'Rock') ON al.AlbumId = t.AlbumId
+   GROUP BY ar.ArtistId
+   ORDER BY broj_rok_kompozicija DESC   
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "Name", "broj_rok_kompozicija"
+   :align: left
+
+   "Led Zeppelin", "114"
+   "U2", "112"
+   "Deep Purple", "92"
+   "Iron Maiden", "81"
+   "Pearl Jam", "54"
+   ..., ...
+
+   
+Вежба
+.....
+
+Покушај да наредних неколико упита напишеш самостално.
+
+.. questionnote::
+
+   Приказати списак композиција који садржи назив извођача и назив композиције.
+   
+.. dbpetlja:: db_spajanje_muzika_01
+   :dbfile: music.sql
+   :solutionquery: SELECT artist.Name, track.Name
+                   FROM track JOIN
+                        album ON track.AlbumId = album.AlbumId JOIN
+                        artist ON artist.ArtistId = album.ArtistId;
+
+.. questionnote::
+
+   Приказати податке о томе који запослени подноси извештај ком
+   запосленом у читљивом формату (у свакој врсти приказати
+   идентификатор, име и презиме шефа, а затим идентификатор, име и
+   презиме оног коме је та особа шеф).
+
+.. dbpetlja:: db_spajanje_muzika_02
+   :dbfile: music.sql
+   :solutionquery: SELECT e1.EmployeeId, e1.FirstName, e1.LastName,
+                          e2.EmployeeId, e2.FirstName, e2.LastName
+                   FROM employee e1 JOIN
+                        employee e2 ON e1.EmployeeId = e2.ReportsTo
+
+
+                        
+.. questionnote::
+
+   Приказати имена купаца уз имена запослених који су задужени за
+   њихову техничку подршку (сортирати списак по именима запослених, а
+   за сваког запосленог по именима купаца).
+
+   
+.. dbpetlja:: db_spajanje_muzika_03
+   :dbfile: music.sql
+   :solutionquery: SELECT c.FirstName, c.LastName, e.FirstName, e.LastName
+                   FROM customer c JOIN
+                        employee e ON c.SupportRepId = e.EmployeeId
+                        ORDER BY e.LastName, e.FirstName, c.LastName, c.FirstName
+   
+                        
+.. questionnote::
+
+   За сваки жанр приказати дужину најкраће и најдуже композиције.
+   
+.. dbpetlja:: db_spajanje_muzika_04
+   :dbfile: music.sql
+   :solutionquery: SELECT Name, Min(Milliseconds), Max(Milliseconds)
+                   FROM genre g JOIN 
+                        track t ON g.GenreId = t.GenreId
+                   GROUP BY g.GenreId
+    
+.. questionnote::
+
+   Приказати број ставки на свакој наруџбеници испорученој у Бразил
+   (приказати идентификатор наруџбенице, име и презиме купца и број
+   ставки). Резултате сортирати неопадајуће по броју ставки.
+
+.. dbpetlja:: db_spajanje_muzika_05
+   :dbfile: music.sql
+   :solutionquery: SELECT i.InvoiceId, c.FirstName, c.LastName, COUNT(*) AS broj_stavki
+                   FROM invoice i JOIN
+                        invoice_item ii ON i.InvoiceId = ii.InvoiceId JOIN
+                        customer c ON i.CustomerId = c.CustomerId
+                   WHERE BillingCountry = 'Brazil'
+                   GROUP BY i.InvoiceId
+                   ORDER BY broj_stavki
+                 
+.. questionnote::
+
+   Приказати имена, презимена и укупне износе наруџбина (заокружене на
+   2 децимале) сваког купца за 3 купаца који су направили највеће
+   износе наруџбина. Резултат приказати опадајуће по укупном износу.
+   
+.. dbpetlja:: db_spajanje_muzika_06
+   :dbfile: music.sql
+   :solutionquery: SELECT c.FirstName, c.LastName, ROUND(SUM(Total), 2) AS ukupan_iznos
+                   FROM invoice i JOIN
+                        customer c ON i.CustomerId = c.CustomerId
+                   GROUP BY c.CustomerId
+                   ORDER BY ukupan_iznos DESC
+                   LIMIT 3
+
+.. questionnote::
+
+   За сваког запосленог прикази идентификатор, име, презиме, број
+   запослених који њему подносе извештај (поље
+   ``ReportsTo``). Приказати и оне запослене којима је тај број једнак
+   нули.
+
+   
+.. dbpetlja:: db_spajanje_muzika_07
+   :dbfile: music.sql
+   :solutionquery: SELECT e1.EmployeeId, e1.FirstName, e1.LastName,
+                          COUNT(e2.EmployeeId) AS broj_podredjenih
+                   FROM employee e1 LEFT JOIN
+                        employee e2 ON e1.EmployeeId = e2.ReportsTo
+                   GROUP BY e1.EmployeeId

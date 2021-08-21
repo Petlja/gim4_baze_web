@@ -85,3 +85,42 @@ EXISTS``.
    "6", "Јован", "Миленковић"
    ..., ..., ...
 
+   
+Вежба
+.....
+
+Покушај да самостално напишеш наредни упит.
+
+.. questionnote::
+
+   Прикажи идентификаторе и називе предмета из којих је уписана бар
+   нека оцена на писменом задатку (употреби услов ``EXISTS``).
+   
+.. dbpetlja:: db_ugnezdjeni_upiti_exists_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT id, naziv
+                   FROM predmet p
+                   WHERE EXISTS (SELECT *
+                                 FROM ocena o
+                                 WHERE o.vrsta = 'писмени задатак' AND
+                                       o.id_predmet = p.id)
+
+Нагласимо да је задатак могуће решити и без угнежђених подупита и
+услова ``EXISTS``, обичним спајањем.
+
+.. code-block:: sql
+
+   SELECT DISTINCT p.id, p.naziv
+   FROM predmet p JOIN
+        ocena o ON p.id = o.id_predmet
+   WHERE vrsta = 'писмени задатак'
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "id", "naziv"
+   :align: left
+
+   "1", "Математика"
+   "2", "Српски језик"
+

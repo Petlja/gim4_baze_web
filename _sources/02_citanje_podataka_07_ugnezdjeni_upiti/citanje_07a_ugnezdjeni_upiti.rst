@@ -187,3 +187,24 @@
 **алијаса**, коришћењем кључне речи ``AS`` (у облику ``FROM (SELECT
 ...) AS naziv``). Алијасе смо раније користили за именовање колона,
 док се овај пут именује табела.
+
+Вежба
+.....
+
+Покушај да самостално напишеш наредни упит, коришћењем угнежћених
+упита.
+
+.. questionnote::
+
+   За сваки разред и одељење прикажи највећу просечну оцену коју је
+   постигао неки ученик у том одељењу (рачунати укупан просек свих
+   уписаних оцена и заокружити га на две децимале).
+
+.. dbpetlja:: db_ugnezdjeni_upiti_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT razred, odeljenje, MAX(prosek)
+                   FROM (SELECT razred, odeljenje, id_ucenik, ROUND(AVG(ocena), 2) AS prosek
+                         FROM ucenik u JOIN
+                              ocena o ON u.id = o.id_ucenik
+                         GROUP BY u.id)
+                   GROUP BY razred, odeljenje

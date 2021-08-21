@@ -299,3 +299,31 @@ i JOIN ucenik u ON ...``).
 
    "Јован", "Јована", "Миленковић"
 
+Вежба
+.....
+
+Покушај да наредних неколико упита напишеш самостално.
+
+.. questionnote::
+   
+   Приказати све регулисане изостанке у читљивом формату (у ком се
+   види име и презиме ученика и датум, час и статус изостанка).
+
+.. dbpetlja:: db_spajanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT u.ime, u.prezime, i.datum, i.cas, i.status
+                   FROM izostanak i
+                   JOIN ucenik u ON i.id_ucenik = u.id
+                   WHERE i.status != 'нерегулисан'
+                   
+.. questionnote::
+
+   За сваког ученика приказати списак предмета које похађа (свака
+   врста треба да садржи име и презиме ученика, разред и одељење у
+   које иде и назив једног предмета).
+
+.. dbpetlja:: db_spajanje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: SELECT u.ime, u.prezime, u.razred, u.odeljenje, p.naziv
+                   FROM ucenik u JOIN
+                   predmet p ON u.razred = p.razred

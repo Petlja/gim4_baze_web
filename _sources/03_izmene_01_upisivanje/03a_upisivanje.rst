@@ -111,3 +111,30 @@
    INSERT INTO ocena (id_ucenik, id_predmet, datum, ocena, vrsta)
    VALUES (293, 9, '2020-10-01', 5, 'контролна вежба');
 
+Вежба
+.....
+
+Покушај да наредних неколико упита напишеш самостално.
+
+.. questionnote::
+
+   Унети у табелу предмета предмет под називом "Социологија" који се у
+   четвртом разреду предаје са 2 часа недељно.
+
+   
+.. dbpetlja:: db_upisivanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: INSERT INTO predmet (naziv, razred, fond) VALUES ('Социологија', 4, 2)
+   :checkquery: SELECT * FROM predmet
+
+.. questionnote::
+
+   Уписати ученику Петру Петровићу који има идентификатор 1
+   неоправдани изостанак на првом часу 10. маја 2021.
+
+   
+.. dbpetlja:: db_upisivanje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: INSERT INTO izostanak (id_ucenik, datum, cas, status) VALUES (1, '2020-05-10', 1, 'неоправдан')
+   :checkquery: SELECT * FROM izostanak
+                

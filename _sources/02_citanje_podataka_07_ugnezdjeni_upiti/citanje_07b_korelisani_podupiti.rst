@@ -41,3 +41,74 @@
    "4", "4", "2021-05-14", "2", "нерегулисан"
    "6", "1", "2021-05-14", "3", "оправдан"
 
+Корелисани подупити не морају да се јаве само у клаузули WHERE.
+
+.. questionnote::
+
+   За сваког ученика приказати име презиме, просек свих добијених
+   оцена и просек свих добијених оцена ученика његовог одељења.
+
+Задатак можемо решити корелисаним упитом тако што се на месту четврте
+колоне напише упит који филтрира табелу оцена тако што узме само
+ученике одељења у ком се налази тренутни ученик и за њих израчуна
+просечну оцену. У главном упиту вршимо груписање свих оцена на основу
+идентификатора ученика и за сваку групу рачунамо просек (то ће бити
+просечне оцене свих ученика).
+   
+.. code-block:: sql
+
+   SELECT ime, prezime, ROUND(AVG(ocena), 2) AS prosek_ucenika,
+           (SELECT ROUND(AVG(ocena), 2)
+            FROM ucenik u1 JOIN 
+                 ocena o1 ON u1.id = o1.id_ucenik
+            WHERE u.razred = u1.razred AND u.odeljenje = u1.odeljenje) AS prosek_odeljenja
+   FROM ucenik u JOIN
+        ocena o ON u.id = o.id_ucenik
+   GROUP BY u.id                
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "ime", "prezime", "prosek_ucenika", "prosek_odeljenja"
+   :align: left
+
+   "Петар", "Петровић", "3.5", "3.44"
+   "Милица", "Јовановић", "4.0", "3.44"
+   "Лидија", "Петровић", "3.75", "3.44"
+   "Јован", "Миленковић", "3.0", "3.46"
+   "Јована", "Миленковић", "4.2", "3.46"
+   ..., ..., ..., ...
+
+Мана оваквог решења је то што се просек оцена одељења рачуна више пута
+(за сваког ученика одељења по једном).
+
+Боље решење можемо добити ако у засебном подупиту израчунамо просечне
+оцене свих одељења и онда извршимо спајање тако добијене табеле са
+табелом која садржи просечне оцене свих ученика (ту користимо
+угнежђене, али не и корелисане подупите).
+
+.. code-block:: sql
+
+   SELECT ime, prezime, prosek_ucenika, t1.razred, t1.odeljenje, prosek_odeljenja
+   FROM (SELECT ime, prezime, id_ucenik, razred, odeljenje, ROUND(AVG(ocena), 2) AS prosek_ucenika 
+         FROM ucenik u JOIN
+              ocena o ON u.id = o.id_ucenik
+         GROUP BY u.id) t1 JOIN
+        (SELECT razred, odeljenje, ROUND(AVG(ocena), 2) AS prosek_odeljenja
+         FROM ucenik u JOIN
+              ocena o ON u.id = o.id_ucenik
+         GROUP BY razred, odeljenje) t2 ON t1.razred = t2.razred AND t1.odeljenje = t2.odeljenje;
+
+Извршавањем упита добија се следећи резултат:
+
+.. csv-table::
+   :header:  "ime", "prezime", "prosek_ucenika", "razred", "odeljenje", "prosek_odeljenja"
+   :align: left
+
+   "Петар", "Петровић", "3.5", "1", "1", "3.44"
+   "Милица", "Јовановић", "4.0", "1", "1", "3.44"
+   "Лидија", "Петровић", "3.75", "1", "1", "3.44"
+   "Јован", "Миленковић", "3.0", "1", "2", "3.46"
+   "Јована", "Миленковић", "4.2", "1", "2", "3.46"
+   ..., ..., ..., ..., ..., ...
+

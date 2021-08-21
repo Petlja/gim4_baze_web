@@ -151,3 +151,7 @@
    "1", "1", "2"
    "2", "1", "1"
 
+c# D#  E  f# g#  A   H   c#
+a H    C   d  e  F   G   a
+i ii0 III iv  v  VI VII  i
+

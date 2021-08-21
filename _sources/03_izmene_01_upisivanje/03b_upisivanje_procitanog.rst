@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
 Уписивање података прочитаних из базе
-.....................................
+-------------------------------------
 
 Постоји још један облик упита ``INSERT`` који омогућава да се
 вредности које се уписују у табелу прочитају из базе коришћењем упита
@@ -46,3 +46,28 @@
 Ти подаци се читају помоћу спољашњег ``SELECT *``, додају им се датум,
 оцена и врста и онда се тако добијена врста уписује у табелу оцена
 помоћу ``INSERT INTO``.
+
+Вежба
+.....
+
+Покушај да наредни упит напишеш самостално.
+
+.. questionnote::
+
+   Напиши упит који ученику Јовану Миленковићу из одељења I2 уписује
+   оцену 4 на усменом одговору из српског
+   језика 23. јануара 2021. године. Идентификатор ученика и предмета
+   прочитати упитом ``SELECT``.
+
+   
+.. dbpetlja:: db_upisivanje_procitanog_01
+   :dbfile: dnevnik.sql
+   :solutionquery: INSERT INTO ocena (id_ucenik, id_predmet, datum, ocena, vrsta)
+                   SELECT *, '2020-01-23', 4, 'усмени одговор' FROM
+                   (SELECT id
+                    FROM ucenik
+                    WHERE ime = 'Јован' AND prezime = 'Миленковић' AND razred = 1 AND odeljenje = 2), 
+                   (SELECT id
+                    FROM predmet
+                    WHERE naziv = 'Српски језик' AND razred = 1);
+   :checkquery: SELECT * FROM ocena WHERE id_ucenik IN (SELECT id FROM ucenik WHERE ime='Јован' AND prezime='Миленковић')
