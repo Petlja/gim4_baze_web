@@ -280,7 +280,7 @@ lessons:
         guid: 51df3cec-1076-467a-bc9c-0eb45c40dd59
       - type: quiz
         title: Угнежђени упити - квиз
-        file: citanje_06d_ugnezdjeni_kviz.rst
+        file: citanje_07d_ugnezdjeni_kviz.rst
         guid: 9fe307aa-2dfe-4599-a344-55ee26746186
       - type: reading
         title: Угнежђени упити - задаци (дневник)
@@ -301,7 +301,7 @@ lessons:
         guid: fedbb648-9bae-4e3d-b35d-08534362ca26
       - type: quiz
         title: Погледи - квиз
-        file: citanje_07b_pogledi_kviz.rst
+        file: citanje_08b_pogledi_kviz.rst
         guid: 657c546c-b491-437d-9d33-c836f9c4415c
       - type: reading
         title: Погледи - задаци (дневник)
@@ -331,6 +331,10 @@ lessons:
         title: Уписивање података прочитаних из базе
         file: 03b_upisivanje_procitanog.rst
         guid: b9ff8982-aebe-4803-8a74-910a7224b860
+      - type: quiz
+        title: Уписивање података - квиз
+        file: 01c_upisivanje_kviz.rst
+        guid: 93f6c08e-0926-49e9-833b-37b390fddb54
 
   - title: "3.2 SQL: Ажурирање података у табелама"
     guid: 83748255-e22d-4997-bdd5-4234633cd38a
@@ -340,6 +344,10 @@ lessons:
         title: Ажурирање података
         file: 03a_azuriranje.rst
         guid: c2aa5551-ccef-4908-8200-a211b659ee15
+      - type: quiz
+        title: Ажурирање података - квиз
+        file: 02b_azuriranje_kviz.rst
+        guid: a486cb81-a235-468d-a26d-1de16114f668
 
   - title: "3.3 SQL: Брисање података из табела"
     guid: 9e090bb2-50bb-4a62-bf01-b8585e1bf56c
@@ -349,6 +357,10 @@ lessons:
         title: Брисање података
         file: 03a_brisanje.rst
         guid: 921ac985-380e-4d06-b91c-ba146577adbc
+      - type: quiz
+        title: Брисање података - квиз
+        file: 03c_brisanje_kviz.rst
+        guid: ffd323cf-842b-4a03-a5e4-66f08e36b94b
 
    
 ### СЕКЦИЈА Python SQLite API
@@ -399,8 +411,12 @@ lessons:
         title: 5.3 Повезивање и постављање кућне мреже
         file: 05c_povezivanje_i_postavljanje_mreze.rst
         guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
+      - type: quiz
+        title: 5.4 Мреже - квиз
+        file: 05d_mreze_kviz.rst
+        guid: 5f7b7336-ba9e-4495-9fcd-717c46733085
       - type: reading
-        title: "5.4 Додатак: мрежни слојеви и протоколи, детаљније"
+        title: "5.5 Додатак: мрежни слојеви и протоколи, детаљније"
         file: 05d_mrezni_slojevi.rst
         guid: bece5c6d-e08e-4ffd-bde7-1880e9f844f9
 

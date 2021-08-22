@@ -17,7 +17,7 @@
 
     Дат је следећи упит:
     
-    .. code::
+    .. code-block:: sql
     
         SELECT naziv, CASE
                 WHEN razred = 1 THEN 'I'
