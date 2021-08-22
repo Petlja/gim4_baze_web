@@ -16,7 +16,7 @@
 
     Дат је следећи упит:
 
-    .. code::
+    .. code-block:: sql
 
         SELECT id_ucenik, count(*) AS br_izost
         FROM izostanak
@@ -46,7 +46,7 @@
 
     Дати су следећи упити:
     
-    .. code::
+    .. code-block:: sql
     
         /* upit broj 1*/
         SELECT id_ucenik, id_predmet, max(ocena) as max_ocena
