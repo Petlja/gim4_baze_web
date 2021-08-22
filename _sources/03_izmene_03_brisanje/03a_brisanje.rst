@@ -41,3 +41,34 @@ FROM``). Ако се услов ``WHERE`` не наведе, биће обрис
                       FROM ucenik
                       WHERE ime = 'Лав' AND prezime = 'Грујић' AND
                             razred = 4 AND odeljenje = 3);
+
+Вежба
+.....
+
+Покушај да неколико наредних упита реализујеш самостално.
+
+.. questionnote::
+
+   Министарство је одлучило да се све јединице које су ђаци добили
+   пониште (због ванредне ситуације). Напиши упит којим се све оне
+   бришу из базе.
+
+.. dbpetlja:: db_brisanje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: DELETE FROM ocena
+                   WHERE ocena = 1
+   :checkquery: SELECT * FROM ocena
+
+.. questionnote::
+
+   Обрисати из базе све податке о оценама из математике (у свим
+   разредима).
+
+.. dbpetlja:: db_brisanje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: DELETE FROM ocena
+                   WHERE id_predmet IN (SELECT id
+                                        FROM predmet
+                                        WHERE naziv = 'Математика')
+   :checkquery: SELECT * FROM ocena
+                

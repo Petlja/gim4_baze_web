@@ -22,6 +22,7 @@ INSERT INTO izostanak (id, id_ucenik, datum, cas, status) VALUES (11, 100, '2021
 INSERT INTO izostanak (id, id_ucenik, datum, cas, status) VALUES (12, 100, '2021-03-10', 1, 'неоправдан');
 INSERT INTO izostanak (id, id_ucenik, datum, cas, status) VALUES (13, 100, '2021-03-15', 1, 'неоправдан');
 INSERT INTO izostanak (id, id_ucenik, datum, cas, status) VALUES (14, 13, '2021-03-02', 1, 'оправдан');
+INSERT INTO izostanak (id, id_ucenik, datum, cas, status) VALUES (15, 219, '2021-03-02', 1, 'нерегулисан');
 
 -- Table: ocena
 CREATE TABLE ocena (id INTEGER PRIMARY KEY AUTOINCREMENT, id_predmet INTEGER REFERENCES predmet (id) ON DELETE RESTRICT ON UPDATE RESTRICT, id_ucenik INTEGER REFERENCES ucenik (id) ON DELETE RESTRICT ON UPDATE RESTRICT, ocena INT, datum DATE DEFAULT (date('now')) NOT NULL, vrsta VARCHAR (20));
@@ -36,7 +37,6 @@ INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (19, 1
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (20, 1, 19, 5, '2020-10-15', 'писмени задатак');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (21, 1, 20, 2, '2020-10-15', 'писмени задатак');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (22, 1, 21, 1, '2020-10-15', 'писмени задатак');
-INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (23, 1, 22, 1, '2020-10-15', 'писмени задатак');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (24, 1, 23, 3, '2020-10-15', 'писмени задатак');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (25, 1, 24, 4, '2020-10-15', 'писмени задатак');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (26, 1, 25, 2, '2020-10-15', 'писмени задатак');
@@ -125,7 +125,6 @@ INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (109, 
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (110, 1, 19, 5, '2020-11-22', 'контролна вежба');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (111, 1, 20, 4, '2020-11-22', 'контролна вежба');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (112, 1, 21, 1, '2020-11-22', 'контролна вежба');
-INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (113, 1, 22, 3, '2020-11-22', 'контролна вежба');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (114, 1, 23, 2, '2020-11-22', 'контролна вежба');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (115, 1, 24, 5, '2020-11-22', 'контролна вежба');
 INSERT INTO ocena (id, id_predmet, id_ucenik, ocena, datum, vrsta) VALUES (116, 1, 25, 5, '2020-11-22', 'контролна вежба');

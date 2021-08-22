@@ -123,3 +123,64 @@
          datum = '2020-10-15' AND
          vrsta = 'писмени задатак' AND
          ocena = 1;
+
+Вежба
+.....
+
+Покушај да наредних неколико упита напишеш самостално.
+
+.. questionnote::
+
+   По новом плану и програму предмет рачунарство и информатика у првом
+   разреду треба да има фонд од 3 уместо 2 часа. Напиши упит који
+   ажурира базу у складу са тим.
+
+   
+.. dbpetlja:: db_azuriranje_01
+   :dbfile: dnevnik.sql
+   :solutionquery: UPDATE predmet
+                   SET fond = 3
+                   WHERE naziv = 'Рачунарство и информатика' AND razred = 1
+   :checkquery: SELECT * FROM predmet WHERE naziv = 'Рачунарство и информатика'
+
+.. questionnote::
+
+   Наставник је грешком уписао да је писмени задатак из предмета чији
+   је идентификатор 1 одржан 15. октобра, а одржан је
+   заправо 16. октобра. Напиши упит који исправља ову грешку.
+
+   
+.. dbpetlja:: db_azuriranje_02
+   :dbfile: dnevnik.sql
+   :solutionquery: UPDATE ocena
+                   SET datum = '2020-10-16'
+                   WHERE id_predmet = 1 AND vrsta = 'писмени задатак'
+   :checkquery: SELECT * FROM ocena WHERE id_predmet = 1 AND vrsta = 'писмени задатак'
+
+.. questionnote::
+
+   По новом плану и програму фонд часова математике у сваком разреду
+   се смањује за један. Напиши упит који реализује ову промену.
+                
+.. dbpetlja:: db_azuriranje_03
+   :dbfile: dnevnik.sql
+   :solutionquery: UPDATE predmet
+                   SET fond = fond - 1
+                   WHERE naziv = 'Математика'
+   :checkquery: SELECT * FROM predmet WHERE naziv = 'Математика'
+
+.. questionnote::
+
+   Разредни одељења II1 је од родитеља ученика сазнао да су сви
+   изостанци које су ученици тог одељења направили, а који до сада
+   нису регулисани, оправдани. Напиши упит који реализује ту промену.
+                
+.. dbpetlja:: db_azuriranje_04
+   :dbfile: dnevnik.sql
+   :solutionquery: UPDATE izostanak
+                   SET status = 'оправдан'
+                   WHERE status = 'нерегулисан' AND
+                         id_ucenik IN (SELECT id_ucenik
+                                       FROM ucenik
+                                       WHERE razred = 2 AND odeljenje = 1)
+   :checkquery: SELECT * FROM izostanak
