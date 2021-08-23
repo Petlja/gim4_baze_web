@@ -392,6 +392,10 @@ lessons:
         title: 4.6 Python SQLite API - помоћне функције
         file: 04f_pomocne_funkcije.rst
         guid: 4408ab43-0efa-4bd6-a330-65f6cd053c42
+      - type: quiz
+        title: 4.7 Python SQLite API - квиз
+        file: 04g_python_sqlite_kviz.rst
+        guid: 2725662f-8188-430e-af75-dc4d9b701d4c
 
 
 ### СЕКЦИЈА Računarske mreže
@@ -434,6 +438,10 @@ lessons:
         title: Протокол HTTP
         file: 06b_http_zahtevi.rst
         guid: 7785bbe6-08f1-4b77-b95f-1e825301e355
+      - type: quiz
+        title: Протокол HTTP - квиз
+        file: 06c_http_kviz.rst
+        guid: 1858e7f5-96d2-4f66-b531-05d4f6afcab1
   - title: "6.1 Библиотека Flask - основни појмови"
     guid: 453b61a9-27e3-4ccb-9868-ad3143daea52
     folder: 06_serverske_veb_aplikacije_02_flask
@@ -474,6 +482,10 @@ lessons:
         title: Библиотека Flask - сесије
         file: 06i_flask_sesije.rst
         guid: f565976d-3b38-49c1-8529-cf53433509f9
+      - type: quiz
+        title: Библиотека Flask - квиз
+        file: 06j_flask_kviz.rst
+        guid: d99d4b14-4e5c-48c0-9e2f-2d85569cfe34
   - title: "6.2 Библиотека Flask - повезивање са базом података"
     guid: 0d2c244b-ca2c-474b-b586-61b4ba200038
     folder: 06_serverske_veb_aplikacije_03_baze
@@ -506,6 +518,10 @@ lessons:
         title: AJAX
         file: 06g_baze_i_ajax.rst
         guid: ff6691b9-e045-48e1-b645-e23cbef6b4ec
+#      - type: quiz
+#        title: Серверске апликације и базе - квиз
+#        file: 06h_app_baze_kviz.rst
+#        guid: 9a9d1317-e66b-47d2-b44a-a853f0e83008
 
   - title: "7.0 Библиотека Flask - пројектни задатак"
     guid: a31afe76-871b-4578-91df-d79a067fde45
