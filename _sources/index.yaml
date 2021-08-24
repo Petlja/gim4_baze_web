@@ -6,17 +6,28 @@ description:
     Овај курс је намењен ученицима четвртог разреда гимназија за предмет Рачунарство и информатика...
   shortDescription: Информатика 4
   willLearn:
-    - шта су базе података
-    - ...
+    - шта су и чему служе базе података
+    - шта је и како се користи упитни језик SQL
+    - како програми написани на језику Python могу да користе базе података
+    - од чега су сачињене и како функционишу рачунарске мреже
+    - како клијенти и сервери на вебу комуницирају коришћењем протокола HTTP
+    - како се помоћу библиотеке Flask у језику Python програмирају серверске веб-апликације
+    - као пројекат израдићеш једну савремену веб-апликацију
+    - које су најзначајније области савременог рачунарства
   requirements:
-    - Инсталиран SQLLite
+    - Инсталиран програмски језик Python
+    - Инсталирана библиотека Flask (упутство за инсталацију је дато у склопу курса)
+    - Инсталиран програм SQLLite studio (упутство за инсталацију је дато у склопу курса)
   toc:
     - Базе података
-    - ...
+    - Рачунарске мреже
+    - Серверске веб-апликације
+    - Пројектни задатак
+    - Области савременог рачунарства
   externalLinks:
-    - text: сајт 1
+    - text: SQLite studio
       href: https://sqlitestudio.pl/
-    - text: сајт 2
+    - text: Документација система SQLite 
       href: https://www.sqlite.org/index.html
 
 
@@ -69,11 +80,11 @@ lessons:
     folder: 01_baze_i_tabele_02_dizajniranje
     activities:
       - type: reading
-        title: База компаније за продају песама
+        title: База компаније за продају дигиталних композиција - подаци о композицијама
         file: 01_baze_02a_dizajn_muzika.rst
         guid: 64e3110d-a95b-47e1-a2da-68e272f94cb2
       - type: reading # quiz ?
-        title: База компаније за продају песама - продаја
+        title: База компаније за продају дигиталних композиција - подаци о продаји
         file: 01_baze_02b_dizajn_muzika_prodaja.rst
         guid: 2dc59aeb-1111-4252-adf0-807d618ac482
       - type: quiz
@@ -83,7 +94,7 @@ lessons:
 
         
 ### СЕКЦИЈА ЧИТАЊЕ ПОДАТАКА
-  - title: "2.0 - SQL: Читање података из табела базе"
+  - title: "2.0 - SQL: Читање података из базе"
     guid: dc254235-5707-446e-a482-25110340e3f4
     folder: 02_citanje_podataka_00_uvod
     activities:
@@ -315,7 +326,7 @@ lessons:
     folder: 03_izmene_00_uvod
     activities:
       - type: reading
-        title: Уписивање података у табеле
+        title: Измене података у бази
         file: 03_izmene_00a_uvod.rst
         guid: a7f22cd8-c823-453c-bd73-b6d5edec1c3a
 
@@ -324,7 +335,7 @@ lessons:
     folder: 03_izmene_01_upisivanje
     activities:
       - type: reading
-        title: Уписивање података у табеле
+        title: Уписивање података
         file: 03_izmene_01a_upisivanje.rst
         guid: 9142c049-1f93-4cb5-a67d-0709016be6c7
       - type: reading
@@ -373,23 +384,23 @@ lessons:
         file: 04_python_sqlite_01a_uvod.rst
         guid: fc3cdc65-e16a-45f9-a716-432d11e8773d
       - type: reading
-        title: 4.2 Python SQLite API - повезивање са базом
+        title: 4.2 Повезивање са базом
         file: 04_python_sqlite_01b_povezivanje.rst
         guid: a56df623-e387-4ca8-ae8c-ec99937d4a69
       - type: reading
-        title: 4.3 Python SQLite API - постављање упита
+        title: 4.3 Постављање упита
         file: 04_python_sqlite_01c_postavljanje_upita.rst
         guid: 239c0083-8c4a-426e-9ac1-b9ee3e1824ca
       - type: reading
-        title: 4.4 Python SQLite API - упити са параметрима
+        title: 4.4 Упити са параметрима
         file: 04_python_sqlite_01d_upiti_sa_parametrima.rst
         guid: 41581677-98cd-4b4e-9e8a-e7f4c54a782c
       - type: reading
-        title: 4.5 Python SQLite API - колационе секвенце
+        title: 4.5 Колационе секвенце
         file: 04_python_sqlite_01e_kolacione_sekvence.rst
         guid: e797e25b-ee9f-4595-b8b4-d5fa1441e703
       - type: reading
-        title: 4.6 Python SQLite API - помоћне функције
+        title: 4.6 Дефинисање помоћних функција
         file: 04_python_sqlite_01f_pomocne_funkcije.rst
         guid: 4408ab43-0efa-4bd6-a330-65f6cd053c42
       - type: quiz
@@ -416,7 +427,7 @@ lessons:
         file: 05_mreze_01c_povezivanje_i_postavljanje_mreze.rst
         guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
       - type: quiz
-        title: 5.4 Мреже - квиз
+        title: 5.4 Рачунарске мреже - квиз
         file: 05_mreze_01d_kviz.rst
         guid: 5f7b7336-ba9e-4495-9fcd-717c46733085
       - type: reading
@@ -451,7 +462,7 @@ lessons:
         file: 06_veb_ap_01a_flask_uvod.rst
         guid: f0ea5ca8-a012-4142-b689-4e1c59825c50
       - type: reading
-        title: Библиотека Flask - први програм
+        title: Библиотека Flask - први програм, путање
         file: 06_veb_ap_01b_flask_prvi_program.rst
         guid: d5387ecb-837c-4719-8d22-fd30764d0434
       - type: reading
@@ -459,19 +470,19 @@ lessons:
         file: 06_veb_ap_01c_flask_sabloni.rst
         guid: 4e988ce0-d217-4b23-871c-0320c094c76f
       - type: reading
-        title: Библиотека Flask - статичке датотеке
+        title: Библиотека Flask - пратеће статичке датотеке и линкови унутар веб-апликације
         file: 06_veb_ap_01d_flask_staticke_datoteke.rst
         guid: 8a3021fe-37f1-4f8f-b025-5f7d636ebacd
       - type: reading
-        title: Библиотека Flask - GET параметри
+        title: Библиотека Flask - Метода GET
         file: 06_veb_ap_01e_flask_parametri_get.rst
         guid: 7624ef28-0ed6-4498-a6ba-0e3dd528fdce
       - type: reading
-        title: Библиотека Flask - POST параметри
+        title: Библиотека Flask - Метода POST
         file: 06_veb_ap_01f_flask_parametri_post.rst
         guid: 9f4f163c-eb3f-4276-ac9f-0e6d56ad60ae
       - type: reading
-        title: Библиотека Flask - параметри унутар рута
+        title: Библиотека Flask - путање са параметрима
         file: 06_veb_ap_01g_flask_parametri_rutiranje.rst
         guid: 1e7d3ba9-64e7-40fc-9436-8027d3a40aac
       - type: reading
@@ -491,11 +502,11 @@ lessons:
     folder: 06_serverske_veb_aplikacije_02_baze
     activities:
       - type: reading
-        title: Повезивање са базом и основни упити
+        title: Повезивање са базом и постављање упита
         file: 06_veb_ap_02a_povezivanje_i_osnovni_upiti.rst
         guid: 67cb551d-6234-40b3-8f14-4b36519ceaaf
       - type: reading
-        title: Пренос аргумената упита
+        title: Пренос параметара упита 
         file: 06_veb_ap_02b_prenos_argumenata_upita.rst
         guid: 0ac7a838-4a75-40ff-b219-0b4adb162b9e
       - type: reading
@@ -511,7 +522,7 @@ lessons:
         file: 06_veb_ap_02e_flesovane_poruke.rst
         guid: 4d8856f1-b73e-45a6-98e5-7ab96d0fbfcf
       - type: reading
-        title: Валидација формулара
+        title: Валидација података унетих у формулар
         file: 06_veb_ap_02f_validacija_formulara.rst
         guid: 33148d53-ff5a-4e86-af4f-2c03a4948d76
       - type: reading
@@ -527,6 +538,10 @@ lessons:
     guid: a31afe76-871b-4578-91df-d79a067fde45
     folder: 07_projekat
     activities:
+      - type: reading
+        title: О пројектном задатку
+        file: 07_projekat_01b_uvod.rst
+        guid: 69ce8159-5dc7-4198-a928-b337eb942798
       - type: reading
         title: Регистрација корисника и логовање
         file: 07_projekat_01a_registracija_i_logovanje.rst

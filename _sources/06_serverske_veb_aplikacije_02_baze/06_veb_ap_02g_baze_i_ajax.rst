@@ -1,5 +1,4 @@
 ..
-
    Ovo bi moglo da se uvede pre baza, jer objektivno nije povezano sa
    bazama, ali se tek bazama se mogu lako napraviti lepi primeri.
 
