@@ -233,12 +233,12 @@
 
 .. questionnote::
 
-   Издвојити имена и презимена ученика рођених 7. априла 2007. године.
+   Издвојити имена и презимена ученика рођених 1. јула 2006. године.
 
 .. dbpetlja:: db_restrikcija_01
    :dbfile: dnevnik.sql
    :solutionquery: SELECT ime, prezime
                    FROM ucenik
-                   WHERE datum_rodjenja = '2007-04-07'
+                   WHERE datum_rodjenja = '2006-07-01'
    :checkcolumnname:                
 
