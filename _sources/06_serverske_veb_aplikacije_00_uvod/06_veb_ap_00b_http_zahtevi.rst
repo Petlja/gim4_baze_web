@@ -292,7 +292,7 @@ console). Она се обично може укључити пречицом ``
 је приказано у делу Response Headers).
 
 .. image:: ../../_images/http_iz_pregledaca.png
-   :width: 800
+   :width: 600
    :align: center
    :alt: Праћење HTTP комуникације из прегледача Google Chrome
 
