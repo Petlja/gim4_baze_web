@@ -33,10 +33,10 @@
    :header:  "razred", "fond_casova"
    :align: left
 
-   "1", "14"
-   "2", "10"
-   "3", "6"
-   "4", "6"
+   "1", "33"
+   "2", "33"
+   "3", "31"
+   "4", "33"
 
 Извршавање овог упита можемо себи да представимо овако:
 
@@ -79,9 +79,11 @@
    :align: left
 
    "1", "1"
-   "2", "2"
+   "2", "1"
    "3", "2"
-   "9", "5"
+   "4", "1"
+   "5", "1"
+   ..., ...
 
 У овом упиту се врсте табеле ``ocena`` поделе у групе на основу
 предмета тј.  њихових идентификатора. У свакој групи се, дакле, налазе
@@ -191,7 +193,7 @@
 
 .. dbpetlja:: db_grupisanje_01
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT status, COUNT(*) AS broj_izostanak
+   :solutionquery: SELECT status, COUNT(*) AS broj_izostanaka
                    FROM izostanak
                    GROUP BY status
 
@@ -199,18 +201,22 @@
 .. questionnote::
 
    Прикажи највећи фонд часова неког предмета за сваки од разреда
-   (приказати редни број разреда и максимални фонд).
+   (приказати редни број разреда и максимални фонд у колони под
+   називом ``najveci_fond``).
 
 .. dbpetlja:: db_grupisanje_02
    :dbfile: dnevnik.sql
    :solutionquery: SELECT razred, MAX(fond) AS najveci_fond
                    FROM predmet
                    GROUP BY razred
+   :showresult:
+   :checkcolumnname:
 
 .. questionnote::
 
    Прикажи три датума у којима је остварено највише изостанака (уз
-   датум приказати и број изостанака).
+   датум приказати и број изостанака у колони под називом
+   ``broj_izostanaka``).
 
 .. dbpetlja:: db_grupisanje_03
    :dbfile: dnevnik.sql
@@ -219,6 +225,8 @@
                    GROUP BY datum
                    ORDER BY broj_izostanaka DESC
                    LIMIT 3
+   :showresult:
+   :checkcolumnname:
 
    
     

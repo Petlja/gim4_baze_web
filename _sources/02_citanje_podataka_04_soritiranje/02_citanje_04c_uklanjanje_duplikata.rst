@@ -97,7 +97,12 @@
    :header:  "datum"
    :align: left
 
-   "2021-05-14"
+   "2020-10-01"
+   "2020-10-16"
+   "2020-12-08"
+   "2021-02-11"
+   "2021-02-16"
+   ...
 
 ``DISTINCT`` може да се примени и на више колона.
 
@@ -140,4 +145,5 @@
    :dbfile: dnevnik.sql
    :solutionquery: SELECT DISTINCT naziv
                    FROM predmet
+   :showresult:
 

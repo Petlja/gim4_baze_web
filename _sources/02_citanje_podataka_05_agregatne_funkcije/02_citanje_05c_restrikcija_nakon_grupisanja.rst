@@ -153,17 +153,18 @@
                    WHERE status = 'нерегулисан'
                    GROUP BY datum
                    HAVING broj_neregulisanih >= 2
+   :showresult:
    
 .. questionnote::
 
    Прикажи сва одељења четвртог разреда у којима има бар 15 дечака
    (приказати само разред и одељење).
 
-.. dbpetlja:: db_having_01
+.. dbpetlja:: db_having_02
    :dbfile: dnevnik.sql
    :solutionquery: SELECT razred, odeljenje
                    FROM ucenik
                    WHERE pol = 'м' AND razred = 4
                    GROUP BY razred, odeljenje
                    HAVING COUNT(*) >= 15
-   
+   :showresult:

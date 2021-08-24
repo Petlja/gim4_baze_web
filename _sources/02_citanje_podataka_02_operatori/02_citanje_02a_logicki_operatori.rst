@@ -219,3 +219,4 @@
    :solutionquery:  SELECT naziv
                     FROM predmet
                     WHERE razred = 2 AND fond = 2
+   :showresult:

@@ -37,7 +37,7 @@ def process_file(filename):
                 # da li je upit uspesno izvrsen
                 OK = False
                 # iteriramo kroz baze nad kojima se pokusava izvrasavanje upita
-                databases = [os.path.join('dnevnik', 'dnevnik.db'),
+                databases = ['dnevnik.db',
                              'chinook.db']
                 for database in databases:
                     # pokusavamo izvrsavanje upita

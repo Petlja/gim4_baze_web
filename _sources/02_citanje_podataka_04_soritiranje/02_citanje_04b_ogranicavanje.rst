@@ -121,3 +121,4 @@ start``.
                    FROM izostanak
                    ORDER BY datum DESC, cas DESC
                    LIMIT 10
+   :showresult:

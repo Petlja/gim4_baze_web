@@ -220,12 +220,13 @@ https://www.sqlite.org/lang_datefunc.html).
    опет назива *status* -- употребити функцију за издвајање првог
    карактера ниске.
 
-.. dbpetlja:: db_izrazi_funkcije_02
+.. dbpetlja:: db_izrazi_funkcije_01
    :dbfile: dnevnik.sql
    :checkcolumnname:
    :solutionquery: SELECT id, substr(status, 1, 1) AS status
                    FROM izostanak
                    WHERE status != 'нерегулисан'
+   :showresult:                
    
 
 .. questionnote::
@@ -233,8 +234,9 @@ https://www.sqlite.org/lang_datefunc.html).
    Коришћењем функције за издвајање године из датума, приказати имена
    и презимена ученика рођених током 2006 године.
 
-.. dbpetlja:: db_izrazi_funkcije_01
+.. dbpetlja:: db_izrazi_funkcije_02
    :dbfile: dnevnik.sql
    :solutionquery: SELECT ime, prezime
                    FROM ucenik
                    WHERE strftime('%Y', datum_rodjenja) = '2006'
+   :showresult:                

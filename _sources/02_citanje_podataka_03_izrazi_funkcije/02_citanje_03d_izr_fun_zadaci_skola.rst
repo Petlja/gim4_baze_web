@@ -18,6 +18,7 @@
                                WHEN pol = 'ж' THEN 'женски'
                           END AS pol
                    FROM ucenik
+   :showresult:               
 
 .. questionnote::
    
@@ -30,6 +31,7 @@
    :solutionquery: SELECT ime, prezime
                    FROM ucenik
                    WHERE substr(ime, 1, 1) = substr(prezime, 1, 1)
+   :showresult:               
 
 .. questionnote::
 
@@ -41,6 +43,7 @@
    :dbfile: dnevnik.sql
    :solutionquery: SELECT substr(naziv, 1, 3) || razred AS sifra
                    FROM predmet
+   :showresult:               
 
 
 .. questionnote::
@@ -53,3 +56,4 @@
    :solutionquery: SELECT *
                    FROM ucenik
                    WHERE strftime('%m', datum_rodjenja) = '02';
+   :showresult:               

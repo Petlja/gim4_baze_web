@@ -94,6 +94,9 @@
    "4", "Математика", "2", "5"
    "5", "Психологија", "2", "2"
    "7", "Физика", "2", "3"
+   "24", "Српски језик", "2", "3"
+   "25", "Енглески језик", "2", "2"
+   ..., ..., ..., ...
 
 
 .. questionnote::
@@ -228,7 +231,7 @@
    :solutionquery: SELECT *
                    FROM predmet
                    WHERE fond = 2
-   :checkcolumnname:                
+   :showresult:
       
 
 .. questionnote::
@@ -240,5 +243,5 @@
    :solutionquery: SELECT ime, prezime
                    FROM ucenik
                    WHERE datum_rodjenja = '2006-07-01'
-   :checkcolumnname:                
+   :showresult:
 

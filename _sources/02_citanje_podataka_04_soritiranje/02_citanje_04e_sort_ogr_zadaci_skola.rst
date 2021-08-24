@@ -12,6 +12,7 @@
    :solutionquery: SELECT DISTINCT ime
                    FROM ucenik
                    WHERE pol = 'м' AND ime LIKE 'М%'
+   :showresult:
 
 .. questionnote::
 
@@ -23,6 +24,7 @@
                    FROM ucenik
                    ORDER BY prezime
                    LIMIT 10
+   :showresult:
 
 .. questionnote::
 
@@ -35,3 +37,4 @@
                    FROM ocena
                    WHERE vrsta = 'писмени задатак'
                    ORDER BY ocena DESC
+   :showresult:

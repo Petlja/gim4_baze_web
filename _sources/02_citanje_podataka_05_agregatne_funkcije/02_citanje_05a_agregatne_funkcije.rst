@@ -34,7 +34,7 @@
    :header:  "SUM(fond)"
    :align: left
 
-   "36"
+   "130"
 
 Овај упит можемо да прочитамо као 
 
@@ -56,7 +56,7 @@
    :header:  "ukupan_fond"
    :align: left
 
-   "36"
+   "130"
 
 Агрегатне функције се веома често примењују након филтрирања
 (селекције само неких врста).
@@ -77,7 +77,7 @@
    :header:  "ukupan_fond"
    :align: left
 
-   "14"
+   "33"
 
 Овај упит можемо да прочитамо као:
 
@@ -106,7 +106,7 @@
    :header:  "ukupan_godisnji_fond"
    :align: left
 
-   "370"
+   "1221"
 
 
 
@@ -132,7 +132,7 @@
    :header:  "prosecna_ocena"
    :align: left
 
-   "3.095505617977528"
+   "3.407063197026022"
 
 
 Просечне вредности се обично заокружују на одређен број
@@ -153,7 +153,7 @@
    :header:  "prosecna_ocena"
    :align: left
 
-   "3.1"
+   "3.41"
 
 Најмања и највећа вредност
 ''''''''''''''''''''''''''
@@ -166,13 +166,13 @@
 .. questionnote::
 
    Приказати најнижу оцену на писменом задатку из математике
-   одржаном 18. маја 2021 (та математика има идентификатор 1).
+   одржаном 15. октобра 2020 (та математика има идентификатор 1).
    
 .. code-block:: sql
                 
    SELECT MIN(ocena) AS najniza_ocena
    FROM ocena
-   WHERE id_predmet = 1 AND datum = '2021-05-18' AND vrsta = 'писмени задатак';
+   WHERE id_predmet = 1 AND datum = '2020-10-15' AND vrsta = 'писмени задатак';
 
 Извршавањем упита добија се следећи резултат:
 
@@ -180,7 +180,7 @@
    :header:  "najniza_ocena"
    :align: left
 
-   NULL
+   "1"
 
 .. questionnote::
 
@@ -199,7 +199,7 @@
    :header:  "poslednji_datum"
    :align: left
 
-   "2020-12-03"
+   "2021-05-10"
 
 
 .. questionnote::
@@ -226,7 +226,7 @@
    :align: left
 
    "Васиљевић Дејан"
-   
+
 Број елемената
 ''''''''''''''
 
@@ -294,7 +294,7 @@
    :header:  "broj_predmeta"
    :align: left
 
-   "4"
+   "16"
 
 Агрегатне функције могу да се комбинују и са елиминисањем дупликата.
 
@@ -314,7 +314,7 @@
    :header:  "broj_ucenika", "broj_prezimena"
    :align: left
 
-   "346", "112"
+   "346", "114"
 
 
 Вежба
@@ -331,6 +331,7 @@
    :dbfile: dnevnik.sql
    :solutionquery: SELECT MIN(datum), MAX(datum)
                    FROM ocena
+   :showresult:
    
 .. questionnote::
 
@@ -341,24 +342,29 @@
    :solutionquery: SELECT COUNT(*)
                    FROM ocena
                    WHERE ocena = 1 AND vrsta = 'писмени задатак'
+   :showresult:
 
 .. questionnote::
 
    Одредити просечну оцену ученика на контролним вежбама одржаним током новембра
    2020. године.
    
-.. dbpetlja:: db_agregatne_funkcije_02
+.. dbpetlja:: db_agregatne_funkcije_03
    :dbfile: dnevnik.sql
    :solutionquery: SELECT AVG(ocena)
                    FROM ocena
                    WHERE datum LIKE '2020-11-%' AND vrsta = 'контролна вежба'
+   :showresult:
                    
 .. questionnote::
 
-   Одредити број предмета из којих је држан писмени задатак.
+   Одредити број предмета из којих је држан писмени задатак. Колону
+   назвати број предмета.
    
-.. dbpetlja:: db_agregatne_funkcije_03
+.. dbpetlja:: db_agregatne_funkcije_04
    :dbfile: dnevnik.sql
-   :solutionquery: SELECT COUNT(DISTINCT id_predmet)
+   :solutionquery: SELECT COUNT(DISTINCT id_predmet) AS broj_predmeta
                    FROM ocena
                    WHERE vrsta = 'писмени задатак'
+   :showresult:
+   :checkcolumnname:

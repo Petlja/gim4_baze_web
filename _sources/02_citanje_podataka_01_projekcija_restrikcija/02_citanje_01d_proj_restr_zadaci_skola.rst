@@ -14,7 +14,7 @@
    :dbfile: dnevnik.sql
    :solutionquery:  SELECT id, ime, prezime
                     FROM ucenik
-   :checkcolumnname:                
+   :showresult:
    
 .. questionnote::
 
@@ -25,6 +25,7 @@
    :dbfile: dnevnik.sql
    :solutionquery:  SELECT * FROM izostanak
                     WHERE status = 'оправдан'
+   :showresult:
 
 .. questionnote::
 
@@ -36,4 +37,4 @@
    :solutionquery:     SELECT naziv, fond
                        FROM predmet
                        WHERE razred = 2
-   :checkcolumnname:                
+   :showresult:

@@ -24,11 +24,11 @@
    :header:  "id", "naziv", "razred", "fond"
    :align: left
 
-   "1", "Математика", "1", "5"
+   "1", "Математика", "1", "4"
    "2", "Српски језик", "1", "4"
    "3", "Рачунарство и информатика", "1", "2"
-   "6", "Физика", "1", "3"
-   "4", "Математика", "2", "5"
+   "6", "Физика", "1", "2"
+   "12", "Енглески језик", "1", "2"
    ..., ..., ..., ...
 
 Сортирање се, наравно, лако комбинује са пројекцијом и
@@ -155,6 +155,7 @@
                    FROM predmet
                    WHERE razred = 1
                    ORDER BY fond DESC
+   :showresult:
 
 .. questionnote::
 
@@ -168,4 +169,5 @@
    :solutionquery: SELECT *
                    FROM izostanak
                    ORDER BY status, datum, cas
+   :showresult:
    

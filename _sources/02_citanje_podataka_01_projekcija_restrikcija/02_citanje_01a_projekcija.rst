@@ -117,4 +117,4 @@
    :dbfile: dnevnik.sql
    :solutionquery: SELECT naziv
                    FROM predmet
-   :checkcolumnname:                
+   :showresult:

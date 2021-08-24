@@ -14,6 +14,7 @@
    :solutionquery: SELECT ime
                    FROM ucenik
                    WHERE pol = 'ж' AND razred = 3 AND odeljenje = 1
+   :showresult:
 
 
 .. questionnote::
@@ -25,6 +26,7 @@
    :solutionquery: SELECT ime
                    FROM ucenik
                    WHERE pol = 'м' AND ime LIKE '%а'
+   :showresult:
 
 
 .. questionnote::
@@ -36,6 +38,7 @@
    :solutionquery: SELECT *
                    FROM ucenik
                    WHERE datum_rodjenja BETWEEN '2006-04-01' AND '2006-04-30'
+   :showresult:
 
 
 .. questionnote::
@@ -50,6 +53,7 @@
                    WHERE datum_rodjenja LIKE '%-12-%' OR
                          datum_rodjenja LIKE '%-01-%' OR
                          datum_rodjenja LIKE '%-02-%'
+   :showresult:
 
 
 .. questionnote::
@@ -65,3 +69,4 @@
                          ime LIKE 'И%' OR
                          ime LIKE 'О%' OR
                          ime LIKE 'У%'
+   :showresult:

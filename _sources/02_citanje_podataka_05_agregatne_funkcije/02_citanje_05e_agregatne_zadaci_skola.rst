@@ -6,13 +6,15 @@
 .. questionnote::
 
    Приказати укупан број оправданих изостанака које је направио ученик
-   са идентификатором 1.
+   са идентификатором 1 (колону назвати ``broj_izostanaka``).
 
 .. dbpetlja:: db_agregatne_zadaci_01
    :dbfile: dnevnik.sql
    :solutionquery: SELECT COUNT(*) AS broj_izostanaka
                    FROM izostanak
                    WHERE id_ucenik = 1 AND status = 'оправдан'
+   :showresult:
+   :checkcolumnname:
 
 .. questionnote::
 
@@ -25,17 +27,20 @@
    :solutionquery: SELECT round(AVG(ocena), 2) AS prosek
                    FROM ocena
                    WHERE id_predmet = 1 AND datum = '2020-10-15' AND vrsta = 'писмени задатак'
+   :showresult:
 
 .. questionnote::
 
    За сваки датум у ком је направљен неки изостанак одредити укупан
-   број направљених изостанака.
+   број направљених изостанака (колону назвати ``broj_izostanaka``).
 
 .. dbpetlja:: db_agregatne_zadaci_03
    :dbfile: dnevnik.sql
    :solutionquery: SELECT datum, COUNT(*) AS broj_izostanaka
                    FROM izostanak
                    GROUP BY datum
+   :showresult:
+   :checkcolumnname:
 
 .. questionnote::
 
@@ -48,32 +53,40 @@
                    FROM izostanak
                    WHERE datum BETWEEN '2021-05-01' AND '2021-05-31'
                    GROUP BY status
+   :showresult:
 
 .. questionnote::
 
    За сваки статус изостанака одреди први и последњи датум када је
-   такав изостанак направљен.
+   такав изостанак направљен (колоне назвати ``prvi`` и
+   ``poslednji``).
 
 .. dbpetlja:: db_agregatne_zadaci_05
    :dbfile: dnevnik.sql
    :solutionquery: SELECT status, MIN(datum) AS prvi, MAX(datum) AS poslednji
                    FROM izostanak
                    GROUP BY status
+   :showresult:
+   :checkcolumnname:
 
 .. questionnote::
 
-   За сваки месец приказати број ученика рођених у том месецу.
+   За сваки месец приказати број ученика рођених у том месецу (колоне
+   назвати ``mesec`` и ``broj``).
 
 .. dbpetlja:: db_agregatne_zadaci_06
    :dbfile: dnevnik.sql
    :solutionquery: SELECT strftime('%m', datum_rodjenja) AS mesec, COUNT(*) AS broj
                    FROM ucenik
                    GROUP BY mesec
+   :showresult:
+   :checkcolumnname:
 
 .. questionnote::
 
    За сваки месец у години y ком је неки ученик добио неку јединицу
-   приказати број јединица које су ученици добили током тог месеца.
+   приказати број јединица које су ученици добили током тог месеца
+   (колоне назвати ``mesec`` и ``broj``).
 
 .. dbpetlja:: db_agregatne_zadaci_07
    :dbfile: dnevnik.sql
@@ -81,6 +94,8 @@
                    FROM ocena
                    WHERE ocena = 1
                    GROUP BY mesec
+   :showresult:
+   :checkcolumnname:
    
 .. questionnote::
 
@@ -93,6 +108,7 @@
                    FROM izostanak
                    GROUP BY datum
                    HAVING broj < 10
+   :showresult:
 
 .. questionnote::
 
@@ -106,3 +122,4 @@
                    FROM predmet
                    GROUP BY naziv
                    HAVING COUNT(*) > 1
+   :showresult:
