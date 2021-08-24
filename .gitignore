@@ -1,4 +1,7 @@
 __pycache__
+index.yaml
+conf.py
+pavement.py
 .vscode
 build_info
 pavement.pyc
