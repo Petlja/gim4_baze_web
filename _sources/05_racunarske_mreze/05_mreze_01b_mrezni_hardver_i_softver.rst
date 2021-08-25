@@ -191,7 +191,7 @@ Ethernet). Постоје и скупљи **STP** (енгл. *shielded twisted p
    :width: 250
    :alt: UTP кабл
 
-.. image:: ../../_images/mreze_coax.png
+.. image:: ../../_images/mreze_coax.jpg
    :width: 250
    :alt: Коаксијални кабл
 
