@@ -12,16 +12,15 @@ description:
     - шта су и чему служе базе података
     - шта је и како се користи упитни језик SQL
     - како програми написани на језику Python могу да користе базе података
-    - од чега су сачињене и како функционишу рачунарске мреже
-    - како клијенти и сервери на вебу комуницирају коришћењем протокола HTTP
-    - које су најзначајније области савременог рачунарства
   requirements:
     - Инсталиран програмски језик Python
     - Инсталиран програм SQLLite studio (упутство за инсталацију је дато у склопу курса)
   toc:
-    - Базе података
-    - Рачунарске мреже
-    - Области савременог рачунарства
+    - Увод у базе података
+    - Читање података из базе
+    - Промена садржаја базе
+    - Коришћење базе из програма (Python SQLite API)
+    
   externalLinks:
     - text: SQLite studio
       href: https://sqlitestudio.pl/
@@ -376,26 +375,3 @@ lessons:
         title: 4.7 Python SQLite API - квиз
         file: 04_python_sqlite_01g_kviz.rst
         guid: 2725662f-8188-430e-af75-dc4d9b701d4c
-
-
-### СЕКЦИЈА Računarske mreže
-  - title: "5.0 Рачунарске мреже"
-    guid: 0eb2a0ec-d038-42b7-a30f-e4ef41be3cfd
-    folder: 05_racunarske_mreze
-    activities:
-      - type: reading
-        title: 5.1 Рачунарске мреже
-        file: 05_mreze_01a_pojam_racunarske_mreze.rst
-        guid: 3464bc77-999c-4b84-a156-4ac56eb05feb
-      - type: reading
-        title: 5.2 Мрежни хардвер и мрежни софтвер
-        file: 05_mreze_01b_mrezni_hardver_i_softver.rst
-        guid: f73273cc-603e-42f2-bca0-28b3268a3800
-      - type: reading
-        title: 5.3 Повезивање и постављање кућне мреже
-        file: 05_mreze_01c_povezivanje_i_postavljanje_mreze.rst
-        guid: b57c6af0-7b6d-41a1-b190-649caa8bc192
-      - type: quiz
-        title: 5.4 Рачунарске мреже - квиз
-        file: 05_mreze_01d_kviz.rst
-        guid: 5f7b7336-ba9e-4495-9fcd-717c46733085
