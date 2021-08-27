@@ -233,4 +233,4 @@ SQL упити којима се креирају све наведене таб
 ........................
 
 База која садржи описане табеле, попуњене подацима се може `преузети
-<music.db>`_ и отворити у програму SQLite Studio.
+<https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-gim-cetvrti-inf/_static/db/music.db>`_ и отворити у програму SQLite Studio.
