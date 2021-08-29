@@ -336,5 +336,5 @@ studio, командом ``Refresh table data`` (која је доступна 
 
 На основу претходне анализе креирана је и попуњена мала база података.
 Она се у овом курсу користи директно користи из прегледача. Са друге
-стране, можеш је `преузети <dnevnik.db>`_ и отворити у програму SQLite
+стране, можеш је `преузети <https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-gim-cetvrti-inf/_static/db/dnevnik.db>`_ и отворити у програму SQLite
 Studio.
