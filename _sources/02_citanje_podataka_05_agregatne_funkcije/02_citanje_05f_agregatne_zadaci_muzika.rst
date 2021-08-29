@@ -10,13 +10,13 @@
 
 .. code-block:: sql
 
-   SELECT SUM(Bytes) / (1024.0 * 1024.0 * 1024.0) AS GBTotal
-   FROM track;
+   SELECT SUM(velicina) / (1024.0 * 1024.0 * 1024.0) AS GB
+   FROM kompozicija;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "GBTotal"
+   :header:  "GB"
    :align: left
 
    "109.32446955703199"
@@ -29,13 +29,13 @@
 
 .. code-block:: sql
 
-   SELECT Min(Milliseconds) AS Shortest, Max(Milliseconds) AS Longest
-   FROM track;
+   SELECT Min(trajanje) AS najkraca, Max(trajanje) AS najduza
+   FROM kompozicija;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Shortest", "Longest"
+   :header:  "najkraca", "najduza"
    :align: left
 
    "1071", "5286953"
@@ -49,7 +49,7 @@
 .. code-block:: sql
 
    SELECT COUNT(*)
-   FROM genre;
+   FROM zanr
 
 Извршавањем упита добија се следећи резултат:
 
@@ -67,13 +67,13 @@
 
 .. code-block:: sql
 
-   SELECT COUNT(DISTINCT AlbumId)
-   FROM Track;
+   SELECT COUNT(DISTINCT id_album)
+   FROM kompozicija
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "COUNT(DISTINCT AlbumId)"
+   :header:  "COUNT(DISTINCT id_album)"
    :align: left
 
    "347"
@@ -87,7 +87,7 @@
 .. code-block:: sql
 
    SELECT COUNT(*)
-   FROM Album;
+   FROM album
 
 Извршавањем упита добија се следећи резултат:
 
@@ -105,14 +105,14 @@
 
 .. code-block:: sql
 
-   SELECT GenreId, COUNT(*)
-   FROM track
-   GROUP BY GenreId;
+   SELECT id_zanr, COUNT(*)
+   FROM kompozicija
+   GROUP BY id_zanr
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "GenreId", "COUNT(*)"
+   :header:  "id_zanr", "COUNT(*)"
    :align: left
 
    "1", "1297"
@@ -132,15 +132,15 @@
 
 .. code-block:: sql
 
-   SELECT AlbumId, SUM(Milliseconds) AS TotalMs
-   FROM track
-   GROUP BY AlbumId
-   ORDER BY TotalMs;
+   SELECT id_album, SUM(trajanje) AS trajanje_albuma
+   FROM kompozicija
+   GROUP BY id_album
+   ORDER BY trajanje_albuma
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "AlbumId", "TotalMs"
+   :header:  "id_album", "trajanje_albuma"
    :align: left
 
    "340", "51780"
@@ -159,16 +159,16 @@
 
 .. code-block:: sql
 
-   SELECT COUNT(*) AS Count
-   FROM playlist_track
-   GROUP BY PlaylistId
-   ORDER BY Count DESC
-   LIMIT 1;
+   SELECT COUNT(*) AS broj
+   FROM plejlista_kompozicija
+   GROUP BY id_plejlista
+   ORDER BY broj DESC
+   LIMIT 1
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Count"
+   :header:  "broj"
    :align: left
 
    "3290"
@@ -183,8 +183,9 @@
    
 .. dbpetlja:: db_agregatne_muzika_zadaci_01
    :dbfile: music.sql
-   :solutionquery: SELECT SUM(Total)
-                   FROM Invoice
+   :showresult:
+   :solutionquery: SELECT SUM(ukupan_iznos)
+                   FROM narudzbenica
 
 .. questionnote::
 
@@ -193,69 +194,72 @@
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_02
    :dbfile: music.sql
-   :solutionquery: SELECT AVG(Total)
-                   FROM Invoice
-                   WHERE InvoiceDate LIKE '2010-%'
+   :showresult:
+   :solutionquery: SELECT AVG(ukupan_iznos)
+                   FROM narudzbenica
+                   WHERE datum LIKE '2010-%'
 
 .. questionnote::
 
-   За сваку земљу у коју је послата нека наруџбина приказати укупан
-   износ наруџбина послатих у ту земљу. Резултате приказати заокружене
-   на најближи цео број у нерастућем редоследу укупног износа
-   наруџбина.
+   За сваког купца који је извршио неку наруџбину током 2011. године
+   приказати укупан износ наруџбина које је извршио током те
+   године. Резултате приказати заокружене на најближи цео број у
+   нерастућем редоследу укупног износа наруџбина.
    
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_03
    :dbfile: music.sql
-   :solutionquery: SELECT BillingCountry, ROUND(SUM(Total)) AS ukupno
-                   FROM Invoice
-                   GROUP BY BillingCountry
+   :showresult:
+   :solutionquery: SELECT id_kupac, ROUND(SUM(ukupan_iznos)) AS ukupno
+                   FROM narudzbenica
+                   WHERE strftime('%Y', datum) == '2009'
+                   GROUP BY id_kupac
                    ORDER BY ukupno DESC
 
 
 .. questionnote::
 
-   За сваку годину приказати укупан број наруџбина испоручених у
-   САД. Резултат сортирати на основу године.
+   За сваку годину приказати укупан број наруџбина. Резултат сортирати
+   на основу године.
    
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_04
    :dbfile: music.sql
-   :solutionquery: SELECT strftime('%Y', InvoiceDate) AS godina, COUNT(*) AS ukupno
-                   FROM Invoice
-                   WHERE BillingCountry = 'USA'
+   :showresult:
+   :solutionquery: SELECT strftime('%Y', datum) AS godina, COUNT(*) AS ukupno
+                   FROM narudzbenica
                    GROUP BY godina
                    ORDER BY godina
 
 
 .. questionnote::
 
-   На табеле ставки наруџбина ``InvoiceItem`` приказати укупан износ
-   наруџбина на свакој наруџбеници (износ сваке ставке се добија
-   множењем количине ``Quantity`` и јединичне цене ``UnitPrice``, а
-   укупан износ наруџбине се добија сабирањем свих овако израчунатих
-   износа ставки са те наруџбине). Сваки износ заокружити на две
-   децимале.
+   На табеле ставки наруџбина ``stavka_narudzbenice`` приказати укупан
+   износ наруџбина на свакој наруџбеници (износ сваке ставке се добија
+   множењем количине ``kolicina`` и јединичне цене ``cena``, а укупан
+   износ наруџбине се добија сабирањем свих овако израчунатих износа
+   ставки са те наруџбине). Сваки износ заокружити на две децимале.
    
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_05
    :dbfile: music.sql
-   :solutionquery: SELECT InvoiceId, ROUND(SUM(Quantity * UnitPrice), 2) AS Ukupno
-                   FROM invoice_item
-                   GROUP BY InvoiceId
-
+   :showresult:
+   :solutionquery: SELECT id_narudzbenica, ROUND(SUM(kolicina * cena), 2) AS Ukupno
+                   FROM stavka_narudzbenice
+                   GROUP BY id_narudzbenica
 
       
 .. questionnote::
 
-   За сваку земљу из које постоји неки купац приказати укупан број
+   За сваку државу из које постоји неки купац приказати укупан број
    купаца.
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_06
    :dbfile: music.sql
-   :solutionquery: SELECT Country, COUNT(*) AS broj_kupaca
-                   FROM Customer
-                   GROUP BY Country
+   :showresult:
+   :solutionquery: SELECT drzava, COUNT(*) AS broj_kupaca
+                   FROM kupac
+                   GROUP BY drzava
 
                    
 .. questionnote::
@@ -265,9 +269,10 @@
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_07
    :dbfile: music.sql
-   :solutionquery: SELECT Country, COUNT(*) AS broj_kupaca
-                   FROM Customer
-                   GROUP BY Country
+   :showresult:
+   :solutionquery: SELECT drzava, COUNT(*) AS broj_kupaca
+                   FROM kupac
+                   GROUP BY drzava
                    HAVING broj_kupaca >= 5
                    ORDER BY broj_kupaca DESC
                    
@@ -278,10 +283,11 @@
 
 .. dbpetlja:: db_agregatne_muzika_zadaci_08
    :dbfile: music.sql
-   :solutionquery: SELECT GenreId
-                   FROM Track
-                   GROUP BY GenreId
-                   HAVING SUM(Milliseconds) >= 10 * 60 * 60 * 1000
+   :showresult:
+   :solutionquery: SELECT id_zanr
+                   FROM kompozicija
+                   GROUP BY id_zanr
+                   HAVING SUM(trajanje) >= 10 * 60 * 60 * 1000
 
 
 .. questionnote::
@@ -293,6 +299,7 @@
    
 .. dbpetlja:: db_agregatne_muzika_zadaci_09
    :dbfile: music.sql
-   :solutionquery: SELECT GenreId, COUNT (DISTINCT MediaTypeId)
-                   FROM Track
-                   GROUP BY GenreId
+   :showresult:
+   :solutionquery: SELECT id_zanr, COUNT (DISTINCT id_format)
+                   FROM kompozicija
+                   GROUP BY id_zanr

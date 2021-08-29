@@ -12,13 +12,13 @@
 .. code-block:: sql
 
    SELECT *
-   FROM track
-   WHERE Bytes >= 10000000;
+   FROM kompozicija
+   WHERE velicina >= 10000000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :header:  "id_kompozicija", "naziv", "id_album", "id_format", "id_zanr", "trajanje", "velicina", "cena"
    :align: left
 
    "1", "For Those About To Rock (We Salute You)", "1", "1", "1", "343719", "11170334", "0.99"
@@ -34,14 +34,14 @@
    
 .. code-block:: sql
 
-   SELECT Name
-   FROM track
-   WHERE Milliseconds < 180000;
+   SELECT naziv
+   FROM kompozicija
+   WHERE trajanje < 180000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "Right Through You"
@@ -58,14 +58,14 @@
    
 .. code-block:: sql
 
-   SELECT Name
-   FROM track
-   WHERE Milliseconds BETWEEN 180000 AND 240000;
+   SELECT naziv
+   FROM kompozicija
+   WHERE trajanje BETWEEN 180000 AND 240000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "Fast As a Shark"
@@ -82,13 +82,13 @@
 .. code-block:: sql
 
    SELECT *
-   FROM track
-   WHERE Name LIKE 'Love%';
+   FROM kompozicija
+   WHERE naziv LIKE 'Love%';
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :header:  "id_kompozicija", "naziv", "id_album", "id_format", "id_zanr", "trajanje", "velicina", "cena"
    :align: left
 
    "24", "Love In An Elevator", "5", "1", "1", "321828", "10552051", "0.99"
@@ -105,13 +105,13 @@
 .. code-block:: sql
 
    SELECT *
-   FROM genre
-   WHERE Name LIKE '%Rock%';
+   FROM zanr
+   WHERE naziv LIKE '%Rock%';
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "GenreId", "Name"
+   :header:  "id_zanr", "naziv"
    :align: left
 
    "1", "Rock"
@@ -125,13 +125,13 @@
 .. code-block:: sql
 
    SELECT *
-   FROM artist
-   WHERE Name LIKE '%Orchestra%' OR Name LIKE '%Symphony%';
+   FROM izvodjac
+   WHERE naziv LIKE '%Orchestra%' OR naziv LIKE '%Symphony%';
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "ArtistId", "Name"
+   :header:  "id_izvodjac", "naziv"
    :align: left
 
    "192", "DJ Dolores & Orchestra Santa Massa"
@@ -150,13 +150,13 @@
 .. code-block:: sql
 
    SELECT *
-   FROM track
-   WHERE UnitPrice >= 1.00 AND Milliseconds < 600000;
+   FROM kompozicija
+   WHERE cena >= 1.00 AND trajanje < 600000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :header:  "id_kompozicija", "naziv", "id_album", "id_format", "id_zanr", "trajanje", "velicina", "cena"
    :align: left
 
    "3339", "LOST Season 4 Trailer", "261", "3", "21", "112712", "20831818", "1.99"
@@ -175,9 +175,10 @@
 
 .. dbpetlja:: db_operatori_zadaci_muzika_01
    :dbfile: music.sql
-   :solutionquery: SELECT Name
-                   FROM track
-                   WHERE Name LIKE '% you'
+   :showresult:
+   :solutionquery: SELECT naziv
+                   FROM kompozicija
+                   WHERE naziv LIKE '% you'
 
 .. questionnote::
 
@@ -186,9 +187,10 @@
 
 .. dbpetlja:: db_operatori_zadaci_muzika_02
    :dbfile: music.sql
-   :solutionquery: SELECT FirstName, LastName, Country
-                   FROM customer
-                   WHERE FirstName = 'Luis' AND Country != 'Brasil'
+   :showresult:
+   :solutionquery: SELECT ime, prezime, drzava
+                   FROM kupac
+                   WHERE ime = 'Luis' AND drzava != 'Brasil'
 
 .. questionnote::
 
@@ -198,6 +200,7 @@
    
 .. dbpetlja:: db_operatori_zadaci_muzika_03
    :dbfile: music.sql
-   :solutionquery: SELECT FirstName, LastName, BirthDate
-                   FROM employee
-                   WHERE BirthDate BETWEEN '1970-01-01' AND '1979-12-31'
+   :showresult:
+   :solutionquery: SELECT ime, prezime, datum_rodjenja
+                   FROM zaposleni
+                   WHERE datum_rodjenja BETWEEN '1970-01-01' AND '1979-12-31'

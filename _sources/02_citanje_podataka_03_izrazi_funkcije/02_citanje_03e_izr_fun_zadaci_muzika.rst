@@ -10,14 +10,14 @@
    
 .. code-block:: sql
 
-   SELECT name
-   FROM track
-   WHERE Milliseconds > 4.5 * 60 * 1000;
+   SELECT naziv
+   FROM kompozicija
+   WHERE trajanje > 4.5 * 60 * 1000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "For Those About To Rock (We Salute You)"
@@ -34,13 +34,13 @@
 
 .. code-block:: sql
 
-   SELECT name, round(Bytes / (1024 * 1024), 2) AS Mb
-   FROM track;
+   SELECT naziv, round(velicina / (1024 * 1024), 2) AS Mb
+   FROM kompozicija;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "Mb"
+   :header:  "naziv", "Mb"
    :align: left
 
    "For Those About To Rock (We Salute You)", "10.0"
@@ -53,32 +53,32 @@
 .. questionnote::
 
    Приказати називе свих композиција, њихово трајање у секундама и
-   ознаке да дужине. Кратке (short) су оне које су краће од три
-   минута, средње (medium) су оне између 3 и 6 минута, а дуге (long)
-   оне које су дуже од 6 минута).
+   ознаке да дужине. Кратке (``kratka``) су оне које су краће од три
+   минута, средње (``srednja``) су оне између 3 и 6 минута, а дуге
+   (``duga``) оне које су дуже од 6 минута).
 
    
 .. code-block:: sql
 
-   SELECT Name, round(Milliseconds / 1000) AS Seconds,
+   SELECT naziv, round(trajanje / 1000) AS sekunde,
           CASE
-             WHEN Milliseconds < 3 * 60 * 1000 THEN 'short'
-             WHEN Milliseconds < 6 * 60 * 1000 THEN 'medium'
-             ELSE 'long'
-          END AS Length
-   FROM track;
+             WHEN trajanje < 3 * 60 * 1000 THEN 'kratka'
+             WHEN trajanje < 6 * 60 * 1000 THEN 'srednja'
+             ELSE 'duga'
+          END AS duzina
+   FROM kompozicija;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "Seconds", "Length"
+   :header:  "naziv", "sekunde", "duzina"
    :align: left
 
-   "For Those About To Rock (We Salute You)", "343.0", "medium"
-   "Balls to the Wall", "342.0", "medium"
-   "Fast As a Shark", "230.0", "medium"
-   "Restless and Wild", "252.0", "medium"
-   "Princess of the Dawn", "375.0", "long"
+   "For Those About To Rock (We Salute You)", "343.0", "srednja"
+   "Balls to the Wall", "342.0", "srednja"
+   "Fast As a Shark", "230.0", "srednja"
+   "Restless and Wild", "252.0", "srednja"
+   "Princess of the Dawn", "375.0", "duga"
    ..., ..., ...
 
 .. questionnote::
@@ -88,15 +88,15 @@
    
 .. code-block:: sql
 
-   SELECT TrackId, Name,
-          CAST (round(Milliseconds / 1000) AS INTEGER) / 60 AS Minutes,
-          CAST (round(Milliseconds / 1000) AS INTEGER) % 60 AS Seconds
-   FROM track;
+   SELECT id_kompozicija, naziv,
+          CAST (round(trajanje / 1000) AS INTEGER) / 60 AS minuti,
+          CAST (round(trajanje / 1000) AS INTEGER) % 60 AS sekunde
+   FROM kompozicija;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "Minutes", "Seconds"
+   :header:  "id_kompozicija", "naziv", "minuti", "sekunde"
    :align: left
 
    "1", "For Those About To Rock (We Salute You)", "5", "43"
@@ -114,16 +114,17 @@
 
 .. questionnote::
 
-   За сваку ставку наруџбенице прикажи идентификатор *InvoiceLineId* и
-   укупну цену (она се добија множењем јединичне цене *UnitPrice* и
-   количине *Quantity*). Укупну цену прикажи у колони *TotalPrice*.
+   За сваку ставку наруџбенице прикажи идентификатор *id_naruzbenica*
+   и укупну цену (она се добија множењем јединичне цене *cena* и
+   количине *kolicina*). Укупну цену прикажи у колони *ukupna_cena*.
 
 
 .. dbpetlja:: db_izrazi_zadaci_muzika_01
    :dbfile: music.sql
    :checkcolumnname:
-   :solutionquery: SELECT InvoiceLineId, Quantity * UnitPrice AS TotalPrice
-                   FROM invoice_item
+   :showresult:
+   :solutionquery: SELECT id_narudzbenica, kolicina * cena AS ukupna_cena
+                   FROM stavka_narudzbenice
 
 .. questionnote::
 
@@ -133,9 +134,10 @@
 .. dbpetlja:: db_izrazi_zadaci_muzika_02
    :dbfile: music.sql
    :checkcolumnname:
+   :showresult:
    :solutionquery: SELECT name
-                   FROM track
-                   WHERE Bytes > 10.5 * 1024 * 1024
+                   FROM kompozicija
+                   WHERE velicina > 10.5 * 1024 * 1024
 
    
 

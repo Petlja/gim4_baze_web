@@ -80,7 +80,7 @@
    @app.route("/artists")
    def artists():
        cur = get_db().cursor()
-       artists = cur.execute("SELECT Name FROM Artist LIMIT 10").fetchall()
+       artists = cur.execute("SELECT naziv FROM izvodjac LIMIT 10").fetchall()
        return render_template("artists.html", artists=artists)
        
 Унутар шаблона у петљи исписујемо податке из низа ``artists``

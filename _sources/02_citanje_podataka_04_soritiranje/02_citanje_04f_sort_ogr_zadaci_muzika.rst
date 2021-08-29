@@ -11,14 +11,14 @@
 .. code-block:: sql
 
    SELECT *
-   FROM track
-   ORDER BY Bytes DESC
+   FROM kompozicija
+   ORDER BY velicina DESC
    LIMIT 3;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice"
+   :header:  "id_kompozicija", "naziv", "id_album", "id_format", "id_zanr", "trajanje", "velicina", "cena"
    :align: left
 
    "3224", "Through a Looking Glass", "229", "3", "21", "5088838", "1059546140", "1.99"
@@ -32,15 +32,15 @@
 
 .. code-block:: sql
 
-   SELECT *, Bytes / (Milliseconds / 1000) AS CompressionRatio
-   FROM track
-   ORDER BY CompressionRatio DESC
+   SELECT *, velicina / (trajanje / 1000) AS kompresija
+   FROM kompozicija
+   ORDER BY kompresija DESC
    LIMIT 3;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Milliseconds", "Bytes", "UnitPrice", "CompressionRatio"
+   :header:  "id_kompozicija", "naziv", "id_album", "id_format", "id_zanr", "trajanje", "velicina", "cena", "kompresija"
    :align: left
 
    "2844", "Better Halves", "228", "3", "21", "2573031", "549353481", "1.99", "213506"
@@ -54,14 +54,14 @@
 
 .. code-block:: sql
 
-   SELECT DISTINCT AlbumId
-   FROM track
-   WHERE Milliseconds >= 10 * 60 * 1000;
+   SELECT DISTINCT id_album
+   FROM kompozicija
+   WHERE trajanje >= 10 * 60 * 1000;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "AlbumId"
+   :header:  "id_album"
    :align: left
 
    "16"
@@ -84,9 +84,10 @@
 
 .. dbpetlja:: db_sortiranje_zadaci_muzika_01
    :dbfile: music.sql
-   :solutionquery: SELECT Title
-                   FROM Album
-                   ORDER BY Title
+   :showresult:
+   :solutionquery: SELECT naziv
+                   FROM album
+                   ORDER BY naziv
    
 
 .. questionnote::
@@ -96,10 +97,11 @@
 
 .. dbpetlja:: db_sortiranje_zadaci_muzika_02
    :dbfile: music.sql
+   :showresult:
    :solutionquery: SELECT *
-                   FROM Customer
-                   WHERE Country = 'USA'
-                   ORDER BY City
+                   FROM kupac
+                   WHERE drzava = 'USA'
+                   ORDER BY grad
 
                    
 .. questionnote::
@@ -109,18 +111,20 @@
    
 .. dbpetlja:: db_sortiranje_zadaci_muzika_03
    :dbfile: music.sql
-   :solutionquery: SELECT Name, BirthDate
-                   FROM employee
-                   ORDER BY BirthDate DESC
+   :showresult:
+   :solutionquery: SELECT ime, prezime, datum_rodjenja
+                   FROM zaposleni
+                   ORDER BY datum_rodjenja DESC
                    LIMIT 3
 
 .. questionnote::
 
-   Исписати ознаке различитих држава у САД из којих долазе купци.
+   Исписати називе различитих држава из којих долазе купци.
    
 .. dbpetlja:: db_sortiranje_zadaci_muzika_04
    :dbfile: music.sql
-   :solutionquery: SELECT DISTINCT State
-                   FROM Customer
-                   WHERE Country = 'USA'
+   :showresult:
+   :solutionquery: SELECT DISTINCT drzava
+                   FROM kupac
+
                    

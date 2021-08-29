@@ -10,13 +10,13 @@
 
 .. code-block:: sql
 
-   SELECT name
-   FROM artist;
+   SELECT naziv
+   FROM izvodjac;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "AC/DC"
@@ -32,14 +32,14 @@
 
 .. code-block:: sql
 
-   SELECT name
-   FROM track
-   WHERE AlbumId = 1;
+   SELECT naziv
+   FROM kompozicija
+   WHERE id_album = 1;
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "For Those About To Rock (We Salute You)"
@@ -55,14 +55,14 @@
 
 .. code-block:: sql
 
-   SELECT FirstName, LastName
-   FROM employee
-   WHERE Country = 'Canada';
+   SELECT ime, prezime
+   FROM zaposleni
+   WHERE drzava = 'Canada';
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "FirstName", "LastName"
+   :header:  "ime", "prezime"
    :align: left
 
    "Andrew", "Adams"
@@ -84,9 +84,10 @@
 
 .. dbpetlja:: db_proj_restr_muz_01
    :dbfile: music.sql
-   :solutionquery: SELECT title
+   :showresult:
+   :solutionquery: SELECT naziv
                    FROM album
-                   WHERE artistId = 1
+                   WHERE id_izvodjac = 1
 
 .. questionnote::
 
@@ -94,7 +95,7 @@
 
 .. dbpetlja:: db_proj_restr_muz_02
    :dbfile: music.sql
-   :solutionquery:  SELECT CustomerId, FirstName, LastName
-                    FROM customer
-                    WHERE FirstName = 'Jack'
-                    
+   :showresult:
+   :solutionquery:  SELECT id_kupac, ime, prezime
+                    FROM kupac
+                    WHERE ime = 'Jack'

@@ -123,7 +123,7 @@ Flask функција ``url_for`` (њу смо већ користили, на 
        {% for genre in genres: %}
           <li>
             <a href="{{ url_for('tracks_by_genre', genre_id=genre.GenreId) }}">
-              {{ genre.Name }}
+              {{ genre.naziv }}
             </a>
           </li>
        {% endfor %}

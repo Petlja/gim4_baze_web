@@ -14,14 +14,14 @@
 
 .. code-block:: sql
 
-   SELECT track.Name, genre.Name
-   FROM track JOIN
-        genre ON track.GenreId = genre.GenreID;
+   SELECT kompozicija.naziv AS kompozicija, zanr.naziv AS zanr
+   FROM kompozicija JOIN
+        zanr ON kompozicija.id_zanr = zanr.id_zanr
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "Name"
+   :header:  "kompozicija", "zanr"
    :align: left
 
    "For Those About To Rock (We Salute You)", "Rock"
@@ -38,15 +38,15 @@
 
 .. code-block:: sql
 
-   SELECT track.Name
-   FROM track JOIN
-        genre ON track.GenreId = genre.GenreID
-   WHERE genre.Name = 'Jazz';
+   SELECT kompozicija.naziv
+   FROM kompozicija JOIN
+        zanr ON kompozicija.id_zanr = zanr.id_zanr
+   WHERE zanr.naziv = 'Jazz'
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "Desafinado"
@@ -64,16 +64,16 @@
 
 .. code-block:: sql
 
-   SELECT artist.Name, round(SUM(track.Milliseconds) / (1000.0 * 60.0), 2) AS Minutes
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId
-   GROUP BY artist.ArtistId;
+   SELECT izvodjac.naziv, round(SUM(kompozicija.trajanje) / (1000.0 * 60.0), 2) AS minuti
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
+   GROUP BY izvodjac.id_izvodjac
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "Minutes"
+   :header:  "naziv", "minuti"
    :align: left
 
    "AC/DC", "80.89"
@@ -91,16 +91,16 @@
 
 .. code-block:: sql
 
-   SELECT track.Name
-   FROM track JOIN
-        genre ON track.GenreId = genre.GenreId JOIN
-        media_type ON track.MediaTypeId = media_type.MediaTypeId
-   WHERE genre.Name = 'Pop' AND media_type.Name LIKE '%AAC%';
+   SELECT kompozicija.naziv
+   FROM kompozicija JOIN
+        zanr ON kompozicija.id_zanr = zanr.id_zanr JOIN
+        format ON kompozicija.id_format = format.id_format
+   WHERE zanr.naziv = 'Pop' AND format.naziv LIKE '%AAC%'
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "Instant Karma"
@@ -118,19 +118,19 @@
 
 .. code-block:: sql
                 
-   SELECT artist.Name, COUNT(*) AS Num
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId JOIN
-        media_type ON track.MediaTypeId = media_type.MediaTypeId
-   WHERE media_type.Name LIKE '%MPEG%'
-   GROUP BY artist.ArtistId
-   HAVING Num >= 5;
+   SELECT izvodjac.naziv, COUNT(*) AS broj
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac JOIN
+        format ON kompozicija.id_format = format.id_format
+   WHERE format.naziv LIKE '%MPEG%'
+   GROUP BY izvodjac.id_izvodjac
+   HAVING broj >= 5
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "Num"
+   :header:  "naziv", "broj"
    :align: left
 
    "AC/DC", "18"
@@ -143,20 +143,20 @@
    
 .. questionnote::
 
-   Прикажи називе свих песама групе Queen.
+   Прикажи називе свих песама групе *Queen*.
    
 .. code-block:: sql
 
-   SELECT track.Name
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId
-   WHERE artist.Name = 'Queen';
+   SELECT kompozicija.naziv
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
+   WHERE izvodjac.naziv = 'Queen'
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "A Kind Of Magic"
@@ -174,16 +174,16 @@
    
 .. code-block:: sql
 
-   SELECT genre.Name, round(AVG(Milliseconds / 1000)) AS AverageMilliseconds
-   FROM track JOIN
-        genre ON track.GenreId = genre.GenreId
-   GROUP BY genre.GenreId
-   ORDER BY AverageMilliseconds DESC;
+   SELECT zanr.naziv, round(AVG(trajanje / 1000)) AS prosecno_trajanje
+   FROM kompozicija JOIN
+        zanr ON kompozicija.id_zanr = zanr.id_zanr
+   GROUP BY zanr.id_zanr
+   ORDER BY prosecno_trajanje DESC
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "AverageMilliseconds"
+   :header:  "naziv", "prosecno_trajanje"
    :align: left
 
    "Sci Fi & Fantasy", "2911.0"
@@ -195,20 +195,20 @@
 
 .. questionnote::
 
-   Приказати укупну дужину свих композиција групе ``Metallica``.
+   Приказати укупну дужину свих композиција групе *Metallica*.
 
 .. code-block:: sql
 
-   SELECT SUM(Milliseconds) AS MetallicaMs
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId
-   WHERE artist.Name = 'Metallica';
+   SELECT SUM(trajanje) AS ukupno_trajanje
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
+   WHERE izvodjac.naziv = 'Metallica'
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "MetallicaMs"
+   :header:  "ukupno_trajanje"
    :align: left
 
    "38916130"
@@ -220,17 +220,17 @@
 
 .. code-block:: sql
 
-   SELECT artist.Name, round(AVG(Milliseconds / (1000.0 * 60.0)), 2) AS AverageMinutes
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId
-   GROUP BY artist.ArtistId
-   HAVING AverageMinutes BETWEEN 3.0 AND 4.0;
+   SELECT izvodjac.naziv, round(AVG(trajanje / (1000.0 * 60.0)), 2) AS prosecno_minuta
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
+   GROUP BY izvodjac.id_izvodjac
+   HAVING prosecno_minuta BETWEEN 3.0 AND 4.0
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "AverageMinutes"
+   :header:  "naziv", "prosecno_minuta"
    :align: left
 
    "Antônio Carlos Jobim", "3.83"
@@ -248,17 +248,17 @@
    
 .. code-block:: sql
 
-   SELECT artist.Name, COUNT(*) AS AlbumCount
-   FROM artist JOIN
-        album ON artist.ArtistId = album.ArtistId
-   GROUP BY artist.ArtistId
-   HAVING AlbumCount >= 5
-   ORDER BY AlbumCount DESC;
+   SELECT izvodjac.naziv, COUNT(*) AS broj_albuma
+   FROM izvodjac JOIN
+        album ON izvodjac.id_izvodjac = album.id_izvodjac
+   GROUP BY izvodjac.id_izvodjac
+   HAVING broj_albuma >= 5
+   ORDER BY broj_albuma DESC
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "AlbumCount"
+   :header:  "naziv", "broj_albuma"
    :align: left
 
    "Iron Maiden", "21"
@@ -276,18 +276,18 @@
    
 .. code-block:: sql
    
-   SELECT artist.Name, count(DISTINCT track.GenreId) AS NumGenres
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId
-   GROUP BY artist.ArtistId
-   HAVING NumGenres > 1
-   ORDER BY NumGenres DESC;
+   SELECT izvodjac.naziv, count(DISTINCT kompozicija.id_zanr) AS broj_zanrova
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
+   GROUP BY izvodjac.id_izvodjac
+   HAVING broj_zanrova > 1
+   ORDER BY broj_zanrova DESC
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "NumGenres"
+   :header:  "naziv", "broj_zanrova"
    :align: left
 
    "Iron Maiden", "4"
@@ -300,22 +300,22 @@
    
 .. questionnote::
 
-   Приказати називе свих различитих жанрова компоизиција групе ``Iron
-   Maiden``.
+   Приказати називе свих различитих жанрова компоизиција групе *Iron
+   Maiden*.
    
 .. code-block:: sql
    
-   SELECT DISTINCT genre.Name
-   FROM track JOIN
-        album ON track.AlbumId = album.AlbumId JOIN
-        artist ON artist.ArtistId = album.ArtistId JOIN
-        genre ON genre.GenreId = track.GenreId
-   WHERE artist.Name = 'Iron Maiden';
+   SELECT DISTINCT zanr.naziv
+   FROM kompozicija JOIN
+        album ON kompozicija.id_album = album.id_album JOIN
+        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac JOIN
+        zanr ON zanr.id_zanr = kompozicija.id_zanr
+   WHERE izvodjac.naziv = 'Iron Maiden'
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name"
+   :header:  "naziv"
    :align: left
 
    "Rock"
@@ -336,19 +336,19 @@
 
 .. code-block:: sql
                 
-   SELECT ar.Name, COUNT(t.Name) AS broj_rok_kompozicija
-   FROM (artist ar JOIN
-         album al ON ar.ArtistId = al.ArtistId)
+   SELECT i.naziv, COUNT(k.naziv) AS broj_rok_kompozicija
+   FROM (izvodjac i JOIN
+         album a ON a.id_izvodjac = i.id_izvodjac)
    LEFT JOIN
-        (track t JOIN
-         genre g ON t.GenreId = g.GenreId AND g.Name = 'Rock') ON al.AlbumId = t.AlbumId
-   GROUP BY ar.ArtistId
-   ORDER BY broj_rok_kompozicija DESC   
+        (kompozicija k JOIN
+         zanr z ON k.id_zanr = z.id_zanr AND z.naziv = 'Rock') ON a.id_album = k.id_album
+   GROUP BY i.id_izvodjac
+   ORDER BY broj_rok_kompozicija DESC 
 
 Извршавањем упита добија се следећи резултат:
 
 .. csv-table::
-   :header:  "Name", "broj_rok_kompozicija"
+   :header:  "naziv", "broj_rok_kompozicija"
    :align: left
 
    "Led Zeppelin", "114"
@@ -370,10 +370,11 @@
    
 .. dbpetlja:: db_spajanje_muzika_01
    :dbfile: music.sql
-   :solutionquery: SELECT artist.Name, track.Name
-                   FROM track JOIN
-                        album ON track.AlbumId = album.AlbumId JOIN
-                        artist ON artist.ArtistId = album.ArtistId;
+   :showresult:         
+   :solutionquery: SELECT izvodjac.naziv AS izvodjac, kompozicija.naziv AS kompozicija
+                   FROM kompozicija JOIN
+                        album ON kompozicija.id_album = album.id_album JOIN
+                        izvodjac ON izvodjac.id_izvodjac = album.id_izvodjac
 
 .. questionnote::
 
@@ -384,10 +385,11 @@
 
 .. dbpetlja:: db_spajanje_muzika_02
    :dbfile: music.sql
-   :solutionquery: SELECT e1.EmployeeId, e1.FirstName, e1.LastName,
-                          e2.EmployeeId, e2.FirstName, e2.LastName
-                   FROM employee e1 JOIN
-                        employee e2 ON e1.EmployeeId = e2.ReportsTo
+   :showresult:         
+   :solutionquery: SELECT z1.id_zaposleni, z1.ime, z1.prezime,
+                          z2.id_zaposleni, z2.ime, z2.prezime
+                   FROM zaposleni z1 JOIN
+                        zaposleni z2 ON z1.id_zaposleni = z2.id_nadredjeni
 
 
                         
@@ -400,10 +402,11 @@
    
 .. dbpetlja:: db_spajanje_muzika_03
    :dbfile: music.sql
-   :solutionquery: SELECT c.FirstName, c.LastName, e.FirstName, e.LastName
-                   FROM customer c JOIN
-                        employee e ON c.SupportRepId = e.EmployeeId
-                        ORDER BY e.LastName, e.FirstName, c.LastName, c.FirstName
+   :showresult:         
+   :solutionquery: SELECT k.ime, k.prezime, z.ime, z.prezime
+                   FROM kupac k JOIN
+                        zaposleni z ON k.id_zaposleni = z.id_zaposleni
+                        ORDER BY z.prezime, z.ime, k.prezime, k.ime
    
                         
 .. questionnote::
@@ -412,10 +415,11 @@
    
 .. dbpetlja:: db_spajanje_muzika_04
    :dbfile: music.sql
-   :solutionquery: SELECT Name, Min(Milliseconds), Max(Milliseconds)
-                   FROM genre g JOIN 
-                        track t ON g.GenreId = t.GenreId
-                   GROUP BY g.GenreId
+   :showresult:         
+   :solutionquery: SELECT z.naziv, Min(trajanje), Max(trajanje)
+                   FROM zanr z JOIN 
+                        kompozicija k ON z.id_zanr = k.id_zanr
+                   GROUP BY z.id_zanr
     
 .. questionnote::
 
@@ -425,12 +429,13 @@
 
 .. dbpetlja:: db_spajanje_muzika_05
    :dbfile: music.sql
-   :solutionquery: SELECT i.InvoiceId, c.FirstName, c.LastName, COUNT(*) AS broj_stavki
-                   FROM invoice i JOIN
-                        invoice_item ii ON i.InvoiceId = ii.InvoiceId JOIN
-                        customer c ON i.CustomerId = c.CustomerId
-                   WHERE BillingCountry = 'Brazil'
-                   GROUP BY i.InvoiceId
+   :showresult:         
+   :solutionquery: SELECT n.id_narudzbenica, k.ime, k.prezime, COUNT(*) AS broj_stavki
+                   FROM narudzbenica n JOIN
+                        stavka_narudzbenice s ON n.id_narudzbenica = s.id_narudzbenica JOIN
+                        kupac k ON n.id_kupac = k.id_kupac
+                   WHERE drzava_dostave = 'Brazil'
+                   GROUP BY n.id_narudzbenica
                    ORDER BY broj_stavki
                  
 .. questionnote::
@@ -441,25 +446,26 @@
    
 .. dbpetlja:: db_spajanje_muzika_06
    :dbfile: music.sql
-   :solutionquery: SELECT c.FirstName, c.LastName, ROUND(SUM(Total), 2) AS ukupan_iznos
-                   FROM invoice i JOIN
-                        customer c ON i.CustomerId = c.CustomerId
-                   GROUP BY c.CustomerId
+   :showresult:         
+   :solutionquery: SELECT k.ime, k.prezime, ROUND(SUM(n.ukupan_iznos), 2) AS ukupan_iznos
+                   FROM narudzbenica n JOIN
+                        kupac k ON k.id_kupac = n.id_kupac
+                   GROUP BY k.id_kupac
                    ORDER BY ukupan_iznos DESC
                    LIMIT 3
 
 .. questionnote::
 
    За сваког запосленог прикази идентификатор, име, презиме, број
-   запослених који њему подносе извештај (поље
-   ``ReportsTo``). Приказати и оне запослене којима је тај број једнак
-   нули.
+   запослених којима је он надређени службеник. Приказати и оне
+   запослене којима је тај број једнак нули.
 
    
 .. dbpetlja:: db_spajanje_muzika_07
    :dbfile: music.sql
-   :solutionquery: SELECT e1.EmployeeId, e1.FirstName, e1.LastName,
-                          COUNT(e2.EmployeeId) AS broj_podredjenih
-                   FROM employee e1 LEFT JOIN
-                        employee e2 ON e1.EmployeeId = e2.ReportsTo
-                   GROUP BY e1.EmployeeId
+   :showresult:         
+   :solutionquery: SELECT z1.id_zaposleni, z1.ime, z1.prezime,
+                          COUNT(z2.id_zaposleni) AS broj_podredjenih
+                   FROM zaposleni z1 LEFT JOIN
+                        zaposleni z2 ON z1.id_zaposleni = z2.id_nadredjeni
+                   GROUP BY z1.id_zaposleni
