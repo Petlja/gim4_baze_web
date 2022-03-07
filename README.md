@@ -6,6 +6,8 @@ Ovaj repozitorijum posvećen je kursevima za četvrti razred gimnazije za nastav
 
 U ovom repozitorijumu se nalazi izvorna forma sadržaja koju pomoću alata [PetljaDoc](https://github.com/Petlja/PetljaDoc) možete konvertovati u skup *HTML* strana.
 
+Napomena: pre pokretanja alata PetljaDoc potrebno je da podesite verziju priručnika koju ćete konvertovati u *HTML* komandom `postavi.bat prirodni` ili `postavi.bat drustveni`.
+
 Na https://petlja.github.io/gim4_baze_web možete pregledati na taj način dobijene *HTML* strane.
 
 ## License
