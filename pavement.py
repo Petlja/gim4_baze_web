@@ -25,7 +25,7 @@ options(
         sourcedir="_intermediate",
         outdir="./_build",
         confdir=".",
-        project_name = "gim4_baze_web",
+        project_name = "gim4_baze_web_prirodni",
 
         # leave template_args empty, use html_context from conf.py
         template_args= {}

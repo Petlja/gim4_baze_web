@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Петља - Рачунарство и информатика за 4. разред гимназије'
+project = 'Петља - Рачунарство и информатика за 4. разред гимназије - природно-математички смер'
 #pylint: disable=redefined-builtin
 copyright = '2021 Петља'
 
@@ -113,7 +113,7 @@ rst_prolog = (
 # -- Options for HTML output ---------------------------------------------------
 
 
-html_context = {'course_id': 'gim4_baze_web',
+html_context = {'course_id': 'gim4_baze_web_prirodni',
                 'login_required':'false',
                 'appname': "runestone",
                 'loglevel': int("0"),
@@ -122,7 +122,7 @@ html_context = {'course_id': 'gim4_baze_web',
                 'python3': 'true',
                 'dburl': os.environ['DBURL'] if 'DBURL' in os.environ else '',
                 'default_ac_lang': 'python',
-                'basecourse': 'gim4_baze_web',
+                'basecourse': 'gim4_baze_web_prirodni',
                 'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
                 'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
                 'proxy_uri_files': '/jobe/index.php/restapi/files/',
@@ -141,7 +141,7 @@ html_theme = 'petljadoc_course_theme'
 #html_theme_options = {'nosidebar': 'true'}
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Петља - Рачунарство и информатика за 4. разред гимназије",
+    'navbar_title': "Петља - Рачунарство и информатика за 4. разред гимназије - природно-математички смер",
 
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "Chapters",
@@ -187,10 +187,10 @@ html_theme_path = ["_templates/plugin_layouts"]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Петља - Рачунарство и информатика за 4. разред гимназије'
+html_title = 'Петља - Рачунарство и информатика за 4. разред гимназије - природно-математички смер'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title ='Петља - Рачунарство и информатика за 4. разред гимназије'
+html_short_title ='Петља - Рачунарство и информатика за 4. разред гимназије - природно-математички смер'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -253,7 +253,7 @@ html_show_sourcelink = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'gim4_baze_web-doc'
+htmlhelp_basename = 'gim4_baze_web_prirodni-doc'
 
 # 'accessibility_style' config value is defined in the 'accessibility' extension. 
 # By this config value you can select what accessibility stylesheet
