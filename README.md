@@ -1,4 +1,4 @@
-# Веб дизајн и клијентско веб програмирање за трећи разред гимназије
+# Baze podataka i serversko veb programiranje za četvrti razred gimnazije
 
 Ovaj repozitorijum posvećen je kursevima za četvrti razred gimnazije za nastavnu temu Programiranje. Kursevi za prirodni i društveni smer se na Petljinom portalu nalaze ovde: https://petlja.org/kurs/4654 , https://petlja.org/kurs/4655
 
