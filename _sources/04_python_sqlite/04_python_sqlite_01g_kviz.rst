@@ -76,7 +76,7 @@ Python SQLite API - квиз
     .. mchoice:: sqlite_vise_upita
         :answer_a: Тако што методу ``execute`` проследимо листу торки параметара.
         :answer_b: Тако што користимо метод ``executemany``.
-        :answer_c: Није могуће извршити упит више пута у јеној наредби.
+        :answer_c: Није могуће извршити упит више пута у једној наредби.
         :answer_d: Тако што позовемо метод ``execute`` са опцијом ``fetchall``.
         :correct: b
 
